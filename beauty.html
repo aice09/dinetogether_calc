@@ -1,0 +1,299 @@
+<!--
+    Project Title: Dine Together Calculator
+    Code Name: DINE
+    Code Color: 
+    Code Hex: 
+    Description:
+    Start:
+    Developer: Carl Angelo Nievarez
+        > Github: https://github.com/aice09
+        > Email: carlangelopamparonievarez@gmail.com
+        > FB: https://facebook.com/aice0927
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dine Together Calculator | Aice0927</title> 
+    <meta name="description" content="">
+    <meta name="keywords" content=""> 
+    <meta name="author" content="Carl Angelo Nievarez"> 
+    <!--Favicon-->
+    <!-- <link rel="apple-touch-icon" sizes="72x72" href="dist/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="dist/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="dist/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="dist/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="dist/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="dist/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="dist/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="dist/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="dist/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="dist/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="dist/img/favicon/favicon-16x16.png"> -->
+    <!--<link rel="manifest" href="dist/img/favicon/manifest.json">-->
+    <!-- <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="dist/img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff"> -->
+    <!--/////////////////////////////////////////////////////////////////////
+                                SYSTEM STYLES
+    /////////////////////////////////////////////////////////////////////-->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <!--/////////////////////////////////////////////////////////////////////
+                                SYSTEM SCRIPTS
+    /////////////////////////////////////////////////////////////////////-->
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Dine Together</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="beauty.html">Synergy</a>
+            </li>
+            
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+            <a class="btn btn-outline-success my-2 my-sm-0" href="https://dinetogether.io/" >Official Website <i class="fas fa-arrow-circle-right"></i> </a>
+          </form>
+        </div>
+      </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 ">
+            </div>
+        <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 ">
+        <form class="form-section" method="POST" id="section-form">
+
+            <div class="row">
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h1>Bonus Beauty Synergy Furniture Calculator</h1>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="">Number of Furniture Same with Land</label>
+                        <input type="text" class="form-control" placeholder="Number of Furniture Same with Land" name="dineNoFurn" id="dineNoFurn"/>
+                        <span id="check-e" class="check-e-schednumber"></span>
+                    </div>
+                </div> 
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="">Total Furniture Beauty Same with Land</label>
+                        <input type="text" class="form-control" placeholder="Total Furniture Beauty Same with Land" name="dineTotalSame" id="dineTotalSame"/>
+                        <span id="check-e" class="check-e-schednumber"></span>
+                    </div>
+                </div> 
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="">Your Bonus Beauty</label>
+                        <input type="text" class="form-control" placeholder="Your Bonus Beauty" name="dineBonusBeauty" id="dineBonusBeauty" readonly="readonly" />
+                        <span id="check-e" class="check-e-schednumber"></span>
+                    </div>
+                </div> 
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="">Total Beauty of your Restaurant with bonus beauty</label>
+                        <input type="text" class="form-control" placeholder="Total Beauty of your Restaurant with bonus beauty" name="dineAdditonal" id="dineAdditonal" readonly="readonly" />
+                        <span id="check-e" class="check-e-schednumber"></span>
+                    </div>
+                </div> 
+            </div>
+        </form>
+    </div>  
+    <br><br>
+    
+    
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <hr>
+        <!--Copyright-->
+    <div class="footer-copyright py-3 text-center">
+        <div class="container-fluid">
+            &copy;  2021 <a href="https://github.com/aice09">. Carl Angelo Nievarez </a>
+        </div>
+    </div>  
+    
+    <br><br>
+    </div>
+    
+    
+</div>
+</body>
+ 
+</html>
+<script type="text/javascript">
+
+$('document').ready(function() { 
+
+//Beauty bonus tips
+var beautyZero = "5";
+var beautyOne = "10";
+var beautyTwo = "15";
+var beautyThree = "20";
+
+     
+$('#dineNoFurn').on('input', function() {
+  var beauty= this.value;
+  console.log(beauty);
+
+  //if beauty is not empty and is a number then calculate tips
+    if (beauty != "" && beauty != null && beauty != undefined && beauty != NaN) {
+        
+        
+
+        if (beauty >= 5 && beauty < 10) {
+            var dineNoFurn = $('#dineNoFurn').val();
+            var dineTotalSame = $('#dineTotalSame').val();
+
+            BonusBeauty= dineTotalSame * 0.025;
+            dineNewBonusBeauty=Math.floor(BonusBeauty);
+            dineAdditonal = parseInt(dineTotalSame) + parseInt(dineNewBonusBeauty);
+
+            
+            var dineBonusBeauty = $('#dineBonusBeauty').val(dineNewBonusBeauty);
+            var dineAdditonal = $('#dineAdditonal').val(dineAdditonal);
+
+            console.log("2.5 percent");
+        } else if (beauty >= 10 && beauty < 15) {
+            var dineNoFurn = $('#dineNoFurn').val();
+            var dineTotalSame = $('#dineTotalSame').val();
+
+            BonusBeauty= dineTotalSame * 0.05;
+            dineNewBonusBeauty=Math.floor(BonusBeauty);
+            dineAdditonal = parseInt(dineTotalSame) + parseInt(dineNewBonusBeauty);
+
+            
+            var dineBonusBeauty = $('#dineBonusBeauty').val(dineNewBonusBeauty);
+            var dineAdditonal = $('#dineAdditonal').val(dineAdditonal);
+
+            console.log("5 percent");
+        } else if (beauty >= 15 && beauty < 20) {
+            var dineNoFurn = $('#dineNoFurn').val();
+            var dineTotalSame = $('#dineTotalSame').val();
+
+            BonusBeauty= dineTotalSame * 0.075;
+            dineNewBonusBeauty=Math.floor(BonusBeauty);
+            dineAdditonal = parseInt(dineTotalSame) + parseInt(dineNewBonusBeauty);
+
+            
+            var dineBonusBeauty = $('#dineBonusBeauty').val(dineNewBonusBeauty);
+            var dineAdditonal = $('#dineAdditonal').val(dineAdditonal);
+
+            console.log("7.5 percent");
+         } else if (beauty >= 20) {
+            var dineNoFurn = $('#dineNoFurn').val();
+            var dineTotalSame = $('#dineTotalSame').val();
+
+            BonusBeauty= dineTotalSame * 0.10;
+            dineNewBonusBeauty=Math.floor(BonusBeauty);
+            dineAdditonal = parseInt(dineTotalSame) + parseInt(dineNewBonusBeauty);
+
+            
+            var dineBonusBeauty = $('#dineBonusBeauty').val(dineNewBonusBeauty);
+            var dineAdditonal = $('#dineAdditonal').val(dineAdditonal);
+
+            console.log("10 percent");
+        } else {
+            console.log("oops");
+         }
+    } else {
+       $('#dineBonusBeauty').val('');
+        $('#dineAdditonal').val('');
+    }
+});
+
+$('#dineTotalSame').on('input', function() {
+    
+    var beauty = $('#dineNoFurn').val();
+  console.log(beauty);
+
+  //if beauty is not empty and is a number then calculate tips
+    if (beauty != "" && beauty != null && beauty != undefined && beauty != NaN) {
+        
+        
+
+        if (beauty >= 5 && beauty < 10) {
+            var dineNoFurn = $('#dineNoFurn').val();
+            var dineTotalSame = $('#dineTotalSame').val();
+
+            BonusBeauty= dineTotalSame * 0.025;
+            dineNewBonusBeauty=Math.floor(BonusBeauty);
+            dineAdditonal = parseInt(dineTotalSame) + parseInt(dineNewBonusBeauty);
+
+            
+            var dineBonusBeauty = $('#dineBonusBeauty').val(dineNewBonusBeauty);
+            var dineAdditonal = $('#dineAdditonal').val(dineAdditonal);
+
+            console.log("2.5 percent");
+        } else if (beauty >= 10 && beauty < 15) {
+            var dineNoFurn = $('#dineNoFurn').val();
+            var dineTotalSame = $('#dineTotalSame').val();
+
+            BonusBeauty= dineTotalSame * 0.05;
+            dineNewBonusBeauty=Math.floor(BonusBeauty);
+            dineAdditonal = parseInt(dineTotalSame) + parseInt(dineNewBonusBeauty);
+
+            
+            var dineBonusBeauty = $('#dineBonusBeauty').val(dineNewBonusBeauty);
+            var dineAdditonal = $('#dineAdditonal').val(dineAdditonal);
+
+            console.log("5 percent");
+        } else if (beauty >= 15 && beauty < 20) {
+            var dineNoFurn = $('#dineNoFurn').val();
+            var dineTotalSame = $('#dineTotalSame').val();
+
+            BonusBeauty= dineTotalSame * 0.075;
+            dineNewBonusBeauty=Math.floor(BonusBeauty);
+            dineAdditonal = parseInt(dineTotalSame) + parseInt(dineNewBonusBeauty);
+
+            
+            var dineBonusBeauty = $('#dineBonusBeauty').val(dineNewBonusBeauty);
+            var dineAdditonal = $('#dineAdditonal').val(dineAdditonal);
+
+            console.log("7.5 percent");
+         } else if (beauty >= 20) {
+            var dineNoFurn = $('#dineNoFurn').val();
+            var dineTotalSame = $('#dineTotalSame').val();
+
+            BonusBeauty= dineTotalSame * 0.10;
+            dineNewBonusBeauty=Math.floor(BonusBeauty);
+            dineAdditonal = parseInt(dineTotalSame) + parseInt(dineNewBonusBeauty);
+
+            
+            var dineBonusBeauty = $('#dineBonusBeauty').val(dineNewBonusBeauty);
+            var dineAdditonal = $('#dineAdditonal').val(dineAdditonal);
+
+            console.log("10 percent");
+        } else {
+            console.log("oops");
+         }
+    } else {
+       $('#dineBonusBeauty').val('');
+        $('#dineAdditonal').val('');
+    }
+});
+
+
+
+});
+   
+</script>

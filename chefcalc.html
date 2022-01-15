@@ -1,0 +1,510 @@
+<!--
+    Project Title: Dine Together Calculator
+    Code Name: DINE
+    Code Color: 
+    Code Hex: 
+    Description:
+    Start:
+    Developer: Carl Angelo Nievarez
+        > Github: https://github.com/aice09
+        > Email: carlangelopamparonievarez@gmail.com
+        > FB: https://facebook.com/aice0927
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dine Together Calculator | Aice0927</title> 
+    <meta name="description" content="">
+    <meta name="keywords" content=""> 
+    <meta name="author" content="Carl Angelo Nievarez"> 
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="src/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="src/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="src/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="src/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="src/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="src/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="src/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="src/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="src/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="src/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/favicon/favicon-16x16.png">
+    <link rel="manifest" href="src/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="src/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!--/////////////////////////////////////////////////////////////////////
+                                SYSTEM STYLES
+    /////////////////////////////////////////////////////////////////////-->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <!--/////////////////////////////////////////////////////////////////////
+                                SYSTEM SCRIPTS
+    /////////////////////////////////////////////////////////////////////-->
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Dine Together</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="beauty.html">Synergy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="chefcalc.html">Chef</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://docs.google.com/spreadsheets/d/19nZOIeE1D6FM4OhFSC272TaGPaR9um1LSVKTJj7cl2I/edit?usp=sharing">Spreadsheet</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tip.html">Donate</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+            <a href="https://www.buymeacoffee.com/aice0927" class="donate-btn" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;" ></a>
+            <a class="btn btn-primary my-2 my-sm-0 donate-btn" href="tip.html" ><i class="fas fa-donate"></i> TIP me! </a>
+            <a class="btn btn-outline-success my-2 my-sm-0" href="https://dinetogether.io/" >Official Website <i class="fas fa-arrow-circle-right"></i> </a>
+          </form>
+        </div>
+      </nav>
+    <div class="container-fluid">
+        <div class="row">            
+            <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                
+            </div>
+            
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-5">
+                <div class="row">     
+            
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1>Chef Data Finder and Calculator</h1>
+                    </div>
+                           
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <label for="">Chef ID</label>
+                            <input type="text" class="form-control" id="mpChefId" placeholder="Chef ID">
+                        </div>
+                    </div>          
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <h4>Basic Data</h4>
+                        <table class="table table-bordered table-hover yhengDataTb">
+                           <!--  Basic Data-->
+                            <tbody>   
+                                <tr>
+                                    <td width="35%">Rarity</td>
+                                    <td width="65%"><span id="entityrarity"></span></td>
+                                </tr>                    
+                                <tr>
+                                    <td>NFT ID</td>
+                                    <td><span id="entityctNFTId"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Owner</td>
+                                    <td><code id="entityowner"></code></td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td><span id="entitystatus"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <!--market data-->
+                        <h4>Market Data</h4>
+                        <table class="table table-bordered table-hover yhengDataTbMarket">
+                            <tbody>   
+                                <tr>
+                                    <td  width="35%">NFT Hash ID</td>
+                                    <td width="65%" ><span id="chefIdHash"></span></td>
+                                </tr>  
+                                <tr>
+                                    <td>Entity Type</td>
+                                    <td><span id="chefentityType"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Created At</td>
+                                    <td><span id="chefcreatedAt"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Chef Duration</td>
+                                    <td><span id="chefduration"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Chef Ending Price</td>
+                                    <td><img src="https://marketplace.dinetogether.io/_nuxt/img/token.7f605af.png" alt="" width="20px"><span id="chefendingPrice"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Owner</td>
+                                    <td><code id="chefowner"></code></td>
+                                </tr>
+                                <tr>
+                                    <td>Last Update</td>
+                                    <td><span id="chefupdatedAt"></span></td>
+                                </tr>
+                                <!--From Entity-->
+                                <tr>
+                                    <td>Status</td>
+                                    <td><span id="chefstatus"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <!--Next table is dishes--> 
+                        <h4>Dishes Serve</h4>       
+                        <div id="yhengDataTbDishesWrapper"></div>                
+                        
+                        <br>
+                        <!--Next table is chef cards created it | if not created using combine leave empty-->  
+                        <h4>Cards Combined*</h4>      
+                        <div id="yhengDataTbCardsWrapper"></div>   
+                        <br>
+                        <!--Next table is chef history-->   
+                        <h4>History</h4>     
+                        <div id="yhengDataTbHistoryWrapper"></div>                           
+                        
+                    </div>          
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div id="chefFullImageWrapper">
+                            <img id="chefFullImage" class="img-responsive" alt="">
+                        </div>
+                    </div>          
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        
+                    </div>          
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        
+                    </div>
+                    
+                   
+                    <div class="col-md-12">
+                        
+                       
+                        
+                    </div>
+                
+        
+            </div>
+            </div>
+            
+            
+        </div>
+        
+    <script>
+        //dish urls
+        var dishUrlbeefsteak = "https://marketplace.dinetogether.io/_nuxt/img/beefsteak.b9092a6.png";
+        var dishUrlbibimbap = "https://marketplace.dinetogether.io/_nuxt/img/bibimbap.e68a617.png";
+        var dishUrlburger = "https://marketplace.dinetogether.io/_nuxt/img/burger.6bb81b0.png";
+        var dishUrlcrab = "https://marketplace.dinetogether.io/_nuxt/img/crab.2f202f5.png";
+        var dishUrlchocolate = "https://marketplace.dinetogether.io/_nuxt/img/chocolate.90f50d6.png";
+        var dishUrlcocktail = "https://marketplace.dinetogether.io/_nuxt/img/cocktail.cc6e579.png";
+        var dishUrlcurry = "https://marketplace.dinetogether.io/_nuxt/img/curry.dacc962.png";
+        var dishUrlfish = "https://marketplace.dinetogether.io/_nuxt/img/fish.f0d6539.png";
+        var dishUrlhotpot = "https://marketplace.dinetogether.io/_nuxt/img/hotpot.1c46172.png";
+        var dishUrlicecream = "https://marketplace.dinetogether.io/_nuxt/img/icecream.217ceec.png";
+        var dishUrlmozzarella = "https://marketplace.dinetogether.io/_nuxt/img/mozzarella.0668f24.png";
+        var dishUrlpaella = "https://marketplace.dinetogether.io/_nuxt/img/paella.16439eb.png";
+        var dishUrlpho = "https://marketplace.dinetogether.io/_nuxt/img/pho.949ad2b.png";
+        var dishUrlpizza = "https://marketplace.dinetogether.io/_nuxt/img/pizza.372db5a.png";
+        var dishUrlramen = "https://marketplace.dinetogether.io/_nuxt/img/ramen.32b6317.png";
+        var dishUrlsalad = "https://marketplace.dinetogether.io/_nuxt/img/salad.3b5fb3b.png";
+        var dishUrlsushi = "https://marketplace.dinetogether.io/_nuxt/img/sushi.1d6a358.png";
+        var dishUrltacos = "https://marketplace.dinetogether.io/_nuxt/img/tacos.f06a3bd.png";
+        var dishUrltofu = "https://marketplace.dinetogether.io/_nuxt/img/tofu.5f675d0.png";
+        var dishUrltomyum = "https://marketplace.dinetogether.io/_nuxt/img/tomyum.1eb4791.png";
+
+        //frame
+        var frameDineTogether = "https://marketplace.dinetogether.io/_nuxt/img/char_frame.db81d63.png";
+
+        //rarity color
+        var rarityColorApprentice = "rgb(196, 205, 209)";
+        var rarityColorJuniorChef = "rgb(180, 243, 178)";
+        var rarityColorHeadChef = "rgb(255, 178, 106)";
+        var rarityColorMasterChef = "rgb(250, 138, 252)";
+
+        //entity types
+        var entityTypeOne = "Chef";
+        var entityTypeTwo = "Furniture";
+        var entityTypeThree = "Land";
+        var entityTypeFour = "Cards";
+
+        //chef status
+        var chefStatusOne = "Selling";
+        var chefStatusTwo = "Using";
+        var chefStatusThree = "Storing";
+
+       function getCardName(cardCode) {
+
+            var cardname="";
+            $.ajax({
+                type: "GET",
+                url: 'https://backend-marketplace.dinetogether.io/v1/card/'+cardCode,
+                dataType: 'json',
+                success: function(response){
+                    var jsonCards = JSON.parse(JSON.stringify(response));
+                    $(".cardname"+cardCode).text(jsonCards.entity.entityValue);
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+            
+       }
+
+
+        $(document).ready(function(){
+            $('#mpChefId').on('keyup', function(){
+                var input = $(this).val();
+                var inputLength = input.length;
+                if(inputLength >3){
+                    $('#mpChefId').removeClass('is-invalid');
+                    $('#mpChefId').addClass('is-valid');
+
+                    //search the data
+                    $.ajax({
+                        type: "GET",
+                        url: 'https://backend-marketplace.dinetogether.io/v1/chef/'+input,
+                        dataType: 'json',
+
+                        success: function(response){
+                            //console.table([response]);
+                            console.log('Thank you for using my system! Salamat po!')
+
+                            //json decode
+                            var json = JSON.parse(JSON.stringify(response));
+                            var chefIdHash = json._id;
+                            var chefctNFTId = json.ctNFTId;
+                            var chefentityType = json.entityType;
+                            var chefcreatedAt = json.createdAt;
+                            var chefduration = json.duration;
+                            var chefendingPrice = json.endingPrice;
+                            //entities | note menu is an array
+                            var entityId = json.entity._id;
+                            var entitycardCtNFTIds  = json.entity.cardCtNFTIds;
+                            var entitystatus = json.entity.status;
+                            var entityctNFTId = json.entity.ctNFTId;
+                            var entitybody = json.entity.body;
+                            var entityhead = json.entity.head;
+                            var entityrarity = json.entity.rarity;
+                            var entityowner = json.entity.owner;
+                            var entityctTime = json.entity.ctTime;
+                            var entityctHash = json.entity.ctHash;
+                            var entitymenu = json.entity.menu;
+                            var entityV = json.entity.__v;
+                            var entitycreatedTime = json.entity.createdTime;
+                            var entityupdatedTime = json.entity.updatedTime;
+                            //end of entities
+                            var chefId = json.id;
+                            var chefowner = json.owner;
+                            var chefstartingPrice = json.startingPrice;
+                            var chefstatus = json.status;
+                            var chefupdatedAt = json.updatedAt;
+                            //history | note history is an array
+                            var chefhistory = json.history;
+                            //end of history
+
+
+                            //////////////////////////////////////////////////////////////
+                            //                  Basic Data Table                        //
+                            //////////////////////////////////////////////////////////////                            
+                            $('#entityrarity').text(entityrarity);
+                            $('#entityctNFTId').text(entityctNFTId);
+                            $('#entityowner').text(entityowner);
+                            $('#entitystatus').text(entitystatus);
+
+                            //////////////////////////////////////////////////////////////
+                            //                  Market Table*                           //
+                            //////////////////////////////////////////////////////////////
+                           
+                            if (chefIdHash === undefined || chefIdHash === null) {
+                                $('#chefIdHash').text('');
+                                $('#chefentityType').text('');
+                                $('#chefcreatedAt').text('');
+                                $('#chefduration').text('');
+                                $('#chefendingPrice').text('');
+                                $('#chefowner').text('');
+                                $('#chefupdatedAt').text('');
+                                $('#chefstatus').text('');
+                            } else {
+                                if (chefentityType===1) {                                    
+                                    $('#chefentityType').text(entityTypeOne);
+                                } else if (chefentityType===2) {                                    
+                                    $('#chefentityType').text(entityTypeTwo);
+                                } else if (chefentityType===3) {                                    
+                                    $('#chefentityType').text(entityTypeThree);
+                                }else {                                    
+                                    $('#chefentityType').text(entityTypeFour);
+                                }
+
+                                if (chefstatus===1) {                                    
+                                    $('#chefstatus').text(chefStatusOne);
+                                } else if (chefstatus===2) {                                    
+                                    $('#chefstatus').text(chefStatusTwo);
+                                } else {                                    
+                                    $('#chefstatus').text(chefStatusThree);
+                                }
+
+                                datecreatedAt = new Date(chefcreatedAt*1000);
+                                datechefduration = new Date(chefduration*1000);
+                                datechefupdatedAt = new Date(chefupdatedAt*1000);
+
+
+                                newdatecreatedAt= datecreatedAt.getDate()+"/"+(datecreatedAt.getMonth()+1)+"/"+datecreatedAt.getFullYear()+" "+datecreatedAt.getHours()+":"+datecreatedAt.getMinutes()+":"+datecreatedAt.getSeconds();
+
+                                newdatechefduration= datechefduration.getDate()+"/"+(datechefduration.getMonth()+1)+"/"+datechefduration.getFullYear()+" "+datechefduration.getHours()+":"+datechefduration.getMinutes()+":"+datechefduration.getSeconds();
+
+                                newdatechefupdatedAt= datechefupdatedAt.getDate()+"/"+(datechefupdatedAt.getMonth()+1)+"/"+datechefupdatedAt.getFullYear()+" "+datechefupdatedAt.getHours()+":"+datechefupdatedAt.getMinutes()+":"+datechefupdatedAt.getSeconds();
+
+                                $('#chefIdHash').text(chefIdHash);
+                                $('#chefcreatedAt').text(newdatecreatedAt);
+                                $('#chefduration').text(newdatechefduration);
+                                $('#chefendingPrice').text(chefendingPrice);
+                                $('#chefowner').text(chefowner);
+                                $('#chefupdatedAt').text(newdatechefupdatedAt);
+                            }
+                            
+                            //////////////////////////////////////////////////////////////
+                            //                  Menu Table                              //
+                            //////////////////////////////////////////////////////////////
+                            var menuLength = entitymenu.length;
+                            var menuTable = "<table class='table table-bordered table-hover yhengDataTbDishes' id='yhengDataTbDishes'><thead><tr><th width='50%' >Dish Name</th><th width='25%' >Init</th><th width='25%' >Remaining</th></tr></thead><tbody>";
+                            for(var i = 0; i < menuLength; i++){
+                                var menuCode = entitymenu[i].code;
+                                var menunumberCookInit = entitymenu[i].numberCookInit;
+                                var menunumberCookRemain = entitymenu[i].numberCookRemain;
+                                
+                                menuTable += "<tr>";
+                                menuTable += "<td>"+menuCode+"</td>";
+                                menuTable += "<td>"+menunumberCookInit+"</td>";
+                                menuTable += "<td>"+menunumberCookRemain+"</td>";
+                                menuTable += "</tr>";
+                            }   
+                            menuTable += "</tbody></table>";
+                            $('#yhengDataTbDishesWrapper').html(menuTable);
+
+                            //////////////////////////////////////////////////////////////
+                            //                  Cards Table                             //
+                            //////////////////////////////////////////////////////////////
+                            var cardLength = entitycardCtNFTIds.length;
+                            var cardTable = "<table class='table table-bordered table-hover yhengDataTbCards' id='yhengDataTbCards'><thead><tr><th width='3%' >No</th><th width='25%' >Code</th><th width='25%' >Cards</th></tr></thead><tbody>";
+                            if (cardLength>0) { 
+                                numstart = 1
+                                
+                                for(var i = 0; i < cardLength; i++){
+                                   
+                                    var cardCode = entitycardCtNFTIds[i];
+
+                                    cardTable += "<tr>";
+                                    cardTable += "<td>"+numstart++ +"</td>";
+                                    cardTable += "<td>"+cardCode+"</td>";
+                                    cardTable += "<td><span class='cardname"+cardCode+"'>"+getCardName(cardCode)+"</td>";                                    
+                                    cardTable += "</tr>";                                
+                                }   
+                            } else {
+                                cardTable += "<tr >";
+                                cardTable += "<td colspan='3'><i>Chef is not created using combine</i></td>";
+                                cardTable += "</tr>";                                
+                            }                            
+                            cardTable += "</tbody></table>";
+
+                            $('#yhengDataTbCardsWrapper').html(cardTable);
+
+                            //////////////////////////////////////////////////////////////
+                            //                      History Table                       //
+                            //////////////////////////////////////////////////////////////
+
+                            var historyLength = chefhistory.length;
+                            var historyTable = "<table class='table table-bordered table-hover yhengDataTbHistory' id='yhengDataTbHistory'><thead><tr><th width='3%' >No</th><th width='25%' >Buyer</th><th width='25%' >Seller</th><th width='25%' >Prize</th><th width='22%' >Sold Time</th></tr></thead><tbody>";
+                            if (historyLength>0) {
+                                numstart = 1
+                                for(var i = 0; i < historyLength; i++){
+                                   
+                                    var historyBuyer = chefhistory[i].buyerId;
+                                    var historySeller = chefhistory[i].sellerId;
+                                    var historyPrize = chefhistory[i].totalPrice;
+                                    var historySoldTime = chefhistory[i].soldAt;
+
+                                    historyTable += "<tr>";
+                                    historyTable += "<td>"+numstart++ +"</td>";
+                                    historyTable += "<td>"+historyBuyer+"</td>";
+                                    historyTable += "<td>"+historySeller+"</td>";
+                                    historyTable += "<td>"+historyPrize+"</td>";
+                                    historyTable += "<td>"+historySoldTime+"</td>";                                
+                                    historyTable += "</tr>";
+                                
+                                }   
+                            }
+                            else {
+                                historyTable += "<tr >";
+                                historyTable += "<td colspan='5'><i>Chef has no history</i></td>";
+                                historyTable += "</tr>";
+                            }
+                            historyTable += "</tbody></table>";           
+
+                            $('#yhengDataTbHistoryWrapper').html(historyTable);
+
+                            //////////////////////////////////////////////////////////////
+                            //                  Chef image                              //
+                            //////////////////////////////////////////////////////////////
+                            $('#chefFullImage').attr('src', 'https://dine-static.s3.ap-southeast-1.amazonaws.com/chef/'+entityhead+'_'+entitybody+'.png');
+                            
+                        }
+                    });
+                }else{
+                    $('#mpChefId').removeClass('is-valid');
+                    $('#mpChefId').addClass('is-invalid');
+                }
+
+            });
+
+
+        });
+    </script>
+    <style>
+        .yhengDataTb td{
+            padding: 3px;
+        }
+        .yhengDataTbMarket td{
+            padding: 3px;
+        }
+        #chefFullImageWrapper {
+            background-image: url('https://marketplace.dinetogether.io/_nuxt/img/char_frame.db81d63.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 272px;
+            height: 303px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            position: relative;
+        }
+        .donate-btn{
+        margin-right: 3px;
+    }
+    </style>
+</body>
+</html>
+

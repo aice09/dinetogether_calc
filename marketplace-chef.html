@@ -170,8 +170,8 @@
                             <option value="lowestPrice" >Lowest Price</option>
                             <option value="highestPrice" >Highest Price</option>
                             <option value="lowestId" >Lowest Id</option>
-                            <option value="highestId" >Highest Id</option>
-                            <option value="latest" >Latest</option>
+                            <option value="hightestId" >Highest Id</option>
+                            <option value="latest" selected >Latest</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -289,10 +289,26 @@
         var rowLimit = $('#rowLimit').val();        
         var page = 1;
         
-        //if rowLimit is empty, set it to 10
-        if(rowLimit == ''){
-            rowLimit = 10;
+        //if sortBy is empty, set default value
+        if (sortBy == "") {
+            sortBy = "latest";
         }
+
+        //if durationBy is empty, set default value
+        if (durationBy == "") {
+            durationBy = "ALL";
+        }
+
+        //if rarity is empty, set default value
+        if (rarity == "") {
+            rarity = "Apprentice,JuniorChef,HeadChef,MasterChef";
+        }
+
+        //if foodMenu is empty, set default value
+        if (foodMenu == "") {
+            foodMenu = 'BEEFSTEAK,BIBIMBAP,BURGER,CHILLI_CRAB,CHOCOLATE,COCKTAIL,CURRY,FISH_N_CHIP,HOT_POT,ICE_CREAM,MOZZARELLA,PAELLA,PHO,PIZZA,RAMEN,SALAD,TOM_YUM,TOFU,TACOS,SUSHI';
+        }
+
         //if mintip is empty, set it to 0
         if(minTip == ''){
             minTip = 0;
@@ -301,6 +317,11 @@
         //if maxtip is empty, set it to 0
         if(maxTip == ''){
             maxTip = 100000;
+        }
+        
+        //if rowLimit is empty, set it to 10
+        if(rowLimit == ''){
+            rowLimit = 10;
         }
 
         //on text input , get the value of sortBy
@@ -316,7 +337,7 @@
         $('#durationBy').change(function(){
             durationBy = $('#durationBy').val();
             if(durationBy == ''){
-                durationBy = '';
+                durationBy = 'ALL';
             }
             getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
         });
@@ -324,28 +345,41 @@
         //onchange of rarity
         $('#rarity').change(function(){
             raritySelect = $('#rarity').val();
-            //get the value of rarity and add to array
-            var rarityArray = [];
+            //rarity is empty
+            if(raritySelect == ''){
+                rarity = 'Apprentice,JuniorChef,HeadChef,MasterChef';
+            } else {
+                //get the value of rarity and add to array
+                var rarityArray = [];
 
-            for (var i = 0; i < raritySelect.length; i++) {
-                rarityArray.push(raritySelect[i])
+                for (var i = 0; i < raritySelect.length; i++) {
+                    rarityArray.push(raritySelect[i])
+                }
+
+                //add rarity to string
+                var rarity = rarityArray.join(',');
             }
-
-            //add rarity to string
-            var rarity = rarityArray.join(',');
+            
             getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
         });
 
         //onchange of foodMenu
         $('#foodMenu').change(function(){
             foodMenuSelect = $('#foodMenu').val();
-            //get the value of foodMenu in array
-            var foodMenuArray = [];
+            //foodMenu is empty
+            if(foodMenuSelect == ''){
+                foodMenu = 'BEEFSTEAK,BIBIMBAP,BURGER,CHILLI_CRAB,CHOCOLATE,COCKTAIL,CURRY,FISH_N_CHIP,HOT_POT,ICE_CREAM,MOZZARELLA,PAELLA,PHO,PIZZA,RAMEN,SALAD,TOM_YUM,TOFU,TACOS,SUSHI';
+            } else {
+                //get the value of foodMenu and add to array
+                var foodMenuArray = [];
 
-            for (var i = 0; i < foodMenuSelect.length; i++) {
-                foodMenuArray.push(foodMenuSelect[i])
+                for (var i = 0; i < foodMenuSelect.length; i++) {
+                    foodMenuArray.push(foodMenuSelect[i])
+                }
+
+                //add foodMenu to string
+                var foodMenu = foodMenuArray.join(',');
             }
-            var foodMenu = foodMenuArray.join(',');
            /*  var foodMenu = '';
             for (var i = 0; i < foodMenuSelect.length; i++) {
                 foodMenuArray.push(foodMenuSelect[i])
@@ -407,8 +441,8 @@
             $('#rowLimit').val('');
             sortBy = 'latest';
             durationBy = 'ALL';
-            rarity = '';
-            foodMenu = '';
+            rarity = 'Apprentice,JuniorChef,HeadChef,MasterChef';
+            foodMenu = 'BEEFSTEAK,BIBIMBAP,BURGER,CHILLI_CRAB,CHOCOLATE,COCKTAIL,CURRY,FISH_N_CHIP,HOT_POT,ICE_CREAM,MOZZARELLA,PAELLA,PHO,PIZZA,RAMEN,SALAD,TOM_YUM,TOFU,TACOS,SUSHI';
             minTip = 0;
             maxTip = 100000;
             ctNFTId = '';

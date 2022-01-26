@@ -74,7 +74,8 @@
 </head>
 <body>
     
-    <nav class="navbar navbar-default" role="navigation">
+    
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -98,6 +99,15 @@
                   </li>
                   <li>
                       <a  href="chefcalc.html">Chef</a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Marketplace <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="marketplace-chef.html">Chef</a></li>
+                      <li><a href="#">Furniture</a></li>
+                      <li><a href="#">Land</a></li>
+                      <li><a href="#">Card</a></li>
+                    </ul>
                   </li>
                   <li>
                       <a  href="dishes.html">Dishes</a>
@@ -129,7 +139,7 @@
             </ul> -->
         </div><!-- /.navbar-collapse -->
     </nav>
-    <div class="container">
+    <div class="container wrapper">
         <div class="row" >  
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <!--breadcrumbs-->                
@@ -143,6 +153,8 @@
             </div>          
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h1>Marketplace Chef</h1>
+                <small>Note: The buy button will redirect to official website.</small>
+                <br>
             </div>           
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                 <!--filters--> 
@@ -154,17 +166,17 @@
                     </div>
                     <div class="form-group">
                         <label for="">Sort By</label>
-                        <select class="form-control selectpicker">
+                        <select class="form-control selectpicker" id="sortBy" >
                             <option value="lowestPrice" >Lowest Price</option>
                             <option value="highestPrice" >Highest Price</option>
                             <option value="lowestId" >Lowest Id</option>
                             <option value="highestId" >Highest Id</option>
-                            <option value="latest" selected >Latest</option>
+                            <option value="latest" >Latest</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="">Duration</label>
-                        <select class="form-control selectpicker">
+                        <select class="form-control selectpicker" id="durationBy">
                             <option value="ALL" >All</option>
                             <option value="FULL" >Full Duration</option>
                             <option value="USED" >Used</option>
@@ -172,7 +184,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Rarity</label>
-                        <select class="form-control selectpicker" multiple>
+                        <select class="form-control selectpicker" id="rarity" multiple >
                             <option value="Apprentice" >Apprentice</option>
                             <option value="JuniorChef" >Junior Chef</option>
                             <option value="HeadChef" >Head Chef</option>
@@ -247,17 +259,6 @@
 </html>
 <script>
     $(document).ready(function() {   
-        
-        var sort ='lowestPrice'; 
-        //sortdata lowestPrice, highestPrice,lowestId,hightestId,latest
-        var menu = '';
-        var minTip = 0;
-        var maxTip = 0;
-        var rarity = 'Apprentice,JuniorChef,HeadChef,MasterChef';
-        var page = 1;
-        var limit = 100;
-        var duration='';
-        //FULL,ALL,USED
 
         $.ajax({
             url: "https://backend-marketplace.dinetogether.io/v1/dish",
@@ -276,73 +277,251 @@
             }
             $('#foodMenu').selectpicker('render');
         });
-       
-        $.ajax({
-            url: "https://backend-marketplace.dinetogether.io/v1/chef?sort=lowestPrice&menu=CHILLI_CRAB,BURGER&minTip=0&maxTip=85000&rarity=Apprentice,JuniorChef&page=1&limit=100&duration=ALL",
-            dataType: 'json',
-        }).done(function (response) {
-            // response is a JSON object, previously parsed by jQuery using $.parseJSON
-            console.log(response);
-            //add each array to datatable
-            countNum =1;
-            var data = response.results;
-            var table = $('#example').DataTable({
-                data: data,
-                columns: [
-                    { data: 'ctNFTId' },
-                    { data: 'ctNFTId' },
-                    { data: function ( data, type, row, meta ) {
-                    return type === 'display'  ?
-                        '<img width="100px" src="https://dine-static.s3.ap-southeast-1.amazonaws.com/chef/'+data.entity.head+'_'+data.entity.body+'.png" alt= >' :
-                        data;
-                    }},
-                    { data: 'entity.rarity' },
-                    //foreach inside array
-                    { data: function ( data, type, row, meta ) {   
-                        var menu = '<table class="table table-bordered"><thead><tr><th>Dish</th><th>Cook</th><th>TIP</th></tr></thead><tbody>';
-                        $.each(data.entity.menu, function(index, value){
-                            menu += '<tr><td>'+value.code+'</td><td>'+value.numberCookRemain+'/'+ value.numberCookInit+'</td><td>'+value.tipAmount+'</td></tr>';
-                        });
-                        menu += '</tbody></table>';
-                        return menu;
-                    }},/* 
-                    { data: function ( data, type, row, meta ) {
-                    return type === 'display'  ?
-                        '<ul class="list-group"><li class="list-group-item">Item 1</li><li class="list-group-item">Item 2</li><li class="list-group-item">Item 3</li></ul>' :
-                        data;
-                    }}, */
-                    { data: 'tipAmount' },
-                    { data: 'endingPrice' },
-                    { data: 'ctNFTId' , render : function ( data, type, row, meta ) {
-                    return type === 'display'  ?
-                        '<a href="https://marketplace.dinetogether.io/#/chef/'+ data +'" target="_blank" class="btn btn-primary" >Buy Now</a>' :
-                        data;
-                    }},
-                ],
-                order: [[ 1, "asc" ]],
-                paging: false,                    
-                lengthChange: false,
-                buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
-                columnDefs: [ {
-                    "searchable": false,
-                    "orderable": false,
-                    "targets": 0
-                },{
-                    "searchable": false,
-                    "orderable": false,
-                    "targets": 4
-                } ]
-        });
-        //autoincrement
-        table.on( 'order.dt search.dt', function () {
-            table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-                cell.innerHTML = i + 1;
-                table.cell(cell).invalidate('dom'); 
-            } );
-        } ).draw();
+        
+        //get the value of sortBy
+        var sortBy = $('#sortBy').val();
+        var durationBy = $('#durationBy').val();
+        var rarity = $('#rarity').val();
+        var foodMenu = $('#foodMenu').val();
+        var minTip = $('#minTip').val();
+        var maxTip = $('#maxTip').val();
+        var ctNFTId = $('#ctNFTId').val();
+        var rowLimit = $('#rowLimit').val();        
+        var page = 1;
+        
+        //if rowLimit is empty, set it to 10
+        if(rowLimit == ''){
+            rowLimit = 10;
+        }
+        //if mintip is empty, set it to 0
+        if(minTip == ''){
+            minTip = 0;
+        }
 
-        table.buttons().container()
-            .appendTo( '#example_wrapper .col-sm-6:eq(0)' );        
+        //if maxtip is empty, set it to 0
+        if(maxTip == ''){
+            maxTip = 100000;
+        }
+
+        //on text input , get the value of sortBy
+        $('#sortBy').on('change', function() {
+            sortBy = $('#sortBy').val();
+            if(sortBy == ''){
+                sortBy = 'latest';
+            }
+            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
         });
+
+        //onchange of durationBy
+        $('#durationBy').change(function(){
+            durationBy = $('#durationBy').val();
+            if(durationBy == ''){
+                durationBy = '';
+            }
+            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+        });
+
+        //onchange of rarity
+        $('#rarity').change(function(){
+            raritySelect = $('#rarity').val();
+            //get the value of rarity and add to array
+            var rarityArray = [];
+
+            for (var i = 0; i < raritySelect.length; i++) {
+                rarityArray.push(raritySelect[i])
+            }
+
+            //add rarity to string
+            var rarity = rarityArray.join(',');
+            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+        });
+
+        //onchange of foodMenu
+        $('#foodMenu').change(function(){
+            foodMenuSelect = $('#foodMenu').val();
+            //get the value of foodMenu in array
+            var foodMenuArray = [];
+
+            for (var i = 0; i < foodMenuSelect.length; i++) {
+                foodMenuArray.push(foodMenuSelect[i])
+            }
+            var foodMenu = foodMenuArray.join(',');
+           /*  var foodMenu = '';
+            for (var i = 0; i < foodMenuSelect.length; i++) {
+                foodMenuArray.push(foodMenuSelect[i])
+            }
+            //add foodMenu to string
+            for (var i = 0; i < foodMenuArray.length; i++) {
+                foodMenu += foodMenuArray[i] + ',';
+            } */
+            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+        });
+
+        //onchange of minTip
+        $('#minTip').change(function(){
+            minTip = $('#minTip').val();
+            if(minTip == ''){
+                minTip = 0;
+            }
+            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+        });
+
+        //onchange of maxTip
+        $('#maxTip').change(function(){
+            maxTip = $('#maxTip').val();
+            if(maxTip == ''){
+                maxTip = 10000;
+            }
+            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+        });
+
+        //onchange of ctNFTId
+        $('#ctNFTId').change(function(){
+            ctNFTId = $('#ctNFTId').val();
+            if(ctNFTId == ''){
+                ctNFTId = '';
+            }
+            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+        });
+
+        //onchange of rowLimit
+        $('#rowLimit').change(function(){
+            rowLimit = $('#rowLimit').val();
+            if(rowLimit == ''){
+                rowLimit = 10;
+            }
+            
+            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+        });
+
+
+        //add function to clear filter
+        $('#clearFilter').click(function(){
+            $("#sortBy").val('default').selectpicker("refresh");
+            $("#durationBy").val('default').selectpicker("refresh");
+            $("#rarity").val('default').selectpicker("refresh");
+            $("#foodMenu").val('default').selectpicker("refresh");
+            $('#minTip').val('');
+            $('#maxTip').val('');
+            $('#ctNFTId').val('');
+            $('#rowLimit').val('');
+            sortBy = 'latest';
+            durationBy = 'ALL';
+            rarity = '';
+            foodMenu = '';
+            minTip = 0;
+            maxTip = 100000;
+            ctNFTId = '';
+            rowLimit = 10
+            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+        });
+
+        //add function getData
+        function getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page){
+           
+            //if nftid is empty or null, make it null else remove ctNFTId in data array
+            if(ctNFTId == '' || ctNFTId == null){
+
+                //add all data into data array for ajax data
+                var data = {
+                    sort: sortBy,
+                    duration: durationBy,
+                    rarity: rarity,
+                    menu: foodMenu,
+                    minTip: minTip,
+                    maxTip: maxTip,
+                    limit: rowLimit,
+                    page: page
+                };
+            } else {
+                //add all data into data array for ajax data
+                var data = {
+                    sort: sortBy,
+                    duration: durationBy,
+                    rarity: rarity,
+                    menu: foodMenu,
+                    minTip: minTip,
+                    maxTip: maxTip,
+                    ctNFTId: ctNFTId,
+                    limit: rowLimit,
+                    page: page
+                };
+            }
+
+            $.ajax({
+                url: 'https://backend-marketplace.dinetogether.io/v1/chef',
+                type: 'GET',
+                data: data,
+                dataType: 'json',
+                success: function(response){
+                    console.log(response);
+                    var data = response.results;
+                    var table = $('#example').DataTable({
+                        data: data,
+                        destroy : true, 
+                        columns: [
+                            { data: 'ctNFTId' },
+                            { data: 'ctNFTId' },
+                            { data: function ( data, type, row, meta ) {
+                            return type === 'display'  ?
+                                '<img width="100px" src="https://dine-static.s3.ap-southeast-1.amazonaws.com/chef/'+data.entity.head+'_'+data.entity.body+'.png" alt= >' :
+                                data;
+                            }},
+                            { data: 'entity.rarity' },
+                            //foreach inside array
+                            { data: function ( data, type, row, meta ) {   
+                                var menu = '<table class="table table-bordered"><thead><tr><th>Dish</th><th>Cook</th><th>TIP</th></tr></thead><tbody>';
+                                $.each(data.entity.menu, function(index, value){
+                                    menu += '<tr><td>'+value.code+'</td><td>'+value.numberCookRemain+'/'+ value.numberCookInit+'</td><td>'+value.tipAmount+'</td></tr>';
+                                });
+                                menu += '</tbody></table>';
+                                return menu;
+                            }},
+                            { data: 'tipAmount' },
+                            { data: 'endingPrice' },
+                            { data: 'ctNFTId' , render : function ( data, type, row, meta ) {
+                            return type === 'display'  ?
+                                '<a href="https://marketplace.dinetogether.io/#/chef/'+ data +'" target="_blank" class="btn btn-primary" >Buy Now</a>' :
+                                data;
+                            }},
+                        ],
+                        order: [[ 1, "asc" ]],
+                        paging: false,                    
+                        lengthChange: false,
+                        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
+                        columnDefs: [ {
+                            "searchable": false,
+                            "orderable": false,
+                            "targets": 0
+                        },{
+                            "searchable": false,
+                            "orderable": false,
+                            "targets": 4
+                        } ]
+                    });
+
+                    //autoincrement
+                    table.on( 'order.dt search.dt', function () {
+                        table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                            cell.innerHTML = i + 1;
+                            table.cell(cell).invalidate('dom'); 
+                        } );
+                    } ).draw();
+
+                    table.buttons().container()
+                        .appendTo( '#example_wrapper .col-sm-6:eq(0)' );
+                }         
+            }); 
+            
+        }
+
+        //onpage load getData
+        getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+        
     } );
 </script>
+<style>
+    .wrapper {
+        margin-top: 70px;
+    }
+</style>

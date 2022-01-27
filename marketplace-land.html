@@ -105,7 +105,7 @@
                     <ul class="dropdown-menu">
                       <li><a href="marketplace-chef.html">Chef</a></li>
                       <li><a href="#">Furniture</a></li>
-                      <li><a href="marketplace-land.html">Land</a></li>
+                      <li><a href="#">Land</a></li>
                       <li><a href="#">Card</a></li>
                     </ul>
                   </li>
@@ -147,12 +147,12 @@
                     <li>
                         <a href="#">Home</a>
                     </li>
-                    <li class="active">Marketplace Chef</li>
+                    <li class="active">Marketplace Land</li>
                 </ol>
                 
             </div>          
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h1>Marketplace Chef</h1>
+                <h1>Marketplace Land</h1>
                 <small>Note: The buy button will redirect to official website.</small>
                 <br>
             </div>           
@@ -175,35 +175,23 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="">Duration</label>
-                        <select class="form-control selectpicker" id="durationBy">
-                            <option value="ALL" >All</option>
-                            <option value="FULL" >Full Duration</option>
-                            <option value="USED" >Used</option>
+                        <label for="">Homeland</label>
+                        <select class="form-control selectpicker" id="faction" multiple >
+                            <option value="Asgard" >Asgard</option>
+                            <option value="Camelot" >Camelot</option>
+                            <option value="ElDorado" >ElDorado</option>
+                            <option value="Olympus" >Olympus</option>
+                            <option value="ShangriLa" >ShangriLa</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="">Rarity</label>
-                        <select class="form-control selectpicker" id="rarity" multiple >
-                            <option value="Apprentice" >Apprentice</option>
-                            <option value="JuniorChef" >Junior Chef</option>
-                            <option value="HeadChef" >Head Chef</option>
-                            <option value="MasterChef" >Master Chef</option>
-                        </select>
+                        <label for="">Location X</label>
+                        <input type="text" class="form-control" id="locationX" placeholder="locationX">
                     </div>
                     <div class="form-group">
-                        <label for="">Min TIP</label>
-                        <input type="text" class="form-control" id="minTip" placeholder="minTip">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Max TIP</label>
-                        <input type="text" class="form-control" id="maxTip" placeholder="maxTip">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Food</label>
-                        <select id="foodMenu" class="form-control" multiple >
-                        </select>
-                    </div>                
+                        <label for="">Location Y</label>
+                        <input type="text" class="form-control" id="locationY" placeholder="locationY">
+                    </div>             
                     <div class="form-group">
                         <label for="">NFT ID</label>
                         <input type="text" class="form-control" id="ctNFTId" placeholder="NFT ID">
@@ -220,9 +208,8 @@
                             <th>No</th>
                             <th>Chef ID</th>
                             <th>Image</th>
-                            <th>Rarity</th>
-                            <th>Menu</th>
-                            <th>TIP</th>
+                            <th>Homeland</th>
+                            <th>Coordinates</th>
                             <th>MP Price</th>
                             <th>Action</th>
                         </tr>
@@ -232,9 +219,8 @@
                             <th>No</th>
                             <th>Chef ID</th>
                             <th>Image</th>
-                            <th>Rarity</th>
-                            <th>Menu</th>
-                            <th>TIP</th>
+                            <th>Homeland</th>
+                            <th>Coordinates</th>
                             <th>MP Price</th>
                             <th>Action</th>
                         </tr>
@@ -258,33 +244,13 @@
 </body> 
 </html>
 <script>
-    $(document).ready(function() {   
+    $(document).ready(function() { 
 
-        $.ajax({
-            url: "https://backend-marketplace.dinetogether.io/v1/dish",
-            dataType: 'json',
-        }).done(function (response) {
-            // add data to select menu
-            var data = response.results
-            //get data code and add to array
-            var code = [];
-            for (var i = 0; i < data.length; i++) {
-                code.push(data[i].Code)
-            }
-            //add code to select menu
-            for (var i = 0; i < code.length; i++) {
-                $('#foodMenu').append('<option value="' + code[i] + '">' + code[i] + '</option>')
-            }
-            $('#foodMenu').selectpicker('render');
-        });
-        
         //get the value of sortBy
         var sortBy = $('#sortBy').val();
-        var durationBy = $('#durationBy').val();
-        var rarity = $('#rarity').val();
-        var foodMenu = $('#foodMenu').val();
-        var minTip = $('#minTip').val();
-        var maxTip = $('#maxTip').val();
+        var locationX = $('#locationX').val();
+        var locationY = $('#locationY').val();
+        var faction = $('#faction').val();
         var ctNFTId = $('#ctNFTId').val();
         var rowLimit = $('#rowLimit').val();        
         var page = 1;
@@ -294,34 +260,24 @@
             sortBy = "latest";
         }
 
-        //if durationBy is empty, set default value
-        if (durationBy == "") {
-            durationBy = "ALL";
-        }
-
-        //if rarity is empty, set default value
-        if (rarity == "") {
-            rarity = "Apprentice,JuniorChef,HeadChef,MasterChef";
-        }
-
         //if foodMenu is empty, set default value
-        if (foodMenu == "") {
-            foodMenu = 'BEEFSTEAK,BIBIMBAP,BURGER,CHILLI_CRAB,CHOCOLATE,COCKTAIL,CURRY,FISH_N_CHIP,HOT_POT,ICE_CREAM,MOZZARELLA,PAELLA,PHO,PIZZA,RAMEN,SALAD,TOM_YUM,TOFU,TACOS,SUSHI';
-        }
-
-        //if mintip is empty, set it to 0
-        if(minTip == ''){
-            minTip = 0;
-        }
-
-        //if maxtip is empty, set it to 0
-        if(maxTip == ''){
-            maxTip = 100000;
+        if (faction == "") {
+            faction = 'Camelot,Asgard,Olympus,ElDorado,ShangriLa';
         }
         
         //if rowLimit is empty, set it to 10
         if(rowLimit == ''){
             rowLimit = 10;
+        }
+
+        //if locationX is empty, set it to 0
+        if(locationX == ''){
+            locationX = null;
+        }
+
+        //if locationY is empty, set it to 0
+        if(locationY == ''){
+            locationX = null;
         }
 
         //on text input , get the value of sortBy
@@ -330,92 +286,60 @@
             if(sortBy == ''){
                 sortBy = 'latest';
             }
-            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
-        });
-
-        //onchange of durationBy
-        $('#durationBy').change(function(){
-            durationBy = $('#durationBy').val();
-            if(durationBy == ''){
-                durationBy = 'ALL';
-            }
-            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+            getData(locationX, locationY, faction, ctNFTId, rowLimit, page,sortBy);
         });
 
         //onchange of rarity
-        $('#rarity').change(function(){
-            raritySelect = $('#rarity').val();
-            //rarity is empty
-            if(raritySelect == ''){
-                rarity = 'Apprentice,JuniorChef,HeadChef,MasterChef';
+        $('#faction').change(function(){
+            factionSelect = $('#faction').val();
+            //faction is empty
+            if(factionSelect == ''){
+                faction = 'Camelot,Asgard,Olympus,ElDorado,ShangriLa';
             } else {
                 //get the value of rarity and add to array
-                var rarityArray = [];
+                var factionArray = [];
 
-                for (var i = 0; i < raritySelect.length; i++) {
-                    rarityArray.push(raritySelect[i])
+                for (var i = 0; i < factionSelect.length; i++) {
+                    factionArray.push(factionSelect[i])
                 }
 
                 //add rarity to string
-                var rarity = rarityArray.join(',');
+                var faction = factionArray.join(',');
             }
             
-            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+            getData(locationX, locationY, faction, ctNFTId, rowLimit, page,sortBy);
         });
 
-        //onchange of foodMenu
-        $('#foodMenu').change(function(){
-            foodMenuSelect = $('#foodMenu').val();
-            //foodMenu is empty
-            if(foodMenuSelect == ''){
-                foodMenu = 'BEEFSTEAK,BIBIMBAP,BURGER,CHILLI_CRAB,CHOCOLATE,COCKTAIL,CURRY,FISH_N_CHIP,HOT_POT,ICE_CREAM,MOZZARELLA,PAELLA,PHO,PIZZA,RAMEN,SALAD,TOM_YUM,TOFU,TACOS,SUSHI';
-            } else {
-                //get the value of foodMenu and add to array
-                var foodMenuArray = [];
-
-                for (var i = 0; i < foodMenuSelect.length; i++) {
-                    foodMenuArray.push(foodMenuSelect[i])
-                }
-
-                //add foodMenu to string
-                var foodMenu = foodMenuArray.join(',');
-            }
-           /*  var foodMenu = '';
-            for (var i = 0; i < foodMenuSelect.length; i++) {
-                foodMenuArray.push(foodMenuSelect[i])
-            }
-            //add foodMenu to string
-            for (var i = 0; i < foodMenuArray.length; i++) {
-                foodMenu += foodMenuArray[i] + ',';
-            } */
-            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
-        });
+        
 
         //onchange of minTip
-        $('#minTip').change(function(){
-            minTip = $('#minTip').val();
-            if(minTip == ''){
-                minTip = 0;
+        $('#locationX').change(function(){
+            locationX = $('#locationX').val();
+            if(locationX == ''){
+                locationX = null;
             }
-            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+            getData(locationX, locationY, faction, ctNFTId, rowLimit, page,sortBy);
+                       
         });
 
         //onchange of maxTip
-        $('#maxTip').change(function(){
-            maxTip = $('#maxTip').val();
-            if(maxTip == ''){
-                maxTip = 10000;
+        $('#locationY').change(function(){
+            locationY = $('#locationY').val();
+            if(locationY == ''){
+                locationY = null;
             }
-            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+            getData(locationX, locationY, faction, ctNFTId, rowLimit, page,sortBy);
         });
 
         //onchange of ctNFTId
         $('#ctNFTId').change(function(){
             ctNFTId = $('#ctNFTId').val();
+            alert(ctNFTId);
             if(ctNFTId == ''){
                 ctNFTId = '';
             }
-            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+            getData(locationX, locationY, faction, ctNFTId, rowLimit, page,sortBy);
+            
         });
 
         //onchange of rowLimit
@@ -425,65 +349,101 @@
                 rowLimit = 10;
             }
             
-            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+            getData(locationX, locationY, faction, ctNFTId, rowLimit, page,sortBy);
         });
 
 
-        //add function to clear filter
-        $('#clearFilter').click(function(){
-            $("#sortBy").val('default').selectpicker("refresh");
-            $("#durationBy").val('default').selectpicker("refresh");
-            $("#rarity").val('default').selectpicker("refresh");
-            $("#foodMenu").val('default').selectpicker("refresh");
-            $('#minTip').val('');
-            $('#maxTip').val('');
-            $('#ctNFTId').val('');
-            $('#rowLimit').val('');
-            sortBy = 'latest';
-            durationBy = 'ALL';
-            rarity = 'Apprentice,JuniorChef,HeadChef,MasterChef';
-            foodMenu = 'BEEFSTEAK,BIBIMBAP,BURGER,CHILLI_CRAB,CHOCOLATE,COCKTAIL,CURRY,FISH_N_CHIP,HOT_POT,ICE_CREAM,MOZZARELLA,PAELLA,PHO,PIZZA,RAMEN,SALAD,TOM_YUM,TOFU,TACOS,SUSHI';
-            minTip = 0;
-            maxTip = 100000;
-            ctNFTId = '';
-            rowLimit = 10
-            getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
-        });
-
+       
         //add function getData
-        function getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page){
-           
+        function getData(locationX, locationY, faction, ctNFTId, rowLimit, page,sortBy){
+            
+            
             //if nftid is empty or null, make it null else remove ctNFTId in data array
-            if(ctNFTId == '' || ctNFTId == null){
+            if(ctNFTId == '' || ctNFTId == null /* || locationX == '' || locationY == '' || locationX == null || locationY == null */){
+
+                //if location is empty or null, make it null else remove location in data array
+
+
+                //add all data into data array for ajax data
+                /* var data = {
+                    'locationX': locationX,
+                    'locationY': locationY,
+                    'faction': faction,
+                    'limit': rowLimit,
+                    'page': page,
+                    'sort': sortBy
+                }; */
+                if(locationX == '' || locationY == '' || locationX == null || locationY == null){
+
+                //if location is empty or null, make it null else remove location in data array
+
 
                 //add all data into data array for ajax data
                 var data = {
-                    sort: sortBy,
-                    duration: durationBy,
-                    rarity: rarity,
-                    menu: foodMenu,
-                    minTip: minTip,
-                    maxTip: maxTip,
-                    limit: rowLimit,
-                    page: page
+                    'faction': faction,
+                    'limit': rowLimit,
+                    'page': page,
+                    'sort': sortBy
                 };
+
+                } else {
+                //add all data into data array for ajax data
+                var data = {
+                    'locationX': locationX,
+                    'locationY': locationY,
+                    'faction': faction,
+                    'limit': rowLimit,
+                    'page': page,
+                    'sort': sortBy
+                };
+
+                }
+
             } else {
                 //add all data into data array for ajax data
-                var data = {
-                    sort: sortBy,
-                    duration: durationBy,
-                    rarity: rarity,
-                    menu: foodMenu,
-                    minTip: minTip,
-                    maxTip: maxTip,
-                    ctNFTId: ctNFTId,
-                    limit: rowLimit,
-                    page: page
-                };
+                /* var data = {
+                    'locationX': locationX,
+                    'locationY': locationY,
+                    'faction': faction,
+                    'ctNFTId': ctNFTId,
+                    'limit': rowLimit,
+                    'page': page,
+                    'sort': sortBy
+                }; */
+
+                if(locationX == '' || locationY == '' || locationX == null || locationY == null){
+
+                    //if location is empty or null, make it null else remove location in data array
+
+
+                    //add all data into data array for ajax data
+                    var data = {
+                        'faction': faction,
+                        'limit': rowLimit,
+                        'ctNFTId': ctNFTId,
+                        'page': page,
+                        'sort': sortBy
+                    };
+
+                    } else {
+                    //add all data into data array for ajax data
+                    var data = {
+                        'locationX': locationX,
+                        'locationY': locationY,
+                        'faction': faction,
+                        'ctNFTId': ctNFTId,
+                        'limit': rowLimit,
+                        'page': page,
+                        'sort': sortBy
+                    };
+
+                }
+                
             }
 
+            //https://backend-marketplace.dinetogether.io/v1/land?faction=Camelot,Asgard,Olympus,ElDorado,ShangriLa&locationX=68&locationY=9&page=1&limit=10&ctNFTId=1686&sort=lowestPrice
             $.ajax({
-                url: 'https://backend-marketplace.dinetogether.io/v1/chef',
+                url: 'https://backend-marketplace.dinetogether.io/v1/land',
                 type: 'GET',
                 data: data,
                 dataType: 'json',
@@ -498,24 +458,26 @@
                             { data: 'ctNFTId' },
                             { data: function ( data, type, row, meta ) {
                             return type === 'display'  ?
-                                '<img width="100px" src="https://dine-static.s3.ap-southeast-1.amazonaws.com/chef/'+data.entity.head+'_'+data.entity.body+'.png" alt= >' :
+                                '<img width="100px" src="https://marketplace.dinetogether.io/_nuxt/img/land-large.ee478c6.png" alt= >' :
                                 data;
                             }},
-                            { data: 'entity.rarity' },
-                            //foreach inside array
+                            { data: 'entity.faction' }, 
                             { data: function ( data, type, row, meta ) {   
-                                var menu = '<table class="table table-bordered"><thead><tr><th>Dish</th><th>Cook</th><th>TIP</th></tr></thead><tbody>';
-                                $.each(data.entity.menu, function(index, value){
-                                    menu += '<tr><td>'+value.code+'</td><td>'+value.numberCookRemain+'/'+ value.numberCookInit+'</td><td>'+value.tipAmount+'</td></tr>';
-                                });
+                                var menu = '<table class="table table-bordered"><thead><tr><th>LocationX</th><th>LocationY</th></tr></thead><tbody>';
+                                    //get array of locationX and locationY
+                                    var locationX = data.entity.pos[0];
+                                    var locationY = data.entity.pos[1];
+                                    menu += '<tr><td>'+locationX +'</td><td>'+locationY+'</td></tr>';
+                                
                                 menu += '</tbody></table>';
                                 return menu;
-                            }},
-                            { data: 'tipAmount' },
+                            }},                      /*      
+                            { data: 'entity.pos.0' },                            
+                            { data: 'entity.pos.1' },         */                    
                             { data: 'endingPrice' },
                             { data: 'ctNFTId' , render : function ( data, type, row, meta ) {
                             return type === 'display'  ?
-                                '<a href="https://marketplace.dinetogether.io/#/chef/'+ data +'" target="_blank" class="btn btn-primary" >Buy Now</a>' :
+                                '<a href="https://marketplace.dinetogether.io/#/land/'+ data +'" target="_blank" class="btn btn-primary" >Buy Now</a>' :
                                 data;
                             }},
                         ],
@@ -527,7 +489,7 @@
                         columnDefs: [ {
                             "searchable": false,
                             "orderable": false,
-                            "targets": 0
+                            "targets": 2
                         },{
                             "searchable": false,
                             "orderable": false,
@@ -551,7 +513,7 @@
         }
 
         //onpage load getData
-        getData(sortBy, durationBy, rarity, foodMenu, minTip, maxTip, ctNFTId, rowLimit, page);
+        getData(locationX, locationY, faction, ctNFTId, rowLimit, page,sortBy)
         
     } );
 </script>

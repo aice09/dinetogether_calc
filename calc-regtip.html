@@ -143,30 +143,36 @@
     <div class="container div-details">
         <div class="row" >            
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h1>Dishes</h1>
+                <h1>Regular TIPS</h1>
             </div>            
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <table id="example" class="table table-striped table-bordered table-hover" >
                     <thead>
                         <tr>
                             <th>Code</th>
                             <th>TipsPerDish</th>
-                            <th>TimeCookSeconds</th>
+                            <th>TimeCook/Minutes</th>
                             <th>DishPerCook</th>
-                            <th>TotalCookMin</th>
-                            <th>TotalCookMax</th>
                             <th>ExpPerCook</th>
+                            <th>Energy/Cook</th>
+                            <th>Cook/100Energy</th>
+                            <th>TotalEnergyUsed</th>
+                            <th>RemainingEnergy</th>
+                            <th>TIP/Day</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>Code</th>
                             <th>TipsPerDish</th>
-                            <th>TimeCookSeconds</th>
+                            <th>TimeCook/Minutes</th>
                             <th>DishPerCook</th>
-                            <th>TotalCookMin</th>
-                            <th>TotalCookMax</th>
                             <th>ExpPerCook</th>
+                            <th>Energy/Cook</th>
+                            <th>Cook/100Energy</th>
+                            <th>TotalEnergyUsed</th>
+                            <th>RemainingEnergy</th>
+                            <th>TIP/Day</th>
                         </tr>
                     </tfoot>
                 </table>
@@ -196,25 +202,102 @@
             url: "https://backend-marketplace.dinetogether.io/v1/dish",
             dataType: 'json',
         }).done(function (response) {
-            // response is a JSON object, previously parsed by jQuery using $.parseJSON
-            console.log(response);
-            //add each array to datatable
             var data = response.results;
+            console.log(data);
             var table = $('#example').DataTable({
                 data: data,
                 columns: [
                     { data: 'Code' },
                     { data: 'TipsPerDish' },
-                    { data: 'TimeCookSeconds' },
+                    { data: function(data, type,  row, meta) {
+                        if (type === 'display') {
+                            dataToSet = data.TimeCookSeconds / 60;
+                        }
+                        return dataToSet;
+                    }},
                     { data: 'DishPerCook' },
-                    { data: 'TotalCookMin' },
-                    { data: 'TotalCookMax' },
-                    { data: 'ExpPerCook' },
+                    { data: 'ExpPerCook' }, 
+                    { data: 'DishPerCook' },
+                    { data: function(data, type,  row, meta) {
+                        if (type === 'display') {
+                            dataToSet = 100 / data.DishPerCook;
+                            dataToSetFloor = Math.floor(dataToSet);
+                        }
+                        return dataToSetFloor;
+                    }},
+                    { data: function(data, type,  row, meta) {
+                        if (type === 'display') {
+                            dataToSet = 100 / data.DishPerCook;
+                            dataToSetFloor = Math.floor(dataToSet);
+                            totalEnergyUsed = dataToSetFloor * data.DishPerCook;
+                        }
+                        return totalEnergyUsed;
+                    }},
+                    { data: function(data, type,  row, meta) {
+                        if (type === 'display') {
+                            dataToSet = 100 % data.DishPerCook;
+                            dataToSetFloor = Math.floor(dataToSet);
+
+                        }
+                        return dataToSetFloor;
+                    }},
+                    { data: function(data, type,  row, meta) {
+                        if (type === 'display') {
+                            dataToSet = 100 / data.DishPerCook;
+                            dataToSetFloor = Math.floor(dataToSet);
+
+                            totalDishesPerDay = dataToSetFloor * data.DishPerCook;
+                            
+                            totalTipPerDay = totalDishesPerDay * data.TipsPerDish;
+                        }
+                        return totalTipPerDay;
+                    }},
                 ],
-                order: [[ 0, "asc" ]],
+                order: [[ 1, "asc" ]],
                 paging: false,                    
                 lengthChange: false,
-                buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+                buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
+                columnDefs: [ {
+                    "searchable": true,
+                    "orderable": true,
+                    "targets": 0
+                },{
+                    "searchable": true,
+                    "orderable": true,
+                    "targets": 1
+                },{
+                    "searchable": true,
+                    "orderable": true,
+                    "targets": 2
+                },{
+                    "searchable": true,
+                    "orderable": true,
+                    "targets": 3
+                }, {
+                    "searchable": true,
+                    "orderable": true,
+                    "targets": 4
+                },{
+                    "searchable": true,
+                    "orderable": true,
+                    "targets": 5
+                }, {
+                    "searchable": true,
+                    "orderable": true,
+                    "targets": 6
+                },{
+                    "searchable": true,
+                    "orderable": true,
+                    "targets": 7
+                }, {
+                    "searchable": true,
+                    "orderable": true,
+                    "targets": 8
+                },{
+                    "searchable": true,
+                    "orderable": true,
+                    "targets": 9
+                }  ]
         });
         table.buttons().container()
             .appendTo( '#example_wrapper .col-sm-6:eq(0)' );        

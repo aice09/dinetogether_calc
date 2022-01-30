@@ -42,10 +42,9 @@
                                 SYSTEM STYLES
     /////////////////////////////////////////////////////////////////////-->
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 
     <!--/////////////////////////////////////////////////////////////////////
                                 SYSTEM SCRIPTS
@@ -53,770 +52,430 @@
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- bootstrap-select by silvio moreto -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
+
+    
+    <script type="text/javascript"  src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"  src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript"  src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript"  src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript"  src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+    <script type="text/javascript"  src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
+    <script type="text/javascript"  src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.colVis.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.bootstrap.min.css">
 </head>
 <body>
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
         <a class="navbar-brand" href="#">Dine Together</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="beauty.html">Synergy</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="chefcalc.html">Chef</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="dishes.html">Dishes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://docs.google.com/spreadsheets/d/19nZOIeE1D6FM4OhFSC272TaGPaR9um1LSVKTJj7cl2I/edit?usp=sharing">Spreadsheet</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="tip.html">Donate</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a  href="index.html">Home</a>
+                  </li>
+                  <li>
+                      <a  href="beauty.html">Synergy</a>
+                  </li>
+                  <li>
+                      <a  href="chefcalc.html">Chef</a>
+                  </li>
+                  <li>
+                      <a  href="dishes.html">Dishes</a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Marketplace <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="marketplace-chef.html">Chef</a></li>
+                      <li><a href="#">Furniture</a></li>
+                      <li><a href="marketplace-land.html">Land</a></li>
+                      <li><a href="#">Card</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TIPS <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="calc-regtip.html">Regular TIP</a></li>
+                      <li><a href="calc-bonustip.html">Bonus TIP</a></li>
+                      <li><a href="calc-tipwithbonus.html">TIP with Bonus</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                      <a  href="tip.html">Donate</a>
+                  </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+                
             <a href="https://www.buymeacoffee.com/aice0927" class="donate-btn" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;" ></a>
             <a class="btn btn-primary my-2 my-sm-0 donate-btn" href="tip.html" ><i class="fas fa-donate"></i> TIP me! </a>
-            <a class="btn btn-outline-success my-2 my-sm-0" href="https://dinetogether.io/" >Official Website <i class="fas fa-arrow-circle-right"></i> </a>
-          </form>
+            <a class="btn btn-success my-2 my-sm-0" href="https://dinetogether.io/" >Official Website <i class="fas fa-arrow-circle-right"></i> </a>
+            </form>
+           <!--  <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul> -->
+        </div><!-- /.navbar-collapse -->
+    </nav>
+    <div class="container wrapper">
+        <div class="row" >  
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!--breadcrumbs-->                
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Calculator</li>
+                </ol>
+                
+            </div>          
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h1>Dine Together Calculator</h1>
+            </div>           
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <form class="form-section" method="POST" id="section-form">
+                    <div class="row">         
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Dish Name</label>                     
+                                <select class="form-control" name="foodMenu" id="foodMenu"  data-live-search="true" >
+                                    <option value="">Select your dish</option>
+                                </select>                        
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Regular Tips/Serve</label>
+                                <input type="text" class="form-control" placeholder="Regular Tips/Serve" name="dishPrice" id="dishPrice" readonly="readonly" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div> 
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Time to Cook/Minutes</label>
+                                <input type="text" class="form-control" placeholder="Time to Cook" name="dishTime" id="dishTime" readonly="readonly" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div> 
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Number of Servings</label>
+                                <input type="text" class="form-control" placeholder="Number of Servings" name="dishServings" id="dishServings" readonly="readonly" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div> 
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Experience per cook</label>
+                                <input type="text" class="form-control" placeholder="Experience per cook" name="dishExp" id="dishExp" readonly="readonly" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div> 
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Energy per cook</label>
+                                <input type="text" class="form-control" placeholder="Energy per cook" name="dishEnergy" id="dishEnergy" readonly="readonly" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Cook/100 Energy</label>
+                                <input type="text" class="form-control" placeholder="Cook/100 Energy" name="dishEnergyPerEnergy" id="dishEnergyPerEnergy" readonly="readonly" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div>   
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Total Energy Used</label>
+                                <input type="text" class="form-control" placeholder="Total Energy Used" name="dishEnergyUsed" id="dishEnergyUsed" readonly="readonly" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div> 
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Total Energy Remaining</label>
+                                <input type="text" class="form-control" placeholder="Total Energy Remaining" name="dishEnergyRemaining" id="dishEnergyRemaining" readonly="readonly" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div> 
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Regular TIPS per day</label>
+                                <input type="text" class="form-control" placeholder="Regular TIPS per day" name="dishRegularTips" id="dishRegularTips" readonly="readonly" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div>                 
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <hr>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">Your restaurant total beauty</label>
+                                <input type="text" class="form-control" placeholder="Your restaurant total beauty" name="dineBeauty" id="dineBeauty" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">New Tips Value</label>
+                                <input type="text" class="form-control" placeholder="New Tips Value" name="dineNewTips" id="dineNewTips" readonly="readonly" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div> 
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="">TIPS per day with beauty</label>
+                                <input type="text" class="form-control" placeholder="TIPS per day with beauty" name="dineBeautyTips" id="dineBeautyTips" readonly="readonly" />
+                                <span id="check-e" class="check-e-schednumber"></span>
+                            </div>
+                        </div> 
+                    </div>
+                </form>                  
+            </div>                  
         </div>
-      </nav>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 ">
-            </div>
-        <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 ">
-        <form class="form-section" method="POST" id="section-form">
-
-            <div class="row">
-                
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>Dine Together Calculator</h1>
-                </div>
-                
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">Dish Name</label>                     
-                        <select class="form-control" name="dish" id="dish" >
-                            <option value="">Select your dish</option>
-                            <option value="Salad">Salad</option>
-                            <option value="Ice Cream">Ice Cream</option>
-                            <option value="Fish and Chips">Fish and Chips</option>
-                            <option value="Tofu">Tofu</option>
-                            <option value="Pho">Pho</option>
-                            <option value="Tacos">Tacos</option>
-                            <option value="Burger">Burger</option>
-                            <option value="Pizza">Pizza</option>
-                            <option value="Paella">Paella</option>
-                            <option value="Tomyum">Tomyum</option>
-                            <option value="Bibimbap">Bibimbap</option>
-                            <option value="Ramen">Ramen</option>
-                            <option value="Cocktail">Cocktail</option>                           
-                            <option value="Chocolate">Chocolate</option>                          
-                            <option value="Sushi">Sushi</option>                           
-                            <option value="Curry">Curry</option>
-                            <option value="Mozarella">Mozarella</option>
-                            <option value="Beefsteak">Beefsteak</option>
-                            <option value="Hot Pot">Hot Pot</option>
-                            <option value="Chili Crab">Chili Crab</option>
-                        </select>                        
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">Regular Tips/Serve</label>
-                        <input type="text" class="form-control" placeholder="Regular Tips/Serve" name="dishPrice" id="dishPrice" readonly="readonly" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div> 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">Time to Cook</label>
-                        <input type="text" class="form-control" placeholder="Time to Cook" name="dishTime" id="dishTime" readonly="readonly" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div> 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">Number of Servings</label>
-                        <input type="text" class="form-control" placeholder="Number of Servings" name="dishServings" id="dishServings" readonly="readonly" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div> 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">Experience per cook</label>
-                        <input type="text" class="form-control" placeholder="Experience per cook" name="dishExp" id="dishExp" readonly="readonly" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div> 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">Energy per cook</label>
-                        <input type="text" class="form-control" placeholder="Energy per cook" name="dishEnergy" id="dishEnergy" readonly="readonly" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">Cook/100 Energy</label>
-                        <input type="text" class="form-control" placeholder="Cook/100 Energy" name="dishEnergyPerEnergy" id="dishEnergyPerEnergy" readonly="readonly" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div>   
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">Total Energy Used</label>
-                        <input type="text" class="form-control" placeholder="Total Energy Used" name="dishEnergyUsed" id="dishEnergyUsed" readonly="readonly" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div> 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">Total Energy Remaining</label>
-                        <input type="text" class="form-control" placeholder="Total Energy Remaining" name="dishEnergyRemaining" id="dishEnergyRemaining" readonly="readonly" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div> 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">Regular TIPS per day</label>
-                        <input type="text" class="form-control" placeholder="Regular TIPS per day" name="dishRegularTips" id="dishRegularTips" readonly="readonly" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div>                 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <hr>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">Your restaurant total beauty</label>
-                        <input type="text" class="form-control" placeholder="Your restaurant total beauty" name="dineBeauty" id="dineBeauty" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">New Tips Value</label>
-                        <input type="text" class="form-control" placeholder="New Tips Value" name="dineNewTips" id="dineNewTips" readonly="readonly" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div> 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="form-group">
-                        <label for="">TIPS per day with beauty</label>
-                        <input type="text" class="form-control" placeholder="TIPS per day with beauty" name="dineBeautyTips" id="dineBeautyTips" readonly="readonly" />
-                        <span id="check-e" class="check-e-schednumber"></span>
-                    </div>
-                </div> 
-            </div>
-        </form>
-    </div>  
+    </div>     
     <br><br>
-    
-    
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <hr>
         <!--Copyright-->
-    <div class="footer-copyright py-3 text-center">
-        <div class="container-fluid">
-            &copy;  2021 <a href="https://linktr.ee/aice0927">. Carl Angelo Nievarez | <b>Chef aice0927#0620</b> </a>
+        <div class="footer-copyright text-center">
+            <div class="container-fluid">
+                &copy;  2021 <a href="https://linktr.ee/aice0927">. Carl Angelo Nievarez | <b>Chef aice0927#0620</b> </a>
+            </div>
         </div>
-    </div>  
-    
+    </div>    
     <br><br>
-    </div>
-    <!-- <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="src/img/Discord-Logo-Color.svg" alt=""></button> -->
-    
-</div>
-</body>
- 
+</body> 
 </html>
+<script>
+    $(document).ready(function() {
 
-<style>
-    .donate-btn{
-        margin-right: 3px;
-    }
-
-    #myBtn {
-  
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: black; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-}
-
-#myBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
-}
-</style>
-<script type="text/javascript">
-
-$('document').ready(function() { 
-//Dish Name
-var dishSalad = "Salad";
-var dishIceCream = "Ice Cream";
-var dishFishNChips = "Fish and Chips";
-var dishTofu = "Tofu";
-var dishPho = "Pho";
-var dishTacos = "Tacos";
-var dishBurger = "Burger";
-var dishPizza = "Pizza";
-var dishPaella = "Paella";
-var dishTomyum = "Tomyum";
-var dishBibimbap = "Bibimbap";
-var dishRamen = "Ramen";
-var dishCocktail = "Cocktail";
-var dishChocolate = "Chocolate";
-var dishSushi = "Sushi";
-var dishCurry = "Curry";
-var dishMozarella = "Mozarella";
-var dishBeefsteak = "Beefsteak";
-var dishHotPot = "Hot Pot";
-var dishChiliCrab = "Chili Crab";
-
-//Dish Price
-var dishSaladPrice = 5;
-var dishIceCreamPrice = 6;
-var dishFishNChipsPrice = 6;
-var dishTofuPrice = 7;
-var dishPhoPrice = 9;
-var dishTacosPrice = 10;
-var dishBurgerPrice = 11;
-var dishPizzaPrice = 12;
-var dishPaellaPrice = 14;
-var dishTomyumPrice = 15;
-var dishBibimbapPrice = 15;
-var dishRamenPrice = 16;
-var dishCocktailPrice = 17;
-var dishChocolatePrice = 18;
-var dishSushiPrice = 19;
-var dishCurryPrice = 20;
-var dishMozarellaPrice = 21;
-var dishBeefsteakPrice = 22;
-var dishHotPotPrice = 23;
-var dishChiliCrabPrice = 24;
-
-//Time to cook
-var dishSaladTime = "30 secs";
-var dishIceCreamTime = "1 min";
-var dishFishNChipsTime = "3 mins";
-var dishTofuTime = "3 mins";
-var dishPhoTime = "5 mins";
-var dishTacosTime = "5 mins";
-var dishBurgerTime = "7 mins";
-var dishPizzaTime = "7 mins";
-var dishPaellaTime = "10 mins";
-var dishTomyumTime = "10 mins";
-var dishBibimbapTime = "15 mins";
-var dishRamenTime = "15 mins";
-var dishCocktailTime = "20 mins";
-var dishChocolateTime = "20 mins";
-var dishSushiTime = "30 mins";
-var dishCurryTime = "30 mins";
-var dishMozarellaTime = "45 mins";
-var dishBeefsteakTime = "45 mins";
-var dishHotPotTime = "1 hour";
-var dishChiliCrabTime = "1 hour";
-
-//Number of servings
-var dishSaladServings = "2";
-var dishIceCreamServings = "4";
-var dishFishNChipsServings = "5";
-var dishTofuServings = "6";
-var dishPhoServings = "8";
-var dishTacosServings = "8";
-var dishBurgerServings = "10";
-var dishPizzaServings = "9";
-var dishPaellaServings = "10";
-var dishTomyumServings = "12";
-var dishBibimbapServings = "14";
-var dishRamenServings = "12";
-var dishCocktailServings = "15";
-var dishChocolateServings = "12";
-var dishSushiServings = "15";
-var dishCurryServings = "12";
-var dishMozarellaServings = "15";
-var dishBeefsteakServings = "15";
-var dishHotPotServings = "20";
-var dishChiliCrabServings = "16";
-
-//Experience per cook
-var dishSaladExp = "1";
-var dishIceCreamExp = "2";
-var dishFishNChipsExp = "6";
-var dishTofuExp = "6";
-var dishPhoExp = "10";
-var dishTacosExp = "10";
-var dishBurgerExp = "14";
-var dishPizzaExp = "14";
-var dishPaellaExp = "20";
-var dishTomyumExp = "30";
-var dishBibimbapExp = "20";
-var dishRamenExp = "30";
-var dishCocktailExp = "40";
-var dishChocolateExp = "40";
-var dishSushiExp = "60";
-var dishCurryExp = "60";
-var dishMozarellaExp = "90";
-var dishBeefsteakExp = "90";
-var dishHotPotExp = "120";
-var dishChiliCrabExp = "120";
-
-//Energy per cook
-var dishSaladEnergy = "2";
-var dishIceCreamEnergy = "4";
-var dishFishNChipsEnergy = "5";
-var dishTofuEnergy = "6";
-var dishPhoEnergy = "8";
-var dishTacosEnergy = "8";
-var dishBurgerEnergy = "10";
-var dishPizzaEnergy = "9";
-var dishPaellaEnergy = "12";
-var dishTomyumEnergy = "10";
-var dishBibimbapEnergy = "14";
-var dishRamenEnergy = "12";
-var dishCocktailEnergy = "15";
-var dishChocolateEnergy = "12";
-var dishSushiEnergy = "15";
-var dishCurryEnergy = "12";
-var dishMozarellaEnergy = "20";
-var dishBeefsteakEnergy = "15";
-var dishHotPotEnergy = "20";
-var dishChiliCrabEnergy = "15";
-
-//Beauty synergy furniture
-var dishOneFurniture = "5";
-var dishTwoFurniture = "10";
-var dishThreeFurniture = "15";
-var dishFourFurniture = "20";
-
-//Beauty synergy furniture percentage
-var dishOneFurniturePercentage = "2.5";
-var dishTwoFurniturePercentage = "5";
-var dishThreeFurniturePercentage = "7.5";
-var dishFourFurniturePercentage = "10";
-
-//Beauty bonus tips
-var beautyZero = "0";
-var beautyOne = "50";
-var beautyTwo = "100";
-var beautyThree = "150";
-var beautyFour = "200";
-var beautyFive = "250";
-var beautySix = "300";
-var beautySeven = "350";
-var beautyEight = "400";
-var beautyNine = "450";
-var beautyTen = "500";
-
-//Beauty bonus tips percentage
-var beautyZeroPercentage = "0";
-var beautyOnePercentage = "0.22";
-var beautyTwoPercentage = "0.44";
-var beautyThreePercentage = "0.66";
-var beautyFourPercentage = "0.88";
-var beautyFivePercentage = "1.10";
-var beautySixPercentage = "1.32";
-var beautySevenPercentage = "1.54";
-var beautyEightPercentage = "1.76";
-var beautyNinePercentage = "1.98";
-var beautyTenPercentage = "2.20";
-
-$('#dish').on('change', function() {
-  var dish= this.value;
-  console.log(dish);
-
-  if (dish == "Salad") {
-        $('#dishPrice').val(dishSaladPrice);
-        $('#dishTime').val(dishSaladTime);
-        $('#dishServings').val(dishSaladServings);
-        $('#dishExp').val(dishSaladExp);
-        $('#dishEnergy').val(dishSaladEnergy);
-
-    } else if (dish == "Ice Cream") {
-        $('#dishPrice').val(dishIceCreamPrice);
-        $('#dishTime').val(dishIceCreamTime);
-        $('#dishServings').val(dishIceCreamServings);
-        $('#dishExp').val(dishIceCreamExp);
-        $('#dishEnergy').val(dishIceCreamEnergy);
-
-    } else if (dish == "Fish and Chips") {
-        $('#dishPrice').val(dishFishNChipsPrice);
-        $('#dishTime').val(dishFishNChipsTime);
-        $('#dishServings').val(dishFishNChipsServings);
-        $('#dishExp').val(dishFishNChipsExp);
-        $('#dishEnergy').val(dishFishNChipsEnergy);
-
-    } else if (dish == "Tofu") {
-        $('#dishPrice').val(dishTofuPrice);
-        $('#dishTime').val(dishTofuTime);
-        $('#dishServings').val(dishTofuServings);
-        $('#dishExp').val(dishTofuExp);
-        $('#dishEnergy').val(dishTofuEnergy);
-
-    } else if (dish == "Pho") {
-        $('#dishPrice').val(dishPhoPrice);
-        $('#dishTime').val(dishPhoTime);
-        $('#dishServings').val(dishPhoServings);
-        $('#dishExp').val(dishPhoExp);
-        $('#dishEnergy').val(dishPhoEnergy);
-
-    } else if (dish == "Tacos") {
-        $('#dishPrice').val(dishTacosPrice);
-        $('#dishTime').val(dishTacosTime);
-        $('#dishServings').val(dishTacosServings);
-        $('#dishExp').val(dishTacosExp);
-        $('#dishEnergy').val(dishTacosEnergy);
-
-    } else if (dish == "Burger") {
-        $('#dishPrice').val(dishBurgerPrice);
-        $('#dishTime').val(dishBurgerTime);
-        $('#dishServings').val(dishBurgerServings);
-        $('#dishExp').val(dishBurgerExp);
-        $('#dishEnergy').val(dishBurgerEnergy);
-
-    } else if (dish == "Pizza") {
-        $('#dishPrice').val(dishPizzaPrice);
-        $('#dishTime').val(dishPizzaTime);
-        $('#dishServings').val(dishPizzaServings);
-        $('#dishExp').val(dishPizzaExp);
-        $('#dishEnergy').val(dishPizzaEnergy);
-
-    } else if (dish == "Paella") {
-        $('#dishPrice').val(dishPaellaPrice);
-        $('#dishTime').val(dishPaellaTime);
-        $('#dishServings').val(dishPaellaServings);
-        $('#dishExp').val(dishPaellaExp);
-        $('#dishEnergy').val(dishPaellaEnergy);
-
-    } else if (dish == "Tomyum") {
-        $('#dishPrice').val(dishTomyumPrice);
-        $('#dishTime').val(dishTomyumTime);
-        $('#dishServings').val(dishTomyumServings);
-        $('#dishExp').val(dishTomyumExp);
-        $('#dishEnergy').val(dishTomyumEnergy);
-
-    } else if (dish == "Bibimbap") {
-        $('#dishPrice').val(dishBibimbapPrice);
-        $('#dishTime').val(dishBibimbapTime);
-        $('#dishServings').val(dishBibimbapServings);
-        $('#dishExp').val(dishBibimbapExp);
-        $('#dishEnergy').val(dishBibimbapEnergy);
-    }  else if (dish == "Ramen") {
-        $('#dishPrice').val(dishRamenPrice);
-        $('#dishTime').val(dishRamenTime);
-        $('#dishServings').val(dishRamenServings);
-        $('#dishExp').val(dishRamenExp);
-        $('#dishEnergy').val(dishRamenEnergy);
-    } else if (dish == "Cocktail") {
-        $('#dishPrice').val(dishCocktailPrice);
-        $('#dishTime').val(dishCocktailTime);
-        $('#dishServings').val(dishCocktailServings);
-        $('#dishExp').val(dishCocktailExp);
-        $('#dishEnergy').val(dishCocktailEnergy);
-    } else if (dish == "Chocolate") {
-        $('#dishPrice').val(dishChocolatePrice);
-        $('#dishTime').val(dishChocolateTime);
-        $('#dishServings').val(dishChocolateServings);
-        $('#dishExp').val(dishChocolateExp);
-        $('#dishEnergy').val(dishChocolateEnergy);
-    } else if (dish == "Sushi") {
-        $('#dishPrice').val(dishSushiPrice);
-        $('#dishTime').val(dishSushiTime);
-        $('#dishServings').val(dishSushiServings);
-        $('#dishExp').val(dishSushiExp);
-        $('#dishEnergy').val(dishSushiEnergy);
-    } else if (dish == "Curry") {
-        $('#dishPrice').val(dishCurryPrice);
-        $('#dishTime').val(dishCurryTime);
-        $('#dishServings').val(dishCurryServings);
-        $('#dishExp').val(dishCurryExp);
-        $('#dishEnergy').val(dishCurryEnergy);
-    } else if (dish == "Mozarella") {
-        $('#dishPrice').val(dishMozarellaPrice);
-        $('#dishTime').val(dishMozarellaTime);
-        $('#dishServings').val(dishMozarellaServings);
-        $('#dishExp').val(dishMozarellaExp);
-        $('#dishEnergy').val(dishMozarellaEnergy);
-    } else if (dish == "Beefsteak") {
-        $('#dishPrice').val(dishBeefsteakPrice);
-        $('#dishTime').val(dishBeefsteakTime);
-        $('#dishServings').val(dishBeefsteakServings);
-        $('#dishExp').val(dishBeefsteakExp);
-        $('#dishEnergy').val(dishBeefsteakEnergy);
-    } else if (dish == "Hot Pot") {
-        $('#dishPrice').val(dishHotPotPrice);
-        $('#dishTime').val(dishHotPotTime);
-        $('#dishServings').val(dishHotPotServings);
-        $('#dishExp').val(dishHotPotExp);
-        $('#dishEnergy').val(dishHotPotEnergy);
-    } else if (dish == "Chili Crab") {
-        $('#dishPrice').val(dishChiliCrabPrice);
-        $('#dishTime').val(dishChiliCrabTime);
-        $('#dishServings').val(dishChiliCrabServings);
-        $('#dishExp').val(dishChiliCrabExp);
-        $('#dishEnergy').val(dishChiliCrabEnergy);
-    } else {
-        /* $('#dishPrice').val('');
-        $('#dishTime').val('');
-        $('#dishServings').val('');
-        $('#dishExp').val('');
-        $('#dishEnergy').val('');
-
+        $.ajax({
+            url: "https://backend-marketplace.dinetogether.io/v1/dish",
+            dataType: 'json',
+        }).done(function (response) {
+            // add data to select menu
+            var data = response.results
+            //get data code and add to array
+            var code = [];
+            for (var i = 0; i < data.length; i++) {
+                code.push(data[i].Code)
+            }
+            //add code to select menu
+            for (var i = 0; i < code.length; i++) {
+                $('#foodMenu').append('<option value="' + code[i] + '">' + code[i] + '</option>')
+            }
+            $('#foodMenu').selectpicker('render');
+        });
         
-        $('#dishEnergyPerEnergy').val('');        
-        $('#dishEnergyUsed').val('');    
-        $('#dishEnergyRemaining').val('');
-        $('#dishRegularTips').val('');
-        $('#dineBeauty').val(''); */
-    
+        $('#foodMenu').on('change', function() {
+            var dish= this.value;
+            console.log(dish);
+            
+                $.ajax({
+                    url: "https://backend-marketplace.dinetogether.io/v1/dish",
+                    dataType: 'json',
+                }).done(function (response) {
+                        var data = response.results
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].Code == dish) {
+                                //timeseconds divided by 60
+                                var timeCookMinutes = data[i].TimeCookSeconds/60;
 
-    }
+                                calcCookoverHundred = 100 / data[i].DishPerCook;
+                                totalEnergyRemaining = 100 % data[i].DishPerCook;
 
-    //Dish Energy Per Energy
-    var energyPerDay = 100;
-    var dishEnergy = $('#dishEnergy').val();
+                                calcCookoverHundredFloored = Math.floor(calcCookoverHundred)                                
+                                totalEnergyUsed = calcCookoverHundredFloored * data[i].DishPerCook;
+                                totalEnergyRemainingFloored = Math.floor(totalEnergyRemaining);
 
-    var dishEnergyPerEnergy = energyPerDay / dishEnergy;
-    var dishEnergyPerEnergyRoundDown=Math.floor(dishEnergyPerEnergy);
-    $('#dishEnergyPerEnergy').val(dishEnergyPerEnergyRoundDown)
+                                //cookover100 * numberofservings * tipsperday
+                                regularTIPSperday = calcCookoverHundredFloored * data[i].DishPerCook * data[i].TipsPerDish;
 
-    //Dish Energy Used
-    var dishEnergyUsed = $('#dishEnergy').val() * $('#dishEnergyPerEnergy').val();
-    var dishEnergyUsedRoundDown=Math.floor(dishEnergyUsed);
-    $('#dishEnergyUsed').val(dishEnergyUsedRoundDown)
+                                $('#dishPrice').val(data[i].TipsPerDish)
+                                $('#dishTime').val(timeCookMinutes)
+                                $('#dishServings').val(data[i].DishPerCook)
+                                $('#dishExp').val(data[i].ExpPerCook)
+                                $('#dishEnergy').val(data[i].DishPerCook)
+                                $('#dishEnergyPerEnergy').val(calcCookoverHundredFloored)
+                                $('#dishEnergyUsed').val(totalEnergyUsed)
+                                $('#dishEnergyRemaining').val(totalEnergyRemainingFloored)
+                                $('#dishRegularTips').val(regularTIPSperday)    
+                            }
+                        }                    
+                });
+        });
 
-    //Dish Energy Remaining
-    var dishEnergyRemaining = 100 - $('#dishEnergyUsed').val();
-    var dishEnergyRemainingRoundDown=Math.floor(dishEnergyRemaining);
-    $('#dishEnergyRemaining').val(dishEnergyRemainingRoundDown)
+        $('#dineBeauty').on('input', function() {
+            var beauty= this.value;
+            console.log(beauty);
 
-    //Regular TIPS
-    var dishPrice = $('#dishPrice').val();
-    var dishServings = $('#dishServings').val();
-    var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
-
-    var dishRegularTips = dishPrice * dishServings * dishEnergyPerEnergy;
-    var dishRegularTipsRoundDown=Math.floor(dishRegularTips);
-    $('#dishRegularTips').val(dishRegularTipsRoundDown)
-
-    //TIPS wuth beauty
-    $('#dineBeauty').val('');
-    $('#dineNewTips').val('');    
-    $('#dineBeautyTips').val('');
-});
+            if (beauty != "" && beauty != null && beauty != undefined && beauty != NaN) {
+                if (beauty >= 0 && beauty <= 50) {
+                    var dishPrice = $('#dishPrice').val();
+                    dineBeautyBonusTips= dishPrice * 0;
+                    dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
+                    dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
+                    $('#dineNewTips').val(dineNewTips);         
+                    var dishServings = $('#dishServings').val();
+                    var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
+                    var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
+                    var dishNewTipsRoundDown=Math.floor(dishNewTips);
+                    $('#dineBeautyTips').val(dishNewTipsRoundDown);
+                    console.log("0 percent");
+                } else if (beauty >= 50 && beauty <= 100) {
+                    var dishPrice = $('#dishPrice').val();
+                    dineBeautyBonusTips= dishPrice * 0.22;
+                    dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
+                    dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
+                    $('#dineNewTips').val(dineNewTips);
+                    var dishServings = $('#dishServings').val();
+                    var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
+                    var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
+                    var dishNewTipsRoundDown=Math.floor(dishNewTips);
+                    $('#dineBeautyTips').val(dishNewTipsRoundDown); 
+                    console.log("22 percent");
+                } else if (beauty >= 100 && beauty <= 150) {
+                    var dishPrice = $('#dishPrice').val();
+                    dineBeautyBonusTips= dishPrice * 0.44;
+                    dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
+                    dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
+                    $('#dineNewTips').val(dineNewTips);
+                    var dishServings = $('#dishServings').val();
+                    var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
+                    var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
+                    var dishNewTipsRoundDown=Math.floor(dishNewTips);
+                    $('#dineBeautyTips').val(dishNewTipsRoundDown);
+                    console.log("44 percent");
+                } else if (beauty >= 150 && beauty <= 200) {
+                    var dishPrice = $('#dishPrice').val();
+                    dineBeautyBonusTips= dishPrice * 0.66;
+                    dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
+                    dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
+                    $('#dineNewTips').val(dineNewTips);
+                    var dishServings = $('#dishServings').val();
+                    var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
+                    var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
+                    var dishNewTipsRoundDown=Math.floor(dishNewTips);
+                    $('#dineBeautyTips').val(dishNewTipsRoundDown);
+                    console.log("66 percent");
+                } else if (beauty >= 200 && beauty <= 250) {
+                    var dishPrice = $('#dishPrice').val();
+                    dineBeautyBonusTips= dishPrice * 0.88;
+                    dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
+                    dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
+                    $('#dineNewTips').val(dineNewTips);
+                    var dishServings = $('#dishServings').val();
+                    var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
+                    var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
+                    var dishNewTipsRoundDown=Math.floor(dishNewTips);
+                    $('#dineBeautyTips').val(dishNewTipsRoundDown);
+                    console.log("88 percent");
+                } else if (beauty >= 250 && beauty <= 300) {
+                    var dishPrice = $('#dishPrice').val();
+                    dineBeautyBonusTips= dishPrice * 1.10;
+                    dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
+                    dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
+                    $('#dineNewTips').val(dineNewTips);   
+                    var dishServings = $('#dishServings').val();
+                    var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
+                    var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
+                    var dishNewTipsRoundDown=Math.floor(dishNewTips);
+                    $('#dineBeautyTips').val(dishNewTipsRoundDown);
+                    console.log("110 percent");
+                } else if (beauty >= 300 && beauty <= 350) {    
+                    var dishPrice = $('#dishPrice').val();
+                    dineBeautyBonusTips= dishPrice * 1.32;
+                    dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
+                    dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
+                    $('#dineNewTips').val(dineNewTips);
+                    var dishServings = $('#dishServings').val();
+                    var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
+                    var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
+                    var dishNewTipsRoundDown=Math.floor(dishNewTips);
+                    $('#dineBeautyTips').val(dishNewTipsRoundDown);
+                    console.log("132 percent");
+                } else if (beauty >= 350 && beauty <= 400) {
+                    var dishPrice = $('#dishPrice').val();
+                    dineBeautyBonusTips= dishPrice * 1.54;
+                    dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
+                    dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
+                    $('#dineNewTips').val(dineNewTips);            
+                    var dishServings = $('#dishServings').val();
+                    var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
+                    var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
+                    var dishNewTipsRoundDown=Math.floor(dishNewTips);
+                    $('#dineBeautyTips').val(dishNewTipsRoundDown);
+                    console.log("154 percent");
+                } else if (beauty >= 400 && beauty <= 450) {
+                    var dishPrice = $('#dishPrice').val();
+                    dineBeautyBonusTips= dishPrice * 1.76;
+                    dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
+                    dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
+                    $('#dineNewTips').val(dineNewTips);    
+                    var dishServings = $('#dishServings').val();
+                    var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
+                    var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
+                    var dishNewTipsRoundDown=Math.floor(dishNewTips);
+                    $('#dineBeautyTips').val(dishNewTipsRoundDown);
+                     console.log("176 percent");
+                } else if (beauty >= 500) {
+                    var dishPrice = $('#dishPrice').val();
+                    dineBeautyBonusTips= dishPrice * 2.20;
+                    dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
+                    dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
+                    $('#dineNewTips').val(dineNewTips);
+                    var dishServings = $('#dishServings').val();
+                    var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
+                    var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
+                    var dishNewTipsRoundDown=Math.floor(dishNewTips);
+                    $('#dineBeautyTips').val(dishNewTipsRoundDown);
+                    console.log("220 percent");
+                } else {
+                    console.log("Warning: Beauty is not in range");
+                }
+            } else {
+                $('#dineBeautyTips').val('');
+            }
+        });
         
-$('#dineBeauty').on('input', function() {
-  var beauty= this.value;
-  console.log(beauty);
-
-  //if beauty is not empty and is a number then calculate tips
-    if (beauty != "" && beauty != null && beauty != undefined && beauty != NaN) {
-        
-        
-
-        if (beauty >= 0 && beauty <= 50) {
-            var dishPrice = $('#dishPrice').val();
-
-            dineBeautyBonusTips= dishPrice * 0;
-            dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
-            dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
-
-            $('#dineNewTips').val(dineNewTips);
-            
-            //new tips per day
-            var dishServings = $('#dishServings').val();
-            var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
-
-            var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
-            var dishNewTipsRoundDown=Math.floor(dishNewTips);
-            $('#dineBeautyTips').val(dishNewTipsRoundDown);
-
-            console.log("0 percent");
-        } else if (beauty >= 50 && beauty <= 100) {
-            var dishPrice = $('#dishPrice').val();
-
-            dineBeautyBonusTips= dishPrice * 0.22;
-            dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
-            dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
-
-            $('#dineNewTips').val(dineNewTips);
-            
-            //new tips per day
-            var dishServings = $('#dishServings').val();
-            var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
-
-            var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
-            var dishNewTipsRoundDown=Math.floor(dishNewTips);
-            $('#dineBeautyTips').val(dishNewTipsRoundDown); 
-           console.log("22 percent");
-        } else if (beauty >= 100 && beauty <= 150) {
-            var dishPrice = $('#dishPrice').val();
-
-            dineBeautyBonusTips= dishPrice * 0.44;
-            dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
-            dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
-
-            $('#dineNewTips').val(dineNewTips);
-
-            //new tips per day
-            var dishServings = $('#dishServings').val();
-            var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
-
-            var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
-            var dishNewTipsRoundDown=Math.floor(dishNewTips);
-            $('#dineBeautyTips').val(dishNewTipsRoundDown);
-            console.log("44 percent");
-         } else if (beauty >= 150 && beauty <= 200) {
-            var dishPrice = $('#dishPrice').val();
-
-            dineBeautyBonusTips= dishPrice * 0.66;
-            dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
-            dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
-
-            $('#dineNewTips').val(dineNewTips);
-            
-            //new tips per day
-            var dishServings = $('#dishServings').val();
-            var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
-
-            var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
-            var dishNewTipsRoundDown=Math.floor(dishNewTips);
-            $('#dineBeautyTips').val(dishNewTipsRoundDown);
-           console.log("66 percent");
-        } else if (beauty >= 200 && beauty <= 250) {
-            var dishPrice = $('#dishPrice').val();
-
-            dineBeautyBonusTips= dishPrice * 0.88;
-            dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
-            dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
-
-            $('#dineNewTips').val(dineNewTips);
-            
-            //new tips per day
-            var dishServings = $('#dishServings').val();
-            var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
-
-            var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
-            var dishNewTipsRoundDown=Math.floor(dishNewTips);
-            $('#dineBeautyTips').val(dishNewTipsRoundDown);
-           console.log("88 percent");
-        } else if (beauty >= 250 && beauty <= 300) {
-            var dishPrice = $('#dishPrice').val();
-
-            dineBeautyBonusTips= dishPrice * 1.10;
-            dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
-            dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
-
-            $('#dineNewTips').val(dineNewTips);
-            
-            //new tips per day
-            var dishServings = $('#dishServings').val();
-            var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
-
-            var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
-            var dishNewTipsRoundDown=Math.floor(dishNewTips);
-            $('#dineBeautyTips').val(dishNewTipsRoundDown);
-           console.log("110 percent");
-        } else if (beauty >= 300 && beauty <= 350) {    
-            var dishPrice = $('#dishPrice').val();
-
-            dineBeautyBonusTips= dishPrice * 1.32;
-            dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
-            dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
-
-            $('#dineNewTips').val(dineNewTips);
-            
-            //new tips per day
-            var dishServings = $('#dishServings').val();
-            var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
-
-            var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
-            var dishNewTipsRoundDown=Math.floor(dishNewTips);
-            $('#dineBeautyTips').val(dishNewTipsRoundDown);
-           console.log("132 percent");
-        } else if (beauty >= 350 && beauty <= 400) {
-            var dishPrice = $('#dishPrice').val();
-
-            dineBeautyBonusTips= dishPrice * 1.54;
-            dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
-            dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
-
-            $('#dineNewTips').val(dineNewTips);
-            
-            //new tips per day
-            var dishServings = $('#dishServings').val();
-            var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
-
-            var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
-            var dishNewTipsRoundDown=Math.floor(dishNewTips);
-            $('#dineBeautyTips').val(dishNewTipsRoundDown);
-           console.log("154 percent");
-        } else if (beauty >= 400 && beauty <= 450) {
-            var dishPrice = $('#dishPrice').val();
-
-            dineBeautyBonusTips= dishPrice * 1.76;
-            dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
-            dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
-
-            $('#dineNewTips').val(dineNewTips);
-            
-            //new tips per day
-            var dishServings = $('#dishServings').val();
-            var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
-
-            var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
-            var dishNewTipsRoundDown=Math.floor(dishNewTips);
-            $('#dineBeautyTips').val(dishNewTipsRoundDown);
-           console.log("176 percent");
-        } else if (beauty >= 500) {
-            var dishPrice = $('#dishPrice').val();
-
-            dineBeautyBonusTips= dishPrice * 2.20;
-            dineNewBeautyBonusTips=Math.floor(dineBeautyBonusTips);
-            dineNewTips= parseInt(dineNewBeautyBonusTips)  + parseInt(dishPrice);
-
-            $('#dineNewTips').val(dineNewTips);
-            
-            //new tips per day
-            var dishServings = $('#dishServings').val();
-            var dishEnergyPerEnergy = $('#dishEnergyPerEnergy').val();
-
-            var dishNewTips = dineNewTips * dishServings * dishEnergyPerEnergy;
-            var dishNewTipsRoundDown=Math.floor(dishNewTips);
-            $('#dineBeautyTips').val(dishNewTipsRoundDown);
-           console.log("220 percent");
-        } else {
-            console.log("oops");
-         }
-    } else {
-        $('#dineBeautyTips').val('');
-    }
-});
-
-
-
-});
-   
+    } );
 </script>
+<style>
+    .wrapper {
+        margin-top: 70px;
+    }
+    .filterDiv {
+        margin-bottom: 20px;
+    }
+</style>

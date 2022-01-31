@@ -46,7 +46,6 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-
     <!--/////////////////////////////////////////////////////////////////////
                                 SYSTEM SCRIPTS
     /////////////////////////////////////////////////////////////////////-->
@@ -54,6 +53,10 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- bootstrap-select by silvio moreto -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
 
     
     <script type="text/javascript"  src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
@@ -70,6 +73,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.bootstrap.min.css">
 </head>
 <body>
+    
     
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -132,9 +136,9 @@
             </ul>
             <form class="navbar-form navbar-right" role="search">
                 
-            <a href="https://www.buymeacoffee.com/aice0927" class="donate-btn " target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;" ></a>
-            <a class="btn btn-primary donate-btn" href="tip.html" ><i class="fas fa-donate"></i> TIP me! </a>
-            <a class="btn btn-success" href="https://dinetogether.io/" >Official Website <i class="fas fa-arrow-circle-right"></i> </a>
+            <a href="https://www.buymeacoffee.com/aice0927" class="donate-btn" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;" ></a>
+            <a class="btn btn-primary my-2 my-sm-0 donate-btn" href="tip.html" ><i class="fas fa-donate"></i> TIP me! </a>
+            <a class="btn btn-success my-2 my-sm-0" href="https://dinetogether.io/" >Official Website <i class="fas fa-arrow-circle-right"></i> </a>
             </form>
            <!--  <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Link</a></li>
@@ -150,7 +154,7 @@
             </ul> -->
         </div><!-- /.navbar-collapse -->
     </nav>
-    <div class="container div-details">
+    <div class="container wrapper">
         <div class="row" >  
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <!--breadcrumbs-->                
@@ -159,206 +163,53 @@
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="index.html">TIP</a>
+                        <a href="tip.html">Support</a>
                     </li>
-                    <li class="active">Bonus TIP</li>
+                    <li class="active">Visit</li>
                 </ol>
                 
-            </div>           
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h1>Additonal TIPS with Beauty</h1>
             </div>            
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <table id="example" class="table table-striped table-bordered table-hover" >
-                    <thead>
-                        <tr>
-                            <th>Code</th>
-                            <th>0-49 (0%)</th>
-                            <th>50-99 (0.22%)</th>
-                            <th>100-149 (0.44%)</th>
-                            <th>150-199 (0.66%)</th>
-                            <th>200-249 (0.88%)</th>
-                            <th>250-299 (1.10%)</th>
-                            <th>300-349 (1.32%)</th>
-                            <th>350-399 (1.54%)</th>
-                            <th>400-449 (1.76%)</th>
-                            <th>450-499 (1.98%)</th>
-                            <th>500++ (2.20%)</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Code</th>
-                            <th>0-49 (0%)</th>
-                            <th>50-99 (0.22%)</th>
-                            <th>100-149 (0.44%)</th>
-                            <th>150-199 (0.66%)</th>
-                            <th>200-249 (0.88%)</th>
-                            <th>250-299 (1.10%)</th>
-                            <th>300-349 (1.32%)</th>
-                            <th>350-399 (1.54%)</th>
-                            <th>400-449 (1.76%)</th>
-                            <th>450-499 (1.98%)</th>
-                            <th>500++ (2.20%)</th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
+                <br><br>           
+                <img src="src/img/editedaice0927.png" class="img-responsive" alt="Image" width="100%" ><br><br>
+            </div>         
         </div>
     </div>     
     <br><br>
-    <div class="container-fluid" >
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <hr>
-                <!--Copyright-->
-                <div class="footer-copyright text-center">
-                    <div class="container-fluid">
-                        &copy;  2021 <a href="https://linktr.ee/aice0927">. Carl Angelo Nievarez | <b>Chef aice0927#0620</b> </a>
-                    </div>
-                </div>
-            </div> 
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <hr>
+        <!--Copyright-->
+        <div class="footer-copyright text-center">
+            <div class="container-fluid">
+                &copy;  2021 <a href="https://linktr.ee/aice0927">. Carl Angelo Nievarez | <b>Chef aice0927#0620</b> </a>
+            </div>
         </div>
-    </div>   
+    </div>    
     <br><br>
 </body> 
 </html>
 <script>
-    $(document).ready(function() {       
-        $.ajax({
-            url: "https://backend-marketplace.dinetogether.io/v1/dish",
-            dataType: 'json',
-        }).done(function (response) {
-            var data = response.results;
-            console.log(data);
-            var table = $('#example').DataTable({
-                data: data,
-                columns: [
-                    { data: 'Code' },
-                    { data: function(data, type,  row, meta) {
-                        if (type === 'display') {
-                            calcBonus = data.TipsPerDish * 0;
-                            //parse calcBonus to 2 decimal places
-                            //calcBonus = parseFloat(calcBonus).toFixed(2);
-                            bonusTIP = parseFloat(data.TipsPerDish) +  parseFloat(calcBonus);
-                        }
-                        return bonusTIP.toFixed(2);
-                    }},
-                    { data: function(data, type,  row, meta) {
-                        if (type === 'display') {
-                            calcBonus = data.TipsPerDish * 0.22;
-                            bonusTIP = parseFloat(data.TipsPerDish) +  parseFloat(calcBonus);
-                        }
-                        return bonusTIP.toFixed(2);
-                    }},{ data: function(data, type,  row, meta) {
-                        if (type === 'display') {
-                            calcBonus = data.TipsPerDish * 0.44;
-                            bonusTIP = parseFloat(data.TipsPerDish) +  parseFloat(calcBonus);
-                        }
-                        return bonusTIP.toFixed(2);
-                    }},{ data: function(data, type,  row, meta) {
-                        if (type === 'display') {
-                            calcBonus = data.TipsPerDish * 0.66;
-                            bonusTIP = parseFloat(data.TipsPerDish) +  parseFloat(calcBonus);
-                        }
-                        return bonusTIP.toFixed(2);
-                    }},{ data: function(data, type,  row, meta) {
-                        if (type === 'display') {
-                            calcBonus = data.TipsPerDish * 0.88;
-                            bonusTIP = parseFloat(data.TipsPerDish) +  parseFloat(calcBonus);
-                        }
-                        return bonusTIP.toFixed(2);
-                    }},{ data: function(data, type,  row, meta) {
-                        if (type === 'display') {
-                            calcBonus = data.TipsPerDish * 1.10;
-                            bonusTIP = parseFloat(data.TipsPerDish) +  parseFloat(calcBonus);
-                        }
-                        return bonusTIP.toFixed(2);
-                    }},{ data: function(data, type,  row, meta) {
-                        if (type === 'display') {
-                            calcBonus = data.TipsPerDish * 1.32;
-                            bonusTIP = parseFloat(data.TipsPerDish) +  parseFloat(calcBonus);
-                        }
-                        return bonusTIP.toFixed(2);
-                    }},{ data: function(data, type,  row, meta) {
-                        if (type === 'display') {
-                            calcBonus = data.TipsPerDish * 1.54;
-                            bonusTIP = parseFloat(data.TipsPerDish) +  parseFloat(calcBonus);
-                        }
-                        return bonusTIP.toFixed(2);
-                    }},{ data: function(data, type,  row, meta) {
-                        if (type === 'display') {
-                            calcBonus = data.TipsPerDish * 1.76;
-                            bonusTIP = parseFloat(data.TipsPerDish) +  parseFloat(calcBonus);
-                        }
-                        return bonusTIP.toFixed(2);
-                    }},{ data: function(data, type,  row, meta) {
-                        if (type === 'display') {
-                            calcBonus = data.TipsPerDish * 1.98;
-                            bonusTIP = parseFloat(data.TipsPerDish) +  parseFloat(calcBonus);
-                        }
-                        return bonusTIP.toFixed(2);
-                    }},{ data: function(data, type,  row, meta) {
-                        if (type === 'display') {
-                            calcBonus = data.TipsPerDish * 2.20;
-                            bonusTIP = parseFloat(data.TipsPerDish) +  parseFloat(calcBonus);
-                        }
-                        return bonusTIP.toFixed(2);
-                    }},
-                ],
-                order: [[ 1, "asc" ]],
-                paging: false,                    
-                lengthChange: false,
-                buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
-                columnDefs: [ {
-                    "searchable": true,
-                    "orderable": true,
-                    "targets": 0
-                },{
-                    "searchable": true,
-                    "orderable": true,
-                    "targets": 1
-                },{
-                    "searchable": true,
-                    "orderable": true,
-                    "targets": 2
-                },{
-                    "searchable": true,
-                    "orderable": true,
-                    "targets": 3
-                }, {
-                    "searchable": true,
-                    "orderable": true,
-                    "targets": 4
-                },{
-                    "searchable": true,
-                    "orderable": true,
-                    "targets": 5
-                }, {
-                    "searchable": true,
-                    "orderable": true,
-                    "targets": 6
-                },{
-                    "searchable": true,
-                    "orderable": true,
-                    "targets": 7
-                }, {
-                    "searchable": true,
-                    "orderable": true,
-                    "targets": 8
-                },{
-                    "searchable": true,
-                    "orderable": true,
-                    "targets": 9
-                }  ]
-        });
-        table.buttons().container()
-            .appendTo( '#example_wrapper .col-sm-6:eq(0)' );        
-        });
+    $(document).ready(function() {
+
+        
+        
     } );
 </script>
 <style>
-    .div-details{
-        margin-top: 65px;
+    .wrapper {
+        margin-top: 70px;
+    }
+    .filterDiv {
+        margin-bottom: 20px;
+    }
+    .donate-btn{
+        margin-right: 3px;
+    }
+    .tip-img{
+        width: 100%;
+        height: 100%;
+    }
+    .btn-tipme{
+        border-color: rgb(229, 231, 235);
     }
 </style>

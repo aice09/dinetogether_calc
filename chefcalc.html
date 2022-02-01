@@ -289,6 +289,54 @@
             
        }
 
+       //calculate tip 
+         function calculateTip(i,menuCode,menunumberCookRemain) {
+                /* var tip = (amount * tipPercent) / 100;
+                return tip; */
+                var menuTIPspan = i;
+                $.ajax({
+                type: "GET",
+                url: 'https://backend-marketplace.dinetogether.io/v1/dish',
+                dataType: 'json',
+                success: function(response){
+                    var dish = response.results;
+                    /* $(".cardname"+cardCode).text(jsonCards.entity.entityValue); */
+                    //if dish is equal to menuCode then return tip
+                    for(var i = 0; i < dish.length; i++) {
+                        if(dish[i].Code == menuCode) {
+                            console.log("dish[i].Code: "+dish[i].DishPerCook);
+                            //calculate the total tip
+                            var tip = (dish[i].DishPerCook * menunumberCookRemain) * dish[i].TipsPerDish;
+
+                            $(".menuTIP"+menuTIPspan).text(tip);
+                            return tip;
+                        }
+                    }
+
+                   /*  //get the total tip of each menu
+                    var totalTip = 0;
+                    for(var i = 0; i < dish.length; i++) {
+                        if(dish[i].Code == menuCode) {
+                            menuTIP = (dish[i].DishPerCook * menunumberCookRemain) * dish[i].TipsPerDish;
+                            totalTip += menuTIP;
+                            
+                        }
+                    }
+                    var totalNumberDishes = 0;
+                            for(var i = 0; i < menuLength; i++){
+                                var menunumberCookInit = entitymenu[i].numberCookRemain;
+                                totalNumberDishes += menunumberCookInit;
+                            }
+                    $("#totalChefTIP").text(totalTip); */
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+          }
+
+
+
 
         $(document).ready(function(){
             $('#mpChefId').on('keyup', function(){
@@ -415,10 +463,52 @@
                                 menuTable += "<td>"+menuCode+"</td>";
                                 menuTable += "<td>"+menunumberCookInit+"</td>";
                                 menuTable += "<td>"+menunumberCookRemain+"</td>";
+                                menuTable += "<td><span class='menuTIP"+i+"'>"+calculateTip(i,menuCode,menunumberCookRemain)+"</td>";
                                 menuTable += "</tr>";
                             }   
-                            menuTable += "</tbody></table>";
-                            $('#yhengDataTbDishesWrapper').html(menuTable);
+                            /* menuTable += "<tr><td colspan='3' ><span id='totalNumberDishes'></span></td></tr></tbody></table>"; */
+                            menuTable += "<tr><td colspan='3' >Total TIP</td><td><span id='totalChefTIP'></span></td></tr></tbody></table>";
+
+                            var totalTip = 0;
+            for(var i = 0; i < entitymenu.length; i++) {
+                
+                var menuTIP = $("#yhengDataTbDishes .menuTIP"+i).text();
+                console.log(menuTIP);
+                totalTip = parseInt(menuTIP);
+            }
+            $("#totalChefTIP").text(totalTip);
+
+                            //get the value of each menuTIp
+                            //get the value of each span in the table
+                            /* totalChefTIP = 0;
+                            for(var i = 0; i < menuLength; i++){
+                                var menuTip = $('.menuTIP'+i).text();
+                                totalChefTIP += parseInt(menuTip);
+                                console.log(menuTip);
+                            }
+                            console.log(totalChefTIP);
+                            $('#totalChefTIP').text(totalChefTIP); */
+                            //get the total tip
+                            /* var totalTip = 0;
+                            for(var i = 0; i < menuLength; i++){
+                                var menuCode = entitymenu[i].code;
+                                var menunumberCookInit = entitymenu[i].numberCookInit;
+                                var menunumberCookRemain = entitymenu[i].numberCookRemain;
+                                var tip = calculateTip(i,menuCode,menunumberCookRemain);
+                                totalTip += tip;
+                            }
+                            console.log(totalTip);
+                            $('#totalChefTIP').text(totalTip); */
+                            //calculate the total number of dishes
+                            //calculate the total number of dishes
+                            /* var totalNumberDishes = 0;
+                            for(var i = 0; i < menuLength; i++){
+                                var menunumberCookInit = entitymenu[i].numberCookRemain;
+                                totalNumberDishes += menunumberCookInit;
+                            }
+                            console.log(totalNumberDishes); */
+                            $('#yhengDataTbDishesWrapper').html(menuTable);/* 
+                            $('#totalNumberDishes').text(totalNumberDishes); */
 
                             //////////////////////////////////////////////////////////////
                             //                  Cards Table                             //

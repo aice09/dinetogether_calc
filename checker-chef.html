@@ -171,17 +171,108 @@
             </div>          
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h1>Chef Checker</h1>
-            </div>           
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            </div>               
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 filterDiv">
+                <!--filters--> 
+                  
+                <form action="" method="POST" role="form">              
+                    <div class="form-group">
+                        <label for="">Chef ID </label>
+                        <input type="text" class="form-control" id="mpChefId" placeholder="Chef ID">
+                    </div>
+                    <div>
+                        <hr>
+                        <h4>Exchange Rate</h4>
+                    </div>
+                    <div class="form-group">
+                        <label for="">DINE to FUSD</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="DINEtoFUSD" placeholder="DINE to FUSD">
+                            <span class="input-group-addon">DINE</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">TIP to FUSD</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="TIPtoFUSD" placeholder="TIP to FUSD">
+                            <span class="input-group-addon">TIP</span>
+                        </div>
+                    </div><!-- 
+                    <div class="form-group">
+                        <label for="">FUSD to BUSD (FUSD=BUSD)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="FUSDtoBUSD" placeholder="FUSD to BUSD">
+                            <span class="input-group-addon">FUSD</span>
+                        </div>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="">BUSD to your Currency</label>
+                        <input type="text" class="form-control" id="BUSDtoCurrency" placeholder="BUSD to your Currency">
+                        <p>Note: (FUSD=BUSD)</p>
+                    </div>
+                    <!--Add button to clear filter-->
+                    <button type="button" class="btn btn-success btn-block" id="clearFilter">Clear Filter</button>
+                    <div>
+                        <hr>
+                        <h4>Total Chef TIP</h4>
+                        <!-- <p>Only available for chef in MP.<br><b>GL = MPPrice - ((ChefRemainingTIP/TIPtoFUSD)*DINEtoFUSD)</b></p> -->
+                    </div>
+                    <div>
+                        <label for="">Total Chef TIP</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="totalMPChefTIP" placeholder="Total Chef TIP" readonly >
+                            <span class="input-group-addon">TIP</span>
+                        </div>
+                    </div>
+                    <div>
+                        <hr>
+                        <h4>Gain/Loss</h4>
+                        <!-- <p>Only available for chef in MP.<br><b>GL = MPPrice - ((ChefRemainingTIP/TIPtoFUSD)*DINEtoFUSD)</b></p> -->
+                    </div>
+                    <div>
+                        <label for="">Chef TIP Profit in DINE</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="TIPProfitToDine" placeholder="Chef TIP Profit in DINE" readonly >
+                            <span class="input-group-addon">DINE</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="">Gain/Loss</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="gainloss" placeholder="Gain/Loss" readonly >
+                            <span class="input-group-addon">DINE</span>
+                        </div>
+                    </div>
+                    <div>
+                        <hr>
+                        <h4>Gain/Loss in your Currency</h4>
+                        <!-- <p>Only available for chef in MP.<br><b>GL = MPPrice - ((ChefRemainingTIP/TIPtoFUSD)*DINEtoFUSD)</b></p> -->
+                    </div>
+                    <div>
+                        <label for="">Chef TIP Profit in your currency</label>
+                        <!-- <div class="input-group"> -->
+                            <input type="text" class="form-control" id="TIPProfitToDineYourCurrency" placeholder="Chef TIP Profit in your Currency" readonly >
+                            <!-- <span class="input-group-addon">DINE</span> -->
+                        <!-- </div> -->
+                    </div>
+                    <div>
+                        <label for="">Gain/Loss</label>
+                        <!-- <div class="input-group"> -->
+                            <input type="text" class="form-control" id="gainlossYourCurrency" placeholder="Gain/Loss in Your Currency" readonly >
+                            <!-- <span class="input-group-addon">DINE</span> -->
+                        <!-- </div> -->
+                    </div>
+                    <!-- 
+                    <div>
+                        <label for="">Loss</label>
+                        <input type="text" class="form-control" id="lossDine" placeholder="Gain/Loss" readonly >
+                    </div> -->
+                </form>
+                  
+            </div>               
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
                 <form class="form-section" method="POST" id="section-form">
-                    <div class="row">         
-                        
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <label for="">Chef ID</label>
-                                <input type="text" class="form-control" id="mpChefId" placeholder="Chef ID">
-                            </div>
-                        </div>          
+                    <div class="row">      
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <h4>Basic Data</h4>
                             <table class="table table-bordered table-hover yhengDataTb">
@@ -223,14 +314,6 @@
                                         <td><span id="chefcreatedAt"></span></td>
                                     </tr>
                                     <tr>
-                                        <td>Chef Duration</td>
-                                        <td><span id="chefduration"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Chef Ending Price</td>
-                                        <td><!-- <img src="https://marketplace.dinetogether.io/_nuxt/img/token.7f605af.png" alt="" width="20px"> --><span id="chefendingPrice"></span></td>
-                                    </tr>
-                                    <tr>
                                         <td>Owner</td>
                                         <td><code id="chefowner"></code></td>
                                     </tr>
@@ -243,6 +326,15 @@
                                         <td>Status</td>
                                         <td><span id="chefstatus"></span></td>
                                     </tr>
+                                    <tr>
+                                        <td>MP Price</td>
+                                        <td><span id="chefendingPrice"></span></td>
+                                    </tr>
+                                    
+                                    <!-- <tr>
+                                        <td>TIP to Get</td>
+                                        <td><span id="chefTipAmount"></span></td>
+                                    </tr>    -->
                                 </tbody>
                             </table>
                             <br>
@@ -274,13 +366,6 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             
                         </div>
-                        
-                       
-                        <div class="col-md-12">
-                            
-                           
-                            
-                        </div>
                     </div>
                 </form>                  
             </div>                  
@@ -302,69 +387,217 @@
 <script>
     //dish urls
     var dishUrlbeefsteak = "https://marketplace.dinetogether.io/_nuxt/img/beefsteak.b9092a6.png";
-        var dishUrlbibimbap = "https://marketplace.dinetogether.io/_nuxt/img/bibimbap.e68a617.png";
-        var dishUrlburger = "https://marketplace.dinetogether.io/_nuxt/img/burger.6bb81b0.png";
-        var dishUrlcrab = "https://marketplace.dinetogether.io/_nuxt/img/crab.2f202f5.png";
-        var dishUrlchocolate = "https://marketplace.dinetogether.io/_nuxt/img/chocolate.90f50d6.png";
-        var dishUrlcocktail = "https://marketplace.dinetogether.io/_nuxt/img/cocktail.cc6e579.png";
-        var dishUrlcurry = "https://marketplace.dinetogether.io/_nuxt/img/curry.dacc962.png";
-        var dishUrlfish = "https://marketplace.dinetogether.io/_nuxt/img/fish.f0d6539.png";
-        var dishUrlhotpot = "https://marketplace.dinetogether.io/_nuxt/img/hotpot.1c46172.png";
-        var dishUrlicecream = "https://marketplace.dinetogether.io/_nuxt/img/icecream.217ceec.png";
-        var dishUrlmozzarella = "https://marketplace.dinetogether.io/_nuxt/img/mozzarella.0668f24.png";
-        var dishUrlpaella = "https://marketplace.dinetogether.io/_nuxt/img/paella.16439eb.png";
-        var dishUrlpho = "https://marketplace.dinetogether.io/_nuxt/img/pho.949ad2b.png";
-        var dishUrlpizza = "https://marketplace.dinetogether.io/_nuxt/img/pizza.372db5a.png";
-        var dishUrlramen = "https://marketplace.dinetogether.io/_nuxt/img/ramen.32b6317.png";
-        var dishUrlsalad = "https://marketplace.dinetogether.io/_nuxt/img/salad.3b5fb3b.png";
-        var dishUrlsushi = "https://marketplace.dinetogether.io/_nuxt/img/sushi.1d6a358.png";
-        var dishUrltacos = "https://marketplace.dinetogether.io/_nuxt/img/tacos.f06a3bd.png";
-        var dishUrltofu = "https://marketplace.dinetogether.io/_nuxt/img/tofu.5f675d0.png";
-        var dishUrltomyum = "https://marketplace.dinetogether.io/_nuxt/img/tomyum.1eb4791.png";
+    var dishUrlbibimbap = "https://marketplace.dinetogether.io/_nuxt/img/bibimbap.e68a617.png";
+    var dishUrlburger = "https://marketplace.dinetogether.io/_nuxt/img/burger.6bb81b0.png";
+    var dishUrlcrab = "https://marketplace.dinetogether.io/_nuxt/img/crab.2f202f5.png";
+    var dishUrlchocolate = "https://marketplace.dinetogether.io/_nuxt/img/chocolate.90f50d6.png";
+    var dishUrlcocktail = "https://marketplace.dinetogether.io/_nuxt/img/cocktail.cc6e579.png";
+    var dishUrlcurry = "https://marketplace.dinetogether.io/_nuxt/img/curry.dacc962.png";
+    var dishUrlfish = "https://marketplace.dinetogether.io/_nuxt/img/fish.f0d6539.png";
+    var dishUrlhotpot = "https://marketplace.dinetogether.io/_nuxt/img/hotpot.1c46172.png";
+    var dishUrlicecream = "https://marketplace.dinetogether.io/_nuxt/img/icecream.217ceec.png";
+    var dishUrlmozzarella = "https://marketplace.dinetogether.io/_nuxt/img/mozzarella.0668f24.png";
+    var dishUrlpaella = "https://marketplace.dinetogether.io/_nuxt/img/paella.16439eb.png";
+    var dishUrlpho = "https://marketplace.dinetogether.io/_nuxt/img/pho.949ad2b.png";
+    var dishUrlpizza = "https://marketplace.dinetogether.io/_nuxt/img/pizza.372db5a.png";
+    var dishUrlramen = "https://marketplace.dinetogether.io/_nuxt/img/ramen.32b6317.png";
+    var dishUrlsalad = "https://marketplace.dinetogether.io/_nuxt/img/salad.3b5fb3b.png";
+    var dishUrlsushi = "https://marketplace.dinetogether.io/_nuxt/img/sushi.1d6a358.png";
+    var dishUrltacos = "https://marketplace.dinetogether.io/_nuxt/img/tacos.f06a3bd.png";
+    var dishUrltofu = "https://marketplace.dinetogether.io/_nuxt/img/tofu.5f675d0.png";
+    var dishUrltomyum = "https://marketplace.dinetogether.io/_nuxt/img/tomyum.1eb4791.png";
 
-        //frame
-        var frameDineTogether = "https://marketplace.dinetogether.io/_nuxt/img/char_frame.db81d63.png";
+    //frame
+    var frameDineTogether = "https://marketplace.dinetogether.io/_nuxt/img/char_frame.db81d63.png";
 
-        //rarity color
-        var rarityColorApprentice = "rgb(196, 205, 209)";
-        var rarityColorJuniorChef = "rgb(180, 243, 178)";
-        var rarityColorHeadChef = "rgb(255, 178, 106)";
-        var rarityColorMasterChef = "rgb(250, 138, 252)";
+    //rarity color
+    var rarityColorApprentice = "rgb(196, 205, 209)";
+    var rarityColorJuniorChef = "rgb(180, 243, 178)";
+    var rarityColorHeadChef = "rgb(255, 178, 106)";
+    var rarityColorMasterChef = "rgb(250, 138, 252)";
 
-        //entity types
-        var entityTypeOne = "Chef";
-        var entityTypeTwo = "Furniture";
-        var entityTypeThree = "Land";
-        var entityTypeFour = "Cards";
+    //entity types
+    var entityTypeOne = "Chef";
+    var entityTypeTwo = "Furniture";
+    var entityTypeThree = "Land";
+    var entityTypeFour = "Cards";
 
-        //chef status
-        var chefStatusOne = "Selling";
-        var chefStatusTwo = "Using";
-        var chefStatusThree = "Storing";
+    //chef status
+    var chefStatusOne = "Selling";
+    var chefStatusTwo = "Using";
+    var chefStatusThree = "Storing";
 
-       function getCardName(cardCode) {
+    //function to get the card name
+    function getCardName(cardCode) {
+        var cardname="";
+        $.ajax({
+            type: "GET",
+            url: 'https://backend-marketplace.dinetogether.io/v1/card/'+cardCode,
+            dataType: 'json',
+            success: function(response){
+                var jsonCards = JSON.parse(JSON.stringify(response));
+                $(".cardname"+cardCode).text(jsonCards.entity.entityValue);
+            },
+            error: function(error){
+                console.log(error);
+            }
+        });            
+    }
 
-            var cardname="";
-            $.ajax({
-                type: "GET",
-                url: 'https://backend-marketplace.dinetogether.io/v1/card/'+cardCode,
-                dataType: 'json',
-                success: function(response){
-                    var jsonCards = JSON.parse(JSON.stringify(response));
-                    $(".cardname"+cardCode).text(jsonCards.entity.entityValue);
-                },
-                error: function(error){
-                    console.log(error);
+    //function to calculate the tip
+    function calculateTip(i,menuCode,menunumberCookRemain) {
+        var menuTIPspan = i;
+        var dishTIP = 0;
+        $.ajax({
+            type: "GET",
+            url: 'https://backend-marketplace.dinetogether.io/v1/dish',
+            dataType: 'json',
+            success: function(response){
+                var dish = response.results;
+                for(var i = 0; i < dish.length; i++) {                            
+                    if(dish[i].Code == menuCode) {
+                        //console.log("dish[i].Code: "+dish[i].DishPerCook);
+                        tip = (dish[i].DishPerCook * menunumberCookRemain) * dish[i].TipsPerDish;
+                        $(".menuTIP"+menuTIPspan).text(tip);
+                        //console.log("tip : "+menuCode+":"+tip);                 
+                    }                           
                 }
-            });
-            
-       }
+            },
+            error: function(error){
+                console.log(error);
+            }
+        });                
+    }
+
+    //function to calculate the gain or loss
+    function calculateGainLoss(entityctNFTId) {
+        $.ajax({
+            type: "GET",
+            url: 'https://backend-marketplace.dinetogether.io/v1/chef?ctNFTId='+entityctNFTId+'&page=1&limit=10',
+            dataType: 'json',
+            success: function(response){
+                var data = JSON.parse(JSON.stringify(response));
+                var chefstartingPrice = data.results[0].startingPrice;
+                var cheftipAmount = data.results[0].tipAmount;
+                
+                //get the tip to fusd
+                var TIPtoFUSD = $("#TIPtoFUSD").val();      
+                if (TIPtoFUSD == "" || TIPtoFUSD == null || TIPtoFUSD == undefined || TIPtoFUSD == " ") { 
+                    TIPtoFUSD = 0;
+                }                    
+                var chefTipAmountToFUSD = cheftipAmount/TIPtoFUSD;
+                var chefTipAmountToFUSDFixed = chefTipAmountToFUSD.toFixed(2);
+
+                //FUSD to DINE
+                var DINEtoFUSD = $("#DINEtoFUSD").val();
+                if (DINEtoFUSD == "" || DINEtoFUSD == null || DINEtoFUSD == undefined || DINEtoFUSD == " ") { 
+                    DINEtoFUSD = 0;
+                }  
+                var chefFUSDtoDine = DINEtoFUSD*chefTipAmountToFUSDFixed;
+                var chefFUSDtoDineFixed = chefFUSDtoDine.toFixed(2);
+
+                //display total chef tip                
+                $("#totalMPChefTIP").val(cheftipAmount);
+                //display the DINE gained from chef TIP profit
+                $("#TIPProfitToDine").val(chefFUSDtoDine);
+
+                //difference between starting price and tip
+                var gainloss = chefstartingPrice - chefFUSDtoDineFixed;
+                var gainlossFixed = gainloss.toFixed(2);
+                    
+                //if chefstartingPrice is greater than chefFUSDtoDine then it is a loss                    
+                if (chefstartingPrice > chefFUSDtoDine) {
+                    $("#gainloss").val("Loss: "+gainlossFixed);
+                } else {
+                    //if value is negative then remove the negative sign
+                    if (gainlossFixed < 0) {
+                        gainloss = gainlossFixed.replace("-","");
+                    }
+                    $("#gainloss").val("Gain: "+gainloss);
+                }     
+                
+                //calculate the profit in your currency
+                busdExchangeRate = $("#BUSDtoCurrency").val();
+                if (busdExchangeRate == "" || busdExchangeRate == null || busdExchangeRate == undefined || busdExchangeRate == " ") { 
+                    busdExchangeRate = 0;
+                }
+                var tipprofityourCurrency = (chefTipAmountToFUSDFixed * busdExchangeRate).toFixed(2);
+                $("#TIPProfitToDineYourCurrency").val(tipprofityourCurrency);
+
+                if (chefstartingPrice > chefFUSDtoDine) {
+                    var gainlossyourCurrency = ((gainlossFixed / DINEtoFUSD)*busdExchangeRate).toFixed(2);
+                    $("#gainlossYourCurrency").val("Loss: "+gainlossyourCurrency);
+                } else {
+                    if (gainlossFixed < 0) {
+                        gainloss = gainlossFixed.replace("-","");
+                    }
+                    var gainlossyourCurrency = ((gainloss / DINEtoFUSD)*busdExchangeRate).toFixed(2);
+                    $("#gainlossYourCurrency").val("Gain: "+gainlossyourCurrency);
+                }
+                
+                
+            },
+            error: function(error){
+                console.log(error);
+            }
+        });
+    }
 
     $(document).ready(function() {
-$('#mpChefId').on('keyup', function(){
+        
+        $('#DINEtoFUSD').on('keyup', function(){
+            var input = $(this).val();
+            //if value is not number alert user to enter a number
+            if (isNaN(input)) {
+                alert("Please enter a number");
+                $(this).val("");
+            } else {
+                //if this value is empty then set it to 0 and if value is not number alert user to enter a number
+                if (input == "" || input == null || input == undefined || input == " ") { 
+                    input = 0;
+                }
+                var entityctNFTId = $('#mpChefId').val();
+                calculateGainLoss(entityctNFTId);
+            }
+        });
+
+        $('#TIPtoFUSD').on('keyup', function(){
+            var input = $(this).val();
+            
+            //if value is not number alert user to enter a number
+            if (isNaN(input)) {
+                alert("Please enter a number");
+                $(this).val("");
+            } else {
+                //if this value is empty then set it to 0 and if value is not number alert user to enter a number
+                if (input == "" || input == null || input == undefined || input == " ") { 
+                    input = 0;
+                }
+                var entityctNFTId = $('#mpChefId').val();
+                calculateGainLoss(entityctNFTId);
+            }
+        });
+
+        $('#BUSDtoCurrency').on('keyup', function(){
+            var input = $(this).val();
+            //if value is not number alert user to enter a number
+            if (isNaN(input)) {
+                alert("Please enter a number");
+                $(this).val("");
+            } else {
+                //if this value is empty then set it to 0 and if value is not number alert user to enter a number
+                if (input == "" || input == null || input == undefined || input == " ") { 
+                    input = 0;
+                }
+                var entityctNFTId = $('#mpChefId').val();
+                calculateGainLoss(entityctNFTId);
+            }
+        });
+
+        $('#mpChefId').on('keyup', function(){
                 var input = $(this).val();
                 var inputLength = input.length;
-                if(inputLength >3){
+                if(inputLength >=3){
                     $('#mpChefId').removeClass('is-invalid');
                     $('#mpChefId').addClass('is-valid');
 
@@ -412,13 +645,35 @@ $('#mpChefId').on('keyup', function(){
                             //end of history
 
 
+                            //if status is selling cakculate the gain or loss
+                            if(entitystatus == "SELLING"){
+                                calculateGainLoss(entityctNFTId);
+                            } else {
+                                $("#totalMPChefTIP").val("");
+                                $("#TIPProfitToDine").val("");
+                                $("#gainloss").val("");
+                                $("#TIPProfitToDineYourCurrency").val("");
+                                $("#gainlossYourCurrency").val("");
+                            }
+
                             //////////////////////////////////////////////////////////////
                             //                  Basic Data Table                        //
                             //////////////////////////////////////////////////////////////                            
                             $('#entityrarity').text(entityrarity);
                             $('#entityctNFTId').text(entityctNFTId);
-                            $('#entityowner').text(entityowner);
-                            $('#entitystatus').text(entitystatus);
+                            //if owner is equal to 0x0000000000000000000000000000000000000000 make entity owner as No One
+                            if(entityowner == "0x0000000000000000000000000000000000000000") {
+                                $('#entityowner').text("No One");
+                            } else {
+                                $('#entityowner').text(entityowner);
+                            }
+
+                            //if owner is equal to 0x0000000000000000000000000000000000000000 make status BURNED
+                            if(entityowner == "0x0000000000000000000000000000000000000000"){
+                                $('#entitystatus').text("BURNED");
+                            }else{
+                                $('#entitystatus').text(entitystatus);
+                            }
 
                             //////////////////////////////////////////////////////////////
                             //                  Market Table*                           //
@@ -465,7 +720,6 @@ $('#mpChefId').on('keyup', function(){
 
                                 $('#chefIdHash').text(chefIdHash);
                                 $('#chefcreatedAt').text(newdatecreatedAt);
-                                $('#chefduration').text(newdatechefduration);
                                 $('#chefendingPrice').text(chefendingPrice+' DINE');
                                 $('#chefowner').text(chefowner);
                                 $('#chefupdatedAt').text(newdatechefupdatedAt);
@@ -475,21 +729,42 @@ $('#mpChefId').on('keyup', function(){
                             //                  Menu Table                              //
                             //////////////////////////////////////////////////////////////
                             var menuLength = entitymenu.length;
-                            var menuTable = "<table class='table table-bordered table-hover yhengDataTbDishes' id='yhengDataTbDishes'><thead><tr><th width='50%' >Dish Name</th><th width='25%' >Init</th><th width='25%' >Remaining</th></tr></thead><tbody>";
+                            var menuTable = "<table class='table table-bordered table-hover yhengDataTbDishes' id='yhengDataTbDishes'><thead><tr><th width='50%' >Dish Name</th><th width='15%' >Init</th><th width='15%' >Remaining</th><th width='10%' >TIP</th></tr></thead><tbody>";
                             for(var i = 0; i < menuLength; i++){
                                 var menuCode = entitymenu[i].code;
                                 var menunumberCookInit = entitymenu[i].numberCookInit;
                                 var menunumberCookRemain = entitymenu[i].numberCookRemain;
-                                
+                            
                                 menuTable += "<tr>";
                                 menuTable += "<td>"+menuCode+"</td>";
                                 menuTable += "<td>"+menunumberCookInit+"</td>";
                                 menuTable += "<td>"+menunumberCookRemain+"</td>";
+                                menuTable += "<td><span class='menuTIP"+i+"'>"+calculateTip(i,menuCode,menunumberCookRemain)+"</span></td>";
                                 menuTable += "</tr>";
                             }   
-                            menuTable += "</tbody></table>";
-                            $('#yhengDataTbDishesWrapper').html(menuTable);
-
+                            //total tip calcultion
+                            totalChefTIP   = 0;
+                            /* for(var ii = 0; ii < menuLength ; ii++){
+                                var menuCode = entitymenu[ii].code;
+                                var menunumberCookInit = entitymenu[ii].numberCookInit;
+                                var menunumberCookRemain = entitymenu[ii].numberCookRemain;
+                                totalChefTIP += calculateTip(ii,menuCode,menunumberCookRemain);                                
+                            }
+                            $('#totalChefTIP').text(totalChefTIP+' TIP'); */
+                           
+                            
+                            menuTable += "<tr><td colspan='3' >Total TIP</td><td><span id='totalChefTIP'>";
+                                menuTable += totalChefTIP;
+                                menuTable += "</span></td></tr></tbody></table>";
+                            
+                            $('#yhengDataTbDishesWrapper').html(menuTable);                            
+                           /*  totalChefTIP   = 0;
+                            //total tip is equal to the sum of all value in table column 4
+                            for(var i = 0; i < entitymenu.length; i++){
+                                    totalChefTIP += parseInt($("span.menuTIP"+i).text());
+                                
+                            }
+                            $('#totalChefTIP').text(totalChefTIP+' TIP'); */
                             //////////////////////////////////////////////////////////////
                             //                  Cards Table                             //
                             //////////////////////////////////////////////////////////////

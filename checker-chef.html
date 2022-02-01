@@ -594,6 +594,19 @@
             }
         });
 
+        //clear filter
+        $("#clearFilter").click(function(){
+            $("#DINEtoFUSD").val("");
+            $("#TIPtoFUSD").val("");
+            $("#BUSDtoCurrency").val("");
+            $("#totalMPChefTIP").val("");
+            $("#TIPProfitToDine").val("");
+            $("#gainloss").val("");
+            $("#TIPProfitToDineYourCurrency").val("");
+            $("#gainlossYourCurrency").val("");
+        });
+
+
         $('#mpChefId').on('keyup', function(){
                 var input = $(this).val();
                 var inputLength = input.length;

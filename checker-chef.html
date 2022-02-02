@@ -187,14 +187,14 @@
                     <div class="form-group">
                         <label for="">DINE to FUSD</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="DINEtoFUSD" placeholder="DINE to FUSD">
+                            <input type="text" class="form-control" id="DINEtoFUSD" placeholder="DINE to FUSD" readonly >
                             <span class="input-group-addon">DINE</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="">TIP to FUSD</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="TIPtoFUSD" placeholder="TIP to FUSD">
+                            <input type="text" class="form-control" id="TIPtoFUSD" placeholder="TIP to FUSD" readonly >
                             <span class="input-group-addon">TIP</span>
                         </div>
                     </div><!-- 
@@ -544,6 +544,41 @@
     }
 
     $(document).ready(function() {
+        //on page load get the exchange rate
+        $.ajax({
+            type: "GET",
+            url: 'factorychain/factorychain.json',
+            dataType: 'json',
+            success: function(response){
+                var data = JSON.parse(JSON.stringify(response));
+                console.log(data);
+                pairs = data.data.pairs;
+                //console.log(data.data.pairs);
+                for(var i = 0; i < pairs.length; i++) {
+                    if(pairs[i].id == "0x0ec3896dbe1d7a56f9395332359d894280b6f25c") {
+                        DINEtoFUSD = pairs[i].token0Price;
+                        DINEtoFUSDFixed = parseFloat(DINEtoFUSD).toFixed(2);
+                        $("#DINEtoFUSD").val(DINEtoFUSDFixed);
+                    } else if(pairs[i].id == "0xc56293184590c44f6438f2c705baa953785e89f7") {
+                        TIPtoFUSD = pairs[i].token0Price;
+                        TIPtoFUSDFixed = parseFloat(TIPtoFUSD).toFixed(2);
+                        $("#TIPtoFUSD").val(TIPtoFUSDFixed);
+                    } else {
+                        console.log("other")
+                    }
+                }
+                //data id is  equal to 0x0ec3896dbe1d7a56f9395332359d894280b6f25c 
+              /*   for(var i = 0; i < menuLength; i++){
+                }
+
+                 var BUSDtoCurrency = data.results[0].BUSDtoCurrency; */
+                //dine to fusd
+                /*$("#DINEtoFUSD").val(BUSDtoCurrency); */
+            },
+            error: function(error){
+                console.log(error);
+            }
+        });
         
         $('#DINEtoFUSD').on('keyup', function(){
             var input = $(this).val();

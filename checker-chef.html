@@ -457,7 +457,7 @@
                 for(var i = 0; i < dish.length; i++) {                            
                     if(dish[i].Code == menuCode) {
                         //console.log("dish[i].Code: "+dish[i].DishPerCook);
-                        tip = (dish[i].DishPerCook * menunumberCookRemain) * dish[i].TipsPerDish;
+                        tip = (dish[i].DishPerCook * menunumberCookRemain) * dish[i].TipPerDish;
                         $(".menuTIP"+menuTIPspan).text(tip);
                         //console.log("tip : "+menuCode+":"+tip);                 
                     }                           
@@ -551,7 +551,6 @@
             dataType: 'json',
             success: function(response){
                 var data = JSON.parse(JSON.stringify(response));
-                console.log(data);
                 pairs = data.data.pairs;
                 //console.log(data.data.pairs);
                 for(var i = 0; i < pairs.length; i++) {

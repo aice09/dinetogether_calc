@@ -219,12 +219,12 @@
             // response is a JSON object, previously parsed by jQuery using $.parseJSON
             console.log(response);
             //add each array to datatable
-            var data = response.results;
+            var data = response.results;    
             var table = $('#example').DataTable({
                 data: data,
                 columns: [
                     { data: 'Code' },
-                    { data: 'TipsPerDish' },
+                    { data: 'TipPerDish' },
                     { data: 'TimeCookSeconds' },
                     { data: 'DishPerCook' },
                     { data: 'TotalCookMin' },

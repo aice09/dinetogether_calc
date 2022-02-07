@@ -11,7 +11,7 @@
   
   <button type="button" class="btn btn-primary" onclick="showgraphql()" >button</button>
   <script>
-    function showgraphql1() {
+    function showgraphql() {
       const query = `
         fragment PairFields on Pair {
           id
@@ -53,22 +53,8 @@
         }
 
       `;
-/* 
-      // In this example, if you make an ajax request to the following website
-var myUrl = 'https://graphql.factorychain.io/subgraphs/name/swap/exchange/graphql';
-//  But if you make it from a browser, then it will work without problem ...
 
-// However to make it work, we are going to use the cors-anywhere free service to bypass this
-var proxy = 'https://cors-anywhere.herokuapp.com/';
-/* 
-$.ajax({
-    // The proxy url expects as first URL parameter the URL to be bypassed
-    // https://cors-anywhere.herokuapp.com/{my-url-to-bypass}
-    url: proxy + myUrl,
-    complete:function(data){
-        console.log(data);
-    }
-}); */
+      
       fetch ("https://graphql.factorychain.io/subgraphs/name/swap/exchange/graphql",{
         method: "POST",
         headers: {
@@ -87,9 +73,10 @@ $.ajax({
           console.log(data);
         });
 
-    }
+    
+  }
       
-    function showgraphql() {
+    /* function showgraphql() {
       ///fetches data from the graphql endpoint
       fetch ("https://graphql.factorychain.io/subgraphs/name/swap/exchange/graphql?variables=%7B%0A%20%20%22allPairs%22%3A%20%5B%220x0ec3896dbe1d7a56f9395332359d894280b6f25c%22%2C%220xc56293184590c44f6438f2c705baa953785e89f7%22%5D%0A%7D&operationName=pairs&query=fragment%20PairFields%20on%20Pair%20%7B%0A%20%20id%0A%20%20token0%20%7B%0A%20%20%20%20id%0A%20%20%20%20symbol%0A%20%20%20%20name%0A%20%20%20%20totalLiquidity%0A%20%20%20%20derivedBNB%0A%20%20%20%20__typename%0A%20%20%7D%0A%20%20token1%20%7B%0A%20%20%20%20id%0A%20%20%20%20symbol%0A%20%20%20%20name%0A%20%20%20%20totalLiquidity%0A%20%20%20%20derivedBNB%0A%20%20%20%20__typename%0A%20%20%7D%0A%20%20reserve0%0A%20%20reserve1%0A%20%20reserveUSD%0A%20%20totalSupply%0A%20%20trackedReserveBNB%0A%20%20reserveBNB%0A%20%20volumeUSD%0A%20%20untrackedVolumeUSD%0A%20%20token0Price%0A%20%20token1Price%0A%20%20__typename%0A%7D%0A%0Aquery%20pairs(%24allPairs%3A%20%5BBytes%5D!)%20%7B%0A%20%20pairs(first%3A%20500%2C%20where%3A%20%7Bid_in%3A%20%24allPairs%7D%2C%20orderBy%3A%20trackedReserveBNB%2C%20orderDirection%3A%20desc)%20%7B%0A%20%20%20%20%20id%0A%20%20token0%20%7B%0A%20%20%20%20id%0A%20%20%20%20symbol%0A%20%20%20%20name%0A%20%20%20%20totalLiquidity%0A%20%20%20%20derivedBNB%0A%20%20%20%20__typename%0A%20%20%7D%0A%20%20token1%20%7B%0A%20%20%20%20id%0A%20%20%20%20symbol%0A%20%20%20%20name%0A%20%20%20%20totalLiquidity%0A%20%20%20%20derivedBNB%0A%20%20%20%20__typename%0A%20%20%7D%0A%20%20reserve0%0A%20%20reserve1%0A%20%20reserveUSD%0A%20%20totalSupply%0A%20%20trackedReserveBNB%0A%20%20reserveBNB%0A%20%20volumeUSD%0A%20%20untrackedVolumeUSD%0A%20%20token0Price%0A%20%20token1Price%0A%20%20__typename%0A%20%20%7D%0A%7D%0A",{
         method: "GET",
@@ -102,7 +89,7 @@ $.ajax({
         }).then(data => {
           console.log(data);
         });
-    }
+    } */
     
   </script>
 </body>

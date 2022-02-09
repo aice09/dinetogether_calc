@@ -205,9 +205,20 @@
                             <span class="input-group-addon">FUSD</span>
                         </div>
                     </div> -->
+                    <!-- <div class="form-group">
+                        <label for="">BUSD to your Currency</label>
+                        <input type="text" class="form-control" id="BUSDtoCurrencyOld" placeholder="BUSD to your Currency">
+                        <p>Note: (FUSD=BUSD)</p>
+                    </div> -->
                     <div class="form-group">
                         <label for="">BUSD to your Currency</label>
-                        <input type="text" class="form-control" id="BUSDtoCurrency" placeholder="BUSD to your Currency">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="BUSDtoCurrency" placeholder="BUSD to your Currency">
+                            <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+                            <select id="currencySelector" class="form-control" data-live-search="true" data-width="50%"  >
+                                <option value="">Select Currency</option>
+                            </select>
+                        </div>
                         <p>Note: (FUSD=BUSD)</p>
                     </div>
                     <!--Add button to clear filter-->
@@ -544,6 +555,30 @@
     }
 
     $(document).ready(function() {
+        var currencyName="";
+        $.ajax({
+            type: "GET",
+            url: 'factorychain/coingecko.json',
+            dataType: 'json',
+            success: function(response){
+                var jsonCurrency = JSON.parse(JSON.stringify(response));
+
+                pairs = jsonCurrency.data.pairs;
+                //for each currency code in the pairs array get the name and code and display it
+                //console.log(pairs);
+                $.each(pairs, function(index, value) {
+                    currencyName = currencyName + "<option value='"+value.code+"'>"+value.name+"</option>";
+                });
+                $("#currencySelector").append(currencyName);
+                $('#currencySelector').selectpicker('render');
+
+                /* $("#currencySelector").append('<option value="'+currencyCode+'">'+jsonCurrency[currencyCode].name+'</option>'); */
+            },
+            error: function(error){
+                console.log(error);
+            }
+        });            
+
         //on page load get the exchange rate
         $.ajax({
             type: "GET",
@@ -577,6 +612,40 @@
             error: function(error){
                 console.log(error);
             }
+        });
+
+        //on currencySelector change get the exchange rate
+        $("#currencySelector").change(function() {
+            var currencyCode = $("#currencySelector").val();
+            //if value is not empty then get the exchange rate
+            if (currencyCode != "") {
+                $.ajax({
+                    type: "GET",
+                    url: 'factorychain/coingecko.json',
+                    dataType: 'json',
+                    success: function(response){
+                        var jsonCurrency = JSON.parse(JSON.stringify(response));
+                        pairs = jsonCurrency.data.pairs;
+                        //pair is equal to the currency code selected in the currency selector then get the exchange rate
+                        for(var i = 0; i < pairs.length; i++) {
+                            if(pairs[i].code == currencyCode) {
+                                busdExchangeRate = pairs[i].busdPrice;
+                                busdExchangeRateFixed = parseFloat(busdExchangeRate).toFixed(2);
+                                $("#BUSDtoCurrency").val(busdExchangeRateFixed);
+                                //execute the function to calculate the profit
+                                TIPtoFUSD = $("#mpChefId").val(); 
+                                calculateGainLoss(TIPtoFUSD);
+                            }
+                        }
+                    },
+                    error: function(error){
+                        console.log(error);
+                    }
+                });
+            } else {
+                $("#BUSDtoCurrency").val("");
+            }
+            
         });
         
         $('#DINEtoFUSD').on('keyup', function(){

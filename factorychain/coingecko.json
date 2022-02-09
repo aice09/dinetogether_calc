@@ -1,0 +1,283 @@
+{
+    "data": {
+      "updated_at": "1644421758",
+      "pairs": [
+        {
+          "code": "USD",
+          "name": "US Dollar",
+          "busdPrice": "0.999628",
+          "suggested": "1"
+        },
+        {
+          "code": "EUR",
+          "name": "Euro",
+          "busdPrice": "0.873667",
+          "suggested": "1"
+        },
+        {
+          "code": "RUB",
+          "name": "Russian Ruble",
+          "busdPrice": "74.7",
+          "suggested": "1"
+        },
+        {
+          "code": "IDR",
+          "name": "Indonesian Rupiah",
+          "busdPrice": "14330.21",
+          "suggested": "1"
+        },
+        {
+          "code": "KRW",
+          "name": "South Korean Won",
+          "busdPrice": "1193.35",
+          "suggested": "1"
+        },
+        {
+          "code": "CNY",
+          "name": "Chinese Yuan",
+          "busdPrice": "6.36",
+          "suggested": "1"
+        },
+        {
+          "code": "TWD",
+          "name": "Taiwan Dollar",
+          "busdPrice": "27.79",
+          "suggested": "1"
+        },
+        {
+          "code": "JPY",
+          "name": "Japanese Yen",
+          "busdPrice": "115.4",
+          "suggested": "1"
+        },
+        {
+          "code": "AED",
+          "name": "United Arab Emirates Dirham",
+          "busdPrice": "3.67",
+          "suggested": "0"
+        },
+        {
+          "code": "ARS",
+          "name": "Argentine Peso",
+          "busdPrice": "105.76",
+          "suggested": "0"
+        },
+        {
+          "code": "AUD",
+          "name": "Australian Dollar",
+          "busdPrice": "1.39",
+          "suggested": "0"
+        },
+        {
+          "code": "BDT",
+          "name": "Bangladeshi Taka",
+          "busdPrice": "85.967069",
+          "suggested": "0"
+        },
+        {
+          "code": "BHD",
+          "name": "Bahraini Dinar",
+          "busdPrice": "0.37687158",
+          "suggested": "0"
+        },
+        {
+          "code": "BMD",
+          "name": "Bermudian Dollar",
+          "busdPrice": "0.99962758",
+          "suggested": "0"
+        },
+        {
+          "code": "BRL",
+          "name": "Brazilian Real",
+          "busdPrice": "5.26",
+          "suggested": "0"
+        },
+        {
+          "code": "CAD",
+          "name": "Canadian Dollar",
+          "busdPrice": "1.27",
+          "suggested": "0"
+        },
+        {
+          "code": "CHF",
+          "name": "Swiss Franc",
+          "busdPrice": "0.922884",
+          "suggested": "0"
+        },
+        {
+          "code": "CLP",
+          "name": "Chilean Peso",
+          "busdPrice": "827.27",
+          "suggested": "0"
+        },
+        {
+          "code": "CZK",
+          "name": "Czech Koruna",
+          "busdPrice": "21.21",
+          "suggested": "0"
+        },
+        {
+          "code": "DKK",
+          "name": "Danish Krone",
+          "busdPrice": "6.5",
+          "suggested": "0"
+        },
+        {
+          "code": "GBP",
+          "name": "British Pound",
+          "busdPrice": "0.73594",
+          "suggested": "0"
+        },
+        {
+          "code": "HKD",
+          "name": "Hong Kong Dollar",
+          "busdPrice": "7.79",
+          "suggested": "0"
+        },
+        {
+          "code": "HUF",
+          "name": "Hungarian Forint",
+          "busdPrice": "308.66",
+          "suggested": "0"
+        },
+        {
+          "code": "ILS",
+          "name": "Israeli New Sheqel",
+          "busdPrice": "3.21",
+          "suggested": "0"
+        },
+        {
+          "code": "INR",
+          "name": "Indian Rupee",
+          "busdPrice": "74.75",
+          "suggested": "0"
+        },
+        {
+          "code": "KWD",
+          "name": "Kuwaiti Dinar",
+          "busdPrice": "0.302095",
+          "suggested": "0"
+        },
+        {
+          "code": "LKR",
+          "name": "Sri Lankan Rupee",
+          "busdPrice": "201.99",
+          "suggested": "0"
+        },
+        {
+          "code": "MMK",
+          "name": "Myanmar Kyat",
+          "busdPrice": "1777.9232",
+          "suggested": "0"
+        },
+        {
+          "code": "MXN",
+          "name": "Mexican Peso",
+          "busdPrice": "20.51",
+          "suggested": "0"
+        },
+        {
+          "code": "MYR",
+          "name": "Malaysian Ringgit",
+          "busdPrice": "4.18",
+          "suggested": "0"
+        },
+        {
+          "code": "NGN",
+          "name": "Nigerian Naira",
+          "busdPrice": "415.71513",
+          "suggested": "0"
+        },
+        {
+          "code": "NOK",
+          "name": "Norwegian Krone",
+          "busdPrice": "8.78",
+          "suggested": "0"
+        },
+        {
+          "code": "NZD",
+          "name": "New Zealand Dollar",
+          "busdPrice": "1.5",
+          "suggested": "0"
+        },
+        {
+          "code": "PHP",
+          "name": "Philippine Peso",
+          "busdPrice": "51.22",
+          "suggested": "0"
+        },
+        {
+          "code": "PKR",
+          "name": "Pakistani Rupee",
+          "busdPrice": "174.33",
+          "suggested": "0"
+        },
+        {
+          "code": "PLN",
+          "name": "Polish Zloty",
+          "busdPrice": "3.94",
+          "suggested": "0"
+        },
+        {
+          "code": "SAR",
+          "name": "Saudi Riyal",
+          "busdPrice": "3.75",
+          "suggested": "0"
+        },
+        {
+          "code": "SEK",
+          "name": "Swedish Krona",
+          "busdPrice": "9.1",
+          "suggested": "0"
+        },
+        {
+          "code": "SGD",
+          "name": "Singapore Dollar",
+          "busdPrice": "1.34",
+          "suggested": "0"
+        },
+        {
+          "code": "THB",
+          "name": "Thai Baht",
+          "busdPrice": "32.71",
+          "suggested": "0"
+        },
+        {
+          "code": "TRY",
+          "name": "Turkish Lira",
+          "busdPrice": "13.59",
+          "suggested": "0"
+        },
+        {
+          "code": "UAH",
+          "name": "Ukrainian Hryvnia",
+          "busdPrice": "27.967013",
+          "suggested": "0"
+        },
+        {
+          "code": "VEF",
+          "name": "Venezuelan Bolivar",
+          "busdPrice": "0.1000927",
+          "suggested": "0"
+        },
+        {
+          "code": "VND",
+          "name": "Vietnamese Dong",
+          "busdPrice": "22682.727",
+          "suggested": "0"
+        },
+        {
+          "code": "ZAR",
+          "name": "South African Rand",
+          "busdPrice": "15.29",
+          "suggested": "0"
+        },
+        {
+          "code": "XDR",
+          "name": "Special Drawing Rights",
+          "busdPrice": "0.711701",
+          "suggested": "0"
+        }
+      ]
+    }
+  }

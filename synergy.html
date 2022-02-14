@@ -93,7 +93,7 @@
                     <a  href="index.html">Home</a>
                   </li>
                   <li>
-                      <a  href="beauty.html">Synergy</a>
+                      <a  href="synergy.html">Synergy</a>
                   </li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Checker <span class="caret"></span></a>
@@ -182,13 +182,44 @@
                     <!--Clear Cart-->
                     <button type="button" class="btn btn-danger btn-block" id="furni_clear" >Clear Cart</button>
                     <hr>
+                    <h4>Synergy</h4>   
+                    <!--select-->
+                    <div class="form-group">
+                        <label for="">Your Homeland </label>
+                        <select class="form-control" id="myHomeland">
+                            <option value="">Select Homeland</option>
+                            <option value="Asgard">Asgard</option>
+                            <option value="Camelot">Camelot</option>
+                            <option value="ElDorado">ElDorado</option>
+                            <option value="Olympus">Olympus</option>
+                            <option value="ShangriLa">ShangriLa</option>
+                        </select>
+                    </div>                    
                     <div class="form-group">
                         <label for="">No. Furniture </label>
                         <input type="text" class="form-control" id="furniCount" placeholder="Number of Furniture" readonly="readonly" >
                     </div>
                     <div class="form-group">
-                        <label for="">Total Beauty </label>
+                        <label for="">Selected Homeland Beauty </label>
+                        <input type="text" class="form-control" id="homelandTotalbeauty" placeholder="Selected Homeland Beauty" readonly="readonly" >
+                    </div>
+                    <table class="table table-bordered table-hover" id="synergy_table">
+                        <thead>
+                            <tr>
+                                <th>Bonus</th>
+                                <th>New Beauty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="form-group">
+                        <label for="">Total Item Beauty </label>
                         <input type="text" class="form-control" id="furniTotalbeauty" placeholder="Total Beauty" readonly="readonly" >
+                    </div>
+                    <div class="form-group">
+                        <label for="">Total Item MP Price </label>
+                        <input type="text" class="form-control" id="furniTotalMPPrice" placeholder="Total MP Price" readonly="readonly" >
                     </div>
                     <hr>
                     <!--Display Homeland Quantity In Table-->
@@ -204,6 +235,21 @@
                         </tbody>
                     </table>
 
+                    
+                    <hr>
+                    <!--Display Homeland Quantity In Table-->
+                    <h4>Category</h4>                    
+                    <table class="table table-bordered table-hover" id="category_table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
                     <hr>
                     <!--Display Rarity Quantity In Table-->
                     <h4>Rarity</h4>                    
@@ -211,6 +257,21 @@
                         <thead>
                             <tr>
                                 <th>Rarity</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    
+                    
+                    <hr>
+                    <!--Display Rarity Quantity In Table-->
+                    <h4>Status</h4>                    
+                    <table class="table table-bordered table-hover" id="status_table">
+                        <thead>
+                            <tr>
+                                <th>Status</th>
                                 <th>Quantity</th>
                             </tr>
                         </thead>
@@ -277,47 +338,6 @@
 </body> 
 </html>
 <script>
-
-    //dataTable
-    /* $(document).ready(function() {
-
-        
-       
-		$('#furni_add').click(function(){
-            mpFurniId = $('#mpFurniId').val();
-
-            $.ajax({
-                type: "GET",
-                url: 'https://backend-marketplace.dinetogether.io/v1/furniture/'+mpFurniId,
-                dataType: 'json',
-
-                success: function(response){
-                    var ctNFTId = response.entity.ctNFTId;
-                    var faction = response.entity.faction;
-                    var category = response.entity.category;
-                    var rarity = response.entity.rarity;
-                    var beauty = response.entity.beauty;
-                    var durationInit = response.entity.duration.numberInit;
-                    var durationRemain = response.entity.duration.numberRemain;
-                    var status = response.entity.status;
-                    var mpPrice = response.startingPrice;
-
-
-                },
-                error: function(response){
-                    console.log(response);
-                }
-            });
-
-		});
-
-
-		$(document).on('click', '.skillremove', function(){
-		  	var delete_row = $(this).data("row");
-		  	$('#' + delete_row).remove();
-		});
-    }); */
-
     var shoppingCart = function () {
         var obj = {}, items = [];
 
@@ -356,6 +376,17 @@
             return total;
         };
 
+        //calculate total price of item having status = SELLING
+        obj.CalculateTotalMPPrice = function () {
+            var total = 0;
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].status === "SELLING") {
+                    total = total + items[i].mpPrice;
+                }
+            }
+            return total;
+        };
+
         //Count the number of items in the cart
         obj.Count = function () {
             return items.length;
@@ -366,22 +397,21 @@
             items = [];
         };
 
-        //count the number of items in the cart separated by faction
-
-        /* obj.CountByFaction = function (faction) {
+        //count the number of items in the cart having the same faction
+        obj.CountByFaction = function (faction) {
             var count = 0;
             for (var i = 0; i < items.length; i++) {
                 if (items[i].faction === faction)
                     count++;
             }
             return count;
-        }; */
+        };
 
-        //count the number of items in the cart having the same faction
-        obj.CountByFaction = function (faction) {
+        //count the number of items in the cart separated by category
+        obj.CountByCategory = function (category) {
             var count = 0;
             for (var i = 0; i < items.length; i++) {
-                if (items[i].faction === faction)
+                if (items[i].category === category)
                     count++;
             }
             return count;
@@ -397,6 +427,32 @@
             return count;
         };
 
+        //count the number of items in the cart separated by status
+        obj.CountByStatus = function (status) {
+            var count = 0;
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].status === status)
+                    count++;
+            }
+            return count;
+        };
+
+        //get the total beauty and quantity of the specific faction
+        obj.GetTotalBeautyByFaction = function (faction) {
+            var totalBeauty = 0;
+            var totalQuantity = 0;
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].faction === faction) {
+                    totalBeauty = totalBeauty + items[i].beauty;
+                    totalQuantity = totalQuantity + items[i].quantity;
+                }
+            }
+            return {
+                totalBeauty: totalBeauty,
+                totalQuantity: totalQuantity
+            };
+        };
+        
         //remove item from cart
         obj.RemoveItem = function (ctNFTId) {
             for (var i = 0; i < items.length; i++) {
@@ -408,13 +464,16 @@
         };
 
         //check if item is in the cart
-        obj.Contains = function (ctNFTId) {
-            //check if the cart contains the item entered else return false
+        obj.IsInCart = function (ctNFTId) {
+            var isInCart = false;
             for (var i = 0; i < items.length; i++) {
-                if (items[i].ctNFTId === ctNFTId)
-                    return true;
+                if (items[i].ctNFTId === ctNFTId) {
+                    isInCart = true;
+                    break;
+                }
             }
-            return false;
+            return isInCart;
+            
         };
 
         return obj;
@@ -424,13 +483,9 @@
 
     $('#furni_add').click(function(){
             mpFurniId = $('#mpFurniId').val();
-            //check if furniture is already in the cart
-            if(cart.Contains(mpFurniId)){
-                alert('Furniture already in the cart');
-                return;
-            }
-            console.log(cart.Contains(mpFurniId))
 
+            //display the contains
+            //console.log(cart.IsInCart(mpFurniId));
 
             $.ajax({
                 type: "GET",
@@ -453,21 +508,23 @@
                         mpPrice = 'NFS';
                         cart.AddItem(ctNFTId, faction, category, rarity, beauty, durationInit, durationRemain, status, mpPrice);
                         var cartItems = cart.GetAllItems();
-                        console.log(cartItems);
+                        //console.log(cartItems);
                     } else {
                         mpPrice = response.startingPrice;
                         cart.AddItem(ctNFTId, faction, category, rarity, beauty, durationInit, durationRemain, status, mpPrice);
                         var cartItems = cart.GetAllItems();
-                        console.log(cartItems);
+                        //console.log(cartItems);
                     }
 
-                    
-                   
                     displayCart();
+                    displaySynergy();
+                    displayTotalMPPrice();
                     displayTotalBeauty();
                     displayCountItem();
                     displayFactions();
+                    displayCategory();
                     displayRarity();
+                    displayStatus();
                 },
                 error: function(response){
                     console.log(response);
@@ -493,6 +550,83 @@
             displayTotalBeauty();
             displayCountItem();
         });
+
+        //onchange myHomeland
+        $('#myHomeland').change(function(){
+            
+            displaySynergy();
+
+        });
+
+        //function to calculate synergy and display selected homeland beauty
+        function displaySynergy() {
+            var myHomeland = $('#myHomeland').val();
+            var myHomelandValue = cart.GetTotalBeautyByFaction(myHomeland);
+            var obj = {}, factions = [];
+            //if myHomelandValue.totalQuantity is beauty >= 5 && beauty < 10 multiply myHomelandValue.totalQuantity by 2.5 else if beauty >= 10 && beauty < 15 multiply by 5 percent else if beauty >= 15 && beauty < 20 multiply by 7.5 percent else if beauty >= 20 multiply by 10 percent else nothing happens
+            if(myHomelandValue.totalQuantity >= 5 && myHomelandValue.totalQuantity < 10){
+                obj['bonusBeauty'] = myHomelandValue.totalBeauty * 0.025;
+                obj['synergizeBeauty'] = myHomelandValue.totalBeauty + obj['bonusBeauty'];
+                factions.push(obj);
+            } else if(myHomelandValue.totalQuantity >= 10 && myHomelandValue.totalQuantity < 15){
+                obj['bonusBeauty'] = myHomelandValue.totalBeauty * 0.05;
+                obj['synergizeBeauty'] = myHomelandValue.totalBeauty + obj['bonusBeauty'];
+                factions.push(obj);
+            } else if(myHomelandValue.totalQuantity >= 15 && myHomelandValue.totalQuantity < 20){
+                obj['bonusBeauty'] = myHomelandValue.totalBeauty * 0.075;
+                obj['synergizeBeauty'] = myHomelandValue.totalBeauty + obj['bonusBeauty'];
+                factions.push(obj);
+            } else if(myHomelandValue.totalQuantity >= 20){
+                obj['bonusBeauty'] = myHomelandValue.totalBeauty * 0.10;
+                obj['synergizeBeauty'] = myHomelandValue.totalBeauty + obj['bonusBeauty'];
+                factions.push(obj);
+            } else {
+                obj['bonusBeauty'] = 0;
+                obj['synergizeBeauty'] = myHomelandValue.totalBeauty;
+                factions.push(obj);
+            }
+
+            //add totalBeauty to homelandTotalbeauty
+            $('#homelandTotalbeauty').val(myHomelandValue.totalBeauty);
+
+            //create data for datatable including the totalQuantity, totalBeauty, bonusBeauty, synergizeBeauty
+            var data = [];
+            for(var i = 0; i < factions.length; i++){
+                data.push({
+                    'faction': factions[i].faction,
+                    'totalQuantity': myHomelandValue.totalQuantity,
+                    'totalBeauty': myHomelandValue.totalBeauty,
+                    'bonusBeauty': factions[i].bonusBeauty,
+                    'synergizeBeauty': factions[i].synergizeBeauty
+                });
+            }
+
+            //console.log(data);
+
+            //create datatable
+            $('#synergy_table').DataTable({
+                data: data,
+                lengthChange: false,
+                searching: false,
+                paging: false,
+                bInfo: false,
+                destroy : true, 
+                columns: [
+                    { data: 'bonusBeauty' },
+                    { data: 'synergizeBeauty' }
+                ]
+            });
+        }
+
+        //function to display faction selected beauty
+        /* function displaySynergy(){
+            var myHomeland = $('#myHomeland').val();
+
+            var totalBeauty = cart.GetTotalBeautyByFaction(myHomeland);
+            console.log(totalBeauty);
+            //$('#faction_beauty').text(totalBeauty);
+        } */
+
 
         //display each faction in table
         //for each faction, display the quantity in the table
@@ -522,6 +656,38 @@
                 destroy : true, 
                 columns: [
                     { data: 'faction' },
+                    { data: 'quantity' }
+                ]
+            });
+        }
+
+        //for each category, display the quantity in the table
+        function displayCategory(){
+            var cartItems = cart.GetAllItems();
+            var obj = {}, category = [];
+            for (var i = 0; i < cartItems.length; i++) {
+                if (obj[cartItems[i].category] === undefined) {
+                    obj[cartItems[i].category] = 1;
+                } else {
+                    obj[cartItems[i].category]++;
+                }
+            }
+            for (var key in obj) {
+                category.push({
+                    category: key,
+                    quantity: obj[key]
+                });
+            }
+            //dispaly in data table
+            $('#category_table').DataTable({
+                data: category,
+                lengthChange: false,
+                searching: false,
+                paging: false,
+                bInfo: false,
+                destroy : true, 
+                columns: [
+                    { data: 'category' },
                     { data: 'quantity' }
                 ]
             });
@@ -559,8 +725,37 @@
             });
         }
 
-
-
+        //for each status, display the quantity in the table
+        function displayStatus(){
+            var cartItems = cart.GetAllItems();
+            var obj = {}, status = [];
+            for (var i = 0; i < cartItems.length; i++) {
+                if (obj[cartItems[i].status] === undefined) {
+                    obj[cartItems[i].status] = 1;
+                } else {
+                    obj[cartItems[i].status]++;
+                }
+            }
+            for (var key in obj) {
+                status.push({
+                    status: key,
+                    quantity: obj[key]
+                });
+            }
+            //dispaly in data table
+            $('#status_table').DataTable({
+                data: status,
+                lengthChange: false,
+                searching: false,
+                paging: false,
+                bInfo: false,
+                destroy : true, 
+                columns: [
+                    { data: 'status' },
+                    { data: 'quantity' }
+                ]
+            });
+        }
 
 
     
@@ -570,6 +765,7 @@
         var table = $('#furni_table').DataTable({
             data: cartItems,
             destroy : true, 
+            paging: false,
             columns: [
                 { data: 'ctNFTId' },
                 { data: 'faction' },
@@ -594,6 +790,12 @@
         });
     }
 
+    //function to display total MP price
+    function displayTotalMPPrice(){
+        var totalMPPrice = cart.CalculateTotalMPPrice();
+        $('#furniTotalMPPrice').val(totalMPPrice);
+    }
+
     //function display total beauty
     function displayTotalBeauty() {
        // var cartItems = cart.GetAllItems();
@@ -610,8 +812,11 @@
 
     //display cart onpage load
     displayCart();
-                    displayFactions();
-                    displayRarity();
+    displaySynergy();
+    displayFactions();
+    displayCategory();
+    displayRarity();
+    displayStatus();
     
 </script>
 <style>

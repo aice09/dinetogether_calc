@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--button onclick function-->
+  
+  <button type="button" class="btn btn-primary" onclick="showgraphql()" >button</button>
+  <script>
+    function showgraphql() {
+      const query = `
+      query GetAxieBriefList($auctionType: AuctionType, $criteria: AxieSearchCriteria, $from: Int, $sort: SortBy, $size: Int, $owner: String, $filterStuckAuctions: Boolean) {
+            axies(
+                auctionType: $auctionType
+                criteria: $criteria
+                from: $from
+                sort: $sort
+                size: $size
+                owner: $owner
+                filterStuckAuctions: $filterStuckAuctions
+            ) {
+                total
+                results {
+                ...AxieBrief
+                __typename
+                }
+                __typename
+            }
+            }
+
+            fragment AxieBrief on Axie {
+            id
+            name
+            stage
+            class
+            breedCount
+            image
+            title
+            battleInfo {
+                banned
+                __typename
+            }
+            auction {
+                currentPrice
+                currentPriceUSD
+                __typename
+            }
+            parts {
+                id
+                name
+                class
+                type
+                specialGenes
+                __typename
+            }
+            __typename
+            }
+
+
+      `;
+      
+      //heroku cors
+      const url = 'https://info.factorychain.io/';
+      fetch ("https://graphql-gateway.axieinfinity.com/graphql",{
+        //method post and get
+        method: "POST",
+        //headers
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"/*, 
+          "Access-Control-Allow-Origin": "https://info.factorychain.io", 
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With,Content-Type,Accept"*/
+        },
+        body: JSON.stringify({
+          query,
+          variables: {
+            
+                    "from": 0,
+                    "size": 24,
+                    "sort": "PriceAsc",
+                    "auctionType": "Sale",
+                    "owner": null,
+                    "criteria": {
+                        "region": null,
+                        "parts": [
+                        "back-snail-shell"
+                        ],
+                        "bodyShapes": null,
+                        "classes": null,
+                        "stages": null,
+                        "numMystic": null,
+                        "pureness": null,
+                        "title": null,
+                        "breedable": null,
+                        "breedCount": [
+                        0,
+                        0
+                        ],
+                        "hp": [],
+                        "skill": [],
+                        "speed": [],
+                        "morale": [],
+                        "purity": [],
+                        "numJapan": null,
+                        "numXmas": null
+                    },
+                    "filterStuckAuctions": false
+                    
+          }
+        })
+      }).then(response => {
+          response.json();
+        }).then(data => {
+          console.log(data);
+        });
+
+    }
+      
+    /* function testone() {
+      //get data from graphql via fetch
+      fetch("https://graphql.factorychain.io/subgraphs/name/swap/exchange/graphql?operationName=pairs&query=%23%20Welcome%20to%20GraphiQL%0A%23%0A%23%20GraphiQL%20is%20an%20in-browser%20tool%20for%20writing%2C%20validating%2C%20and%0A%23%20testing%20GraphQL%20queries.%0A%23%0A%23%20Type%20queries%20into%20this%20side%20of%20the%20screen%2C%20and%20you%20will%20see%20intelligent%0A%23%20typeaheads%20aware%20of%20the%20current%20GraphQL%20type%20schema%20and%20live%20syntax%20and%0A%23%20validation%20errors%20highlighted%20within%20the%20text.%0A%23%0A%23%20GraphQL%20queries%20typically%20start%20with%20a%20%22%7B%22%20character.%20Lines%20that%20starts%0A%23%20with%20a%20%23%20are%20ignored.%0A%23%0A%23%20An%20example%20GraphQL%20query%20might%20look%20like%3A%0A%23%0A%23%20%20%20%20%20%7B%0A%23%20%20%20%20%20%20%20field(arg%3A%20%22value%22)%20%7B%0A%23%20%20%20%20%20%20%20%20%20subField%0A%23%20%20%20%20%20%20%20%7D%0A%23%20%20%20%20%20%7D%0A%23%0A%23%20Keyboard%20shortcuts%3A%0A%23%0A%23%20%20Prettify%20Query%3A%20%20Shift-Ctrl-P%20(or%20press%20the%20prettify%20button%20above)%0A%23%0A%23%20%20%20%20%20%20%20Run%20Query%3A%20%20Ctrl-Enter%20(or%20press%20the%20play%20button%20above)%0A%23%0A%23%20%20%20Auto%20Complete%3A%20%20Ctrl-Space%20(or%20just%20start%20typing)%0A%23%0A%0Afragment%20PairFields%20on%20Pair%20%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20token0%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20%20%20symbol%0A%20%20%20%20%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20%20%20%20%20totalLiquidity%0A%20%20%20%20%20%20%20%20%20%20%20%20derivedBNB%0A%20%20%20%20%20%20%20%20%20%20%20%20__typename%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20token1%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20%20%20symbol%0A%20%20%20%20%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20%20%20%20%20totalLiquidity%0A%20%20%20%20%20%20%20%20%20%20%20%20derivedBNB%0A%20%20%20%20%20%20%20%20%20%20%20%20__typename%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20reserve0%0A%20%20%20%20%20%20%20%20%20%20reserve1%0A%20%20%20%20%20%20%20%20%20%20reserveUSD%0A%20%20%20%20%20%20%20%20%20%20totalSupply%0A%20%20%20%20%20%20%20%20%20%20trackedReserveBNB%0A%20%20%20%20%20%20%20%20%20%20reserveBNB%0A%20%20%20%20%20%20%20%20%20%20volumeUSD%0A%20%20%20%20%20%20%20%20%20%20untrackedVolumeUSD%0A%20%20%20%20%20%20%20%20%20%20token0Price%0A%20%20%20%20%20%20%20%20%20%20token1Price%0A%20%20%20%20%20%20%20%20%20%20__typename%0A%20%20%20%20%20%20%20%20%7D%0A%0A%0A%20%20%20%20%20%20%20%20query%20pairs(%24allPairs%3A%20%5BBytes!%5D)%20%7B%0A%20%20%20%20%20%20%20%20%20%20pairs(first%3A%20500%2C%20where%3A%20%7Bid_in%3A%20%24allPairs%7D%2C%20orderBy%3A%20trackedReserveBNB%2C%20orderDirection%3A%20desc)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20...PairFields%0A%20%20%20%20%20%20%20%20%20%20%20%20__typename%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D&variables=%7B%0A%20%20%22allPairs%22%3A%20%5B%220x0ec3896dbe1d7a56f9395332359d894280b6f25c%22%2C%220xc56293184590c44f6438f2c705baa953785e89f7%22%5D%0A%7D",{
+        //method post and get
+        method: "GET",
+        //headers
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        }}).then(response => {
+          response.json();
+        }).then(data => {
+          console.log(data);
+        });
+    } */
+  </script>
+</body>
+</html>

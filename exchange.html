@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--button onclick function-->
+  
+  <button type="button" class="btn btn-primary" onclick="showgraphql()" >button</button>
+  <script>
+    function showgraphql() {
+      const query = `
+        fragment PairFields on Pair {
+          id
+          token0 {
+            id
+            symbol
+            name
+            totalLiquidity
+            derivedBNB
+            __typename
+          }
+          token1 {
+            id
+            symbol
+            name
+            totalLiquidity
+            derivedBNB
+            __typename
+          }
+          reserve0
+          reserve1
+          reserveUSD
+          totalSupply
+          trackedReserveBNB
+          reserveBNB
+          volumeUSD
+          untrackedVolumeUSD
+          token0Price
+          token1Price
+          __typename
+        }
+
+
+        query pairs($allPairs: [Bytes!]) {
+          pairs(first: 500, where: {id_in: $allPairs}, orderBy: trackedReserveBNB, orderDirection: desc) {
+            ...PairFields
+            __typename
+          }
+        }
+
+      `;
+
+      
+      fetch ("https://graphql.factorychain.io/subgraphs/name/swap/exchange/graphql",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          query,
+          variables: {
+            allPairs: ["0x0ec3896dbe1d7a56f9395332359d894280b6f25c","0xc56293184590c44f6438f2c705baa953785e89f7"]
+          }
+        })
+      }).then(response => {
+          response.json();
+        }).then(data => {
+          console.log(data);
+        });
+
+    
+  }
+      
+    /* function showgraphql() {
+      ///fetches data from the graphql endpoint
+      fetch ("https://graphql.factorychain.io/subgraphs/name/swap/exchange/graphql?variables=%7B%0A%20%20%22allPairs%22%3A%20%5B%220x0ec3896dbe1d7a56f9395332359d894280b6f25c%22%2C%220xc56293184590c44f6438f2c705baa953785e89f7%22%5D%0A%7D&operationName=pairs&query=fragment%20PairFields%20on%20Pair%20%7B%0A%20%20id%0A%20%20token0%20%7B%0A%20%20%20%20id%0A%20%20%20%20symbol%0A%20%20%20%20name%0A%20%20%20%20totalLiquidity%0A%20%20%20%20derivedBNB%0A%20%20%20%20__typename%0A%20%20%7D%0A%20%20token1%20%7B%0A%20%20%20%20id%0A%20%20%20%20symbol%0A%20%20%20%20name%0A%20%20%20%20totalLiquidity%0A%20%20%20%20derivedBNB%0A%20%20%20%20__typename%0A%20%20%7D%0A%20%20reserve0%0A%20%20reserve1%0A%20%20reserveUSD%0A%20%20totalSupply%0A%20%20trackedReserveBNB%0A%20%20reserveBNB%0A%20%20volumeUSD%0A%20%20untrackedVolumeUSD%0A%20%20token0Price%0A%20%20token1Price%0A%20%20__typename%0A%7D%0A%0Aquery%20pairs(%24allPairs%3A%20%5BBytes%5D!)%20%7B%0A%20%20pairs(first%3A%20500%2C%20where%3A%20%7Bid_in%3A%20%24allPairs%7D%2C%20orderBy%3A%20trackedReserveBNB%2C%20orderDirection%3A%20desc)%20%7B%0A%20%20%20%20%20id%0A%20%20token0%20%7B%0A%20%20%20%20id%0A%20%20%20%20symbol%0A%20%20%20%20name%0A%20%20%20%20totalLiquidity%0A%20%20%20%20derivedBNB%0A%20%20%20%20__typename%0A%20%20%7D%0A%20%20token1%20%7B%0A%20%20%20%20id%0A%20%20%20%20symbol%0A%20%20%20%20name%0A%20%20%20%20totalLiquidity%0A%20%20%20%20derivedBNB%0A%20%20%20%20__typename%0A%20%20%7D%0A%20%20reserve0%0A%20%20reserve1%0A%20%20reserveUSD%0A%20%20totalSupply%0A%20%20trackedReserveBNB%0A%20%20reserveBNB%0A%20%20volumeUSD%0A%20%20untrackedVolumeUSD%0A%20%20token0Price%0A%20%20token1Price%0A%20%20__typename%0A%20%20%7D%0A%7D%0A",{
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        }
+      }).then(response => {
+          response.json();
+        }).then(data => {
+          console.log(data);
+        });
+    } */
+    
+  </script>
+</body>
+</html>

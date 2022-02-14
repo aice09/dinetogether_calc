@@ -196,8 +196,8 @@
                         </select>
                     </div>                    
                     <div class="form-group">
-                        <label for="">No. Furniture </label>
-                        <input type="text" class="form-control" id="furniCount" placeholder="Number of Furniture" readonly="readonly" >
+                        <label for="">Selected Homeland  No. Furniture </label>
+                        <input type="text" class="form-control" id="homelandTotalFurni" placeholder="Selected Homeland No. of Furniture" readonly="readonly" >
                     </div>
                     <div class="form-group">
                         <label for="">Selected Homeland Beauty </label>
@@ -212,7 +212,11 @@
                         </thead>
                         <tbody>
                         </tbody>
-                    </table>
+                    </table>                 
+                    <div class="form-group">
+                        <label for="">Total Item No. Furniture </label>
+                        <input type="text" class="form-control" id="furniCount" placeholder="Number of Furniture" readonly="readonly" >
+                    </div>
                     <div class="form-group">
                         <label for="">Total Item Beauty </label>
                         <input type="text" class="form-control" id="furniTotalbeauty" placeholder="Total Beauty" readonly="readonly" >
@@ -538,8 +542,14 @@
         $('#furni_clear').click(function(){
             cart.Clear();
             displayCart();
-            displayTotalBeauty();
-            displayCountItem();
+                    displaySynergy();
+                    displayTotalMPPrice();
+                    displayTotalBeauty();
+                    displayCountItem();
+                    displayFactions();
+                    displayCategory();
+                    displayRarity();
+                    displayStatus();
         });
 
         //onclick removeItem remove item from cart
@@ -587,6 +597,8 @@
             }
 
             //add totalBeauty to homelandTotalbeauty
+            
+            $('#homelandTotalFurni').val(myHomelandValue.totalQuantity);
             $('#homelandTotalbeauty').val(myHomelandValue.totalBeauty);
 
             //create data for datatable including the totalQuantity, totalBeauty, bonusBeauty, synergizeBeauty

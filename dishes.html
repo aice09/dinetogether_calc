@@ -132,8 +132,8 @@
             </ul>
             <form class="navbar-form navbar-right" role="search">
                 
-            <a href="https://www.buymeacoffee.com/aice0927" class="donate-btn " target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;" ></a>
-            <a class="btn btn-primary donate-btn" href="tip.html" ><i class="fas fa-donate"></i> TIP me! </a>
+            <!-- <a href="https://www.buymeacoffee.com/aice0927" class="donate-btn " target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;" ></a>
+             --><a class="btn btn-primary donate-btn" href="tip.html" ><i class="fas fa-donate"></i> TIP me! </a>
             <a class="btn btn-success" href="https://dinetogether.io/" >Official Website <i class="fas fa-arrow-circle-right"></i> </a>
             </form>
            <!--  <ul class="nav navbar-nav navbar-right">
@@ -176,6 +176,7 @@
                             <th>TotalCookMin</th>
                             <th>TotalCookMax</th>
                             <th>ExpPerCook</th>
+                            <th>Ingredients</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -187,6 +188,7 @@
                             <th>TotalCookMin</th>
                             <th>TotalCookMax</th>
                             <th>ExpPerCook</th>
+                            <th>Ingredients</th>
                         </tr>
                     </tfoot>
                 </table>
@@ -217,9 +219,10 @@
             dataType: 'json',
         }).done(function (response) {
             // response is a JSON object, previously parsed by jQuery using $.parseJSON
-            console.log(response);
+            //console.log(response);
             //add each array to datatable
-            var data = response.results;    
+            var data = response.results;   
+
             var table = $('#example').DataTable({
                 data: data,
                 columns: [
@@ -230,6 +233,35 @@
                     { data: 'TotalCookMin' },
                     { data: 'TotalCookMax' },
                     { data: 'ExpPerCook' },
+                   /*  //display the ingredients in a table
+                    {
+                        data: 'Ingredients',
+                        render: function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                var html = '<table class="table table-striped table-bordered">';
+                                $.each(data, function(index, value){
+                                    html += '<tr><td>' + value.Ingredient + '</td><td>' + value.Ingredient + '</td></tr>';
+                                });
+                                html += '</table>';
+                                return html;
+                            }
+                            return data;
+                        }
+                    }/*  */
+                    { data: function ( data, type, row, meta ) {  
+                        //split the ingredients with comma
+                        var ingredients = data.Ingredient;
+                        var ingredients_array = ingredients.split(",");
+                        var menu = '<table class="table table-bordered"><thead><tr><th>Dish</th><th>Qty</th></tr></thead><tbody>';                           
+                            $.each(ingredients_array, function(index, value){
+                                //split the ingredient with colon
+                                var ingredient = value.split(":");
+                                menu += '<tr><td>' + ingredient[0] + '</td><td>' + ingredient[1] + '</td></tr>';
+                            });
+                        menu += '</tbody></table>';
+                            
+                        return menu;
+                    }}, 
                 ],
                 order: [[ 0, "asc" ]],
                 paging: false,                    

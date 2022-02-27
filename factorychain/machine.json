@@ -1,0 +1,357 @@
+{
+    "data": [
+        {
+            "machine": "VEGETABLE",
+            "time": "1",
+            "production": "1",
+            "marketcost": [{
+                "restocktime": "4",
+                "restockqty": "2",
+                "cost": "2"
+            }],
+            "dishes":[
+                {
+                    "code": "SALAD",
+                    "quantity": "2"
+                },
+                {
+                    "code": "FISH_N_CHIP",
+                    "quantity": "2"
+                },
+                {
+                    "code": "TACOS",
+                    "quantity": "4"
+                },
+                {
+                    "code": "PIZZA",
+                    "quantity": "3"
+                },
+                {
+                    "code": "PAELLA",
+                    "quantity": "6"
+                },
+                {
+                    "code": "BIBIMBAP",
+                    "quantity": "8"
+                },
+                {
+                    "code": "SUSHI",
+                    "quantity": "9"
+                },
+                {
+                    "code": "MOZZARELLA",
+                    "quantity": "8"
+                },
+                {
+                    "code": "BEEFSTEAK",
+                    "quantity": "5"
+                },
+                {
+                    "code": "HOT_POT",
+                    "quantity": "9"
+                }
+            ]
+        },
+        {
+            "machine": "GRAIN",
+            "time": "2",
+            "production": "1",
+            "marketcost": [{
+                "restocktime": "5",
+                "restockqty": "2",
+                "cost": "2.5"
+            }],
+            "dishes":[
+                {
+                    "code": "TOFU",
+                    "quantity": "4"
+                },
+                {
+                    "code": "CHOCOLATE",
+                    "quantity": "10"
+                },
+                {
+                    "code": "CURRY",
+                    "quantity": "5"
+                }
+
+            ]
+        },
+        {
+            "machine": "SEAFOOD",
+            "time": "4",
+            "production": "1",
+            "marketcost": [{
+                "restocktime": "10",
+                "restockqty": "2",
+                "cost": "5"
+            }],
+            "dishes":[
+                {
+                    "code": "FISH_N_CHIP",
+                    "quantity": "2"
+                },
+                {
+                    "code": "TOM_YUM",
+                    "quantity": "4"
+                },
+                {
+                    "code": "PAELLA",
+                    "quantity": "7"
+                },
+                {
+                    "code": "SUSHI",
+                    "quantity": "14"
+                },
+                {
+                    "code": "HOT_POT",
+                    "quantity": "8"
+                },
+                {
+                    "code": "CHILLI_CRAB",
+                    "quantity": "7"
+                }
+            ]
+        },
+        {
+            "machine": "WHEAT",
+            "time": "5",
+            "production": "2",
+            "marketcost": [{
+                "restocktime": "5",
+                "restockqty": "2",
+                "cost": "2.5"
+            }],
+            "dishes":[
+                {
+                    "code": "BURGER",
+                    "quantity": "3"
+                },
+                {
+                    "code": "PIZZA",
+                    "quantity": "5"
+                },
+                {
+                    "code": "BIBIMBAP",
+                    "quantity": "8"
+                },
+                {
+                    "code": "SUSHI",
+                    "quantity": "10"
+                }
+            ]
+        },
+        {
+            "machine": "SPICE",
+            "time": "7",
+            "production": "2",
+            "marketcost": [{
+                "restocktime": "9",
+                "restockqty": "2",
+                "cost": "4.5"
+            }],
+            "dishes":[
+                {
+                    "code": "TOM_YUM",
+                    "quantity": "4"
+                },
+                {
+                    "code": "PAELLA",
+                    "quantity": "5"
+                },
+                {
+                    "code": "RAMEN",
+                    "quantity": "4"
+                },
+                {
+                    "code": "CURRY",
+                    "quantity": "6"
+                },
+                {
+                    "code": "BEEFSTEAK",
+                    "quantity": "7"
+                },
+                {
+                    "code": "CHILLI_CRAB",
+                    "quantity": "7"
+                }
+            ]
+        },
+        {
+            "machine": "FRUIT",
+            "time": "9",
+            "production": "2",
+            "marketcost": [{
+                "restocktime": "10",
+                "restockqty": "2",
+                "cost": "5"
+            }],
+            "dishes":[
+                {
+                    "code": "ICE_CREAM",
+                    "quantity": "2"
+                },
+                {
+                    "code": "COCKTAIL",
+                    "quantity": "8"
+                },
+                {
+                    "code": "MOZZARELLA",
+                    "quantity": "12"
+                }
+            ]
+        },
+        {
+            "machine": "DAIRY",
+            "time": "10",
+            "production": "2",
+            "marketcost": [{
+                "restocktime": "8",
+                "restockqty": "2",
+                "cost": "4"
+            }],
+            "dishes":[
+                {
+                    "code": "ICE_CREAM",
+                    "quantity": "2"
+                },
+                {
+                    "code": "TOFU",
+                    "quantity": "2"
+                },
+                {
+                    "code": "TACOS",
+                    "quantity": "2"
+                },
+                {
+                    "code": "BURGER",
+                    "quantity": "3"
+                },
+                {
+                    "code": "PIZZA",
+                    "quantity": "5"
+                },
+                {
+                    "code": "CHOCOLATE",
+                    "quantity": "12"
+                },
+                {
+                    "code": "MOZZARELLA",
+                    "quantity": "16"
+                }
+            ]
+        },
+        {
+            "machine": "NOODLE",
+            "time": "14",
+            "production": "2",
+            "marketcost": [{
+                "restocktime": "12",
+                "restockqty": "2",
+                "cost": "6"
+            }],
+            "dishes":[
+                {
+                    "code": "PHO",
+                    "quantity": "2"
+                },
+                {
+                    "code": "RAMEN",
+                    "quantity": "6"
+                },
+                {
+                    "code": "HOT_POT",
+                    "quantity": "12"
+                }
+            ]
+        },
+        {
+            "machine": "EGG",
+            "time": "15",
+            "production": "3",
+            "marketcost": [{
+                "restocktime": "14",
+                "restockqty": "2",
+                "cost": "7"
+            }],
+            "dishes":[
+                {
+                    "code": "BIBIMBAP",
+                    "quantity": "8"
+                },
+                {
+                    "code": "RAMEN",
+                    "quantity": "4"
+                },
+                {
+                    "code": "CHILLI_CRAB",
+                    "quantity": "6"
+                }
+            ]
+        },
+        {
+            "machine": "MEAT",
+            "time": "15",
+            "production": "2",
+            "marketcost": [{
+                "restocktime": "18",
+                "restockqty": "2",
+                "cost": "9"
+            }],
+            "dishes":[
+                {
+                    "code": "PHO",
+                    "quantity": "2"
+                },
+                {
+                    "code": "TACOS",
+                    "quantity": "2"
+                },
+                {
+                    "code": "BURGER",
+                    "quantity": "3"
+                },
+                {
+                    "code": "CURRY",
+                    "quantity": "6"
+                },
+                {
+                    "code": "BEEFSTEAK",
+                    "quantity": "8"
+                },
+                {
+                    "code": "HOT_POT",
+                    "quantity": "8"
+                }
+            ]
+        },
+        {
+            "machine": "SAUCE",
+            "time": "16",
+            "production": "2",
+            "marketcost": [{
+                "restocktime": "14",
+                "restockqty": "2",
+                "cost": "7"
+            }],
+            "dishes":[
+                {
+                    "code": "TOM_YUM",
+                    "quantity": "4"
+                },
+                {
+                    "code": "COCKTAIL",
+                    "quantity": "9"
+                },
+                {
+                    "code": "BEEFSTEAK",
+                    "quantity": "4"
+                },
+                {
+                    "code": "CHILLI_CRAB",
+                    "quantity": "9"
+                }
+            ]
+        }
+    ]
+}

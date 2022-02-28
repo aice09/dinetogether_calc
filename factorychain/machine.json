@@ -39,6 +39,10 @@
                     "quantity": "9"
                 },
                 {
+                    "code": "CURRY",
+                    "quantity": "4"
+                },
+                {
                     "code": "MOZZARELLA",
                     "quantity": "8"
                 },
@@ -156,10 +160,6 @@
                     "quantity": "4"
                 },
                 {
-                    "code": "PAELLA",
-                    "quantity": "5"
-                },
-                {
                     "code": "RAMEN",
                     "quantity": "4"
                 },
@@ -189,7 +189,7 @@
             "dishes":[
                 {
                     "code": "ICE_CREAM",
-                    "quantity": "2"
+                    "quantity": "1"
                 },
                 {
                     "code": "COCKTAIL",
@@ -213,7 +213,7 @@
             "dishes":[
                 {
                     "code": "ICE_CREAM",
-                    "quantity": "2"
+                    "quantity": "1"
                 },
                 {
                     "code": "TOFU",

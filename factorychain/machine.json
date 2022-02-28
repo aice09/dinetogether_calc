@@ -5,9 +5,9 @@
             "time": "1",
             "production": "1",
             "marketcost": [{
-                "restocktime": "4",
+                "restocktime": "2",
                 "restockqty": "2",
-                "cost": "2"
+                "cost": "4"
             }],
             "dishes":[
                 {
@@ -59,7 +59,7 @@
             "marketcost": [{
                 "restocktime": "5",
                 "restockqty": "2",
-                "cost": "2.5"
+                "cost": "5"
             }],
             "dishes":[
                 {
@@ -82,9 +82,9 @@
             "time": "4",
             "production": "1",
             "marketcost": [{
-                "restocktime": "10",
+                "restocktime": "6",
                 "restockqty": "2",
-                "cost": "5"
+                "cost": "10"
             }],
             "dishes":[
                 {
@@ -120,7 +120,7 @@
             "marketcost": [{
                 "restocktime": "5",
                 "restockqty": "2",
-                "cost": "2.5"
+                "cost": "5"
             }],
             "dishes":[
                 {
@@ -146,9 +146,9 @@
             "time": "7",
             "production": "2",
             "marketcost": [{
-                "restocktime": "9",
+                "restocktime": "10",
                 "restockqty": "2",
-                "cost": "4.5"
+                "cost": "9"
             }],
             "dishes":[
                 {
@@ -184,7 +184,7 @@
             "marketcost": [{
                 "restocktime": "10",
                 "restockqty": "2",
-                "cost": "5"
+                "cost": "10"
             }],
             "dishes":[
                 {
@@ -206,9 +206,9 @@
             "time": "10",
             "production": "2",
             "marketcost": [{
-                "restocktime": "8",
+                "restocktime": "10",
                 "restockqty": "2",
-                "cost": "4"
+                "cost": "8"
             }],
             "dishes":[
                 {
@@ -246,9 +246,9 @@
             "time": "14",
             "production": "2",
             "marketcost": [{
-                "restocktime": "12",
+                "restocktime": "8",
                 "restockqty": "2",
-                "cost": "6"
+                "cost": "12"
             }],
             "dishes":[
                 {
@@ -270,9 +270,9 @@
             "time": "15",
             "production": "3",
             "marketcost": [{
-                "restocktime": "14",
+                "restocktime": "5",
                 "restockqty": "2",
-                "cost": "7"
+                "cost": "14"
             }],
             "dishes":[
                 {
@@ -294,9 +294,9 @@
             "time": "15",
             "production": "2",
             "marketcost": [{
-                "restocktime": "18",
+                "restocktime": "10",
                 "restockqty": "2",
-                "cost": "9"
+                "cost": "18"
             }],
             "dishes":[
                 {
@@ -330,9 +330,9 @@
             "time": "16",
             "production": "2",
             "marketcost": [{
-                "restocktime": "14",
+                "restocktime": "7",
                 "restockqty": "2",
-                "cost": "7"
+                "cost": "14"
             }],
             "dishes":[
                 {
